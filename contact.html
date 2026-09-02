@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Green Neon Contact Form</title>
+    <!-- Tailwind CSS যুক্ত করা হলো -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- সাধারণ এবং সুন্দর ফন্ট (Inter) যুক্ত করা হলো -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; 
+            background-color: #0a0a0a;
+            /* হালকা গ্রিন ব্যাকগ্রাউন্ড রেডিয়াল গ্র্যাডিয়েন্ট */
+            background-image: 
+                radial-gradient(at 50% 0%, rgba(20, 83, 45, 0.15) 0, transparent 50%), 
+                radial-gradient(at 100% 100%, rgba(34, 197, 94, 0.1) 0, transparent 50%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* নিয়ন গ্লো কন্টেইনার */
+        .neon-container {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(74, 222, 128, 0.15);
+            box-shadow: 
+                0 0 15px rgba(74, 222, 128, 0.1),
+                inset 0 0 20px rgba(74, 222, 128, 0.05);
+            position: relative;
+        }
+
+        /* কন্টেইনারের চারপাশে এনিমেটেড লাইট গ্রিন বর্ডার ইফেক্ট */
+        .neon-container::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #22c55e, #86efac, #15803d, #4ade80);
+            z-index: -1;
+            filter: blur(12px);
+            opacity: 0.35;
+            border-radius: inherit;
+            animation: glowing 15s linear infinite;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        /* কাস্টম ইনপুট স্টাইল (লাইট গ্রিন ফোকাস) */
+        .neon-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.875rem 1rem;
+            color: #86efac;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .neon-input::placeholder {
+            color: rgba(134, 239, 172, 0.3);
+        }
+
+        .neon-input:focus {
+            outline: none;
+            border-color: #4ade80;
+            box-shadow: 
+                0 0 12px rgba(74, 222, 128, 0.4),
+                inset 0 0 6px rgba(74, 222, 128, 0.2);
+            background: rgba(6, 78, 59, 0.2);
+        }
+
+        /* নিয়ন সাবমিট বাটন */
+        .neon-btn {
+            background: rgba(21, 128, 61, 0.1);
+            border: 1px solid #4ade80;
+            color: #4ade80;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 4px rgba(74, 222, 128, 0.5);
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.2), inset 0 0 8px rgba(74, 222, 128, 0.1);
+        }
+
+        .neon-btn:hover {
+            background: #4ade80;
+            color: #022c22; /* হোভার করলে গাঢ় সবুজ টেক্সট */
+            box-shadow: 
+                0 0 20px rgba(74, 222, 128, 0.6),
+                0 0 35px rgba(74, 222, 128, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.4);
+            text-shadow: none;
+        }
+
+        .neon-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* লেবেল স্টাইল */
+        .neon-label {
+            color: #cbd5e1;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+    <!-- গ্লোয়িং ফর্ম কন্টেইনার -->
+    <div class="neon-container w-full max-w-lg p-8 sm:p-10 rounded-2xl z-10">
+        
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-200 drop-shadow-[0_0_8px_rgba(74,222,128,0.4)]">
+                Contact Us
+            </h2>
+            <p class="text-green-400/60 mt-2 text-sm">We would love to hear from you!</p>
+        </div>
+
+        <form action= "https://api.web3forms.com/submit"
+       method ="post"
+        id="glowForm" class="space-y-5">
+        <input type="hidden" name="access_key" value="3f1cc6be-ed95-4831-b984-0b19db2647e6">
+        
+            
+            <!-- নাম (Name) -->
+            <div class="group">
+                <label for="fullName" class="neon-label group-focus-within:text-green-400 transition-colors">Your Name</label>
+                <input type="text" id="fullName" name="fullName" class="neon-input" placeholder="e.g. John Doe" required>
+            </div>
+
+            <!-- ইমেইল (Email) -->
+            <div class="group">
+                <label for="email" class="neon-label group-focus-within:text-green-400 transition-colors">Email Address</label>
+                <input type="email" id="email" name="email" class="neon-input" placeholder="e.g. john@example.com" required>
+            </div>
+
+            <!-- বিষয় (Subject) -->
+            <div class="group">
+                <label for="subject" class="neon-label group-focus-within:text-green-400 transition-colors">Subject</label>
+                <input type="text" id="subject" name="subject" class="neon-input" placeholder="How can I help?" required>
+            </div>
+
+            <!-- মেসেজ (Message) -->
+            <div class="group">
+                <label for="message" class="neon-label group-focus-within:text-green-400 transition-colors">Message</label>
+                <textarea id="message" name="message" rows="4" class="neon-input resize-none" placeholder="Write your message here..." required></textarea>
+            </div>
+
+            <!-- সাবমিট বাটন -->
+            <div class="pt-3">
+                <button type="submit" class="neon-btn w-full py-3.5 rounded-lg flex justify-center items-center gap-2">
+                    <span>Send Message</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </button>
+            </div>
+        </form>
+
+        <!-- সাকসেস মেসেজ -->
+        <div id="successState" class="hidden text-center py-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full border-2 border-green-400 shadow-[0_0_15px_rgba(74,222,128,0.3)] mb-4 bg-green-400/10">
+                <svg class="w-8 h-8 text-green-400 drop-shadow-[0_0_5px_rgba(74,222,128,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-bold text-green-300 drop-shadow-[0_0_8px_rgba(74,222,128,0.3)] mb-2">Message Sent!</h3>
+            <p class="text-green-400/70 text-sm">Thank you for contacting us. We will get back to you soon.</p>
+            
+            <button onclick="resetForm()" class="mt-6 text-green-500 hover:text-green-300 hover:drop-shadow-[0_0_5px_rgba(74,222,128,0.5)] text-sm underline transition-all">
+                Send another message
+            </button>
+        </div>
+
+    </div>
+
+            <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('glowForm');
+            
+            if(form) {
+                // এই অংশটি নিজে থেকেই ফর্মের সাবমিট বাটনকে চিনে নেবে
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // পেজ রিলোড বন্ধ করা
+                    
+                    const successState = document.getElementById('successState');
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const originalBtnContent = submitBtn.innerHTML;
+
+                    // লোডিং স্পিনার অ্যানিমেশন চালু করা
+                    submitBtn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-2 h-5 w-5 text-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                    `;
+                    submitBtn.style.pointerEvents = 'none';
+                    submitBtn.style.opacity = '0.8';
+
+                    // Formspree-তে ডাটা পাঠানো
+                    fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    }).then(response => {
+                        if (response.ok) {
+                            form.style.display = 'none';
+                            successState.classList.remove('hidden');
+                            form.reset();
+                        } else {
+                            alert("Oops! Something went wrong.");
+                        }
+                    }).catch(error => {
+                        alert("Network error! Please check your connection.");
+                    }).finally(() => {
+                        // বাটনকে আগের ডিজাইনে ফিরিয়ে আনা
+                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.style.pointerEvents = 'auto';
+                        submitBtn.style.opacity = '1';
+                    });
+                });
+            }
+        });
+
+        // ফর্ম পুনরায় দেখানোর ফাংশন
+        function resetForm() {
+            document.getElementById('successState').classList.add('hidden');
+            document.getElementById('glowForm').style.display = 'block';
+        }
+    </script>
+                
+</body>
+</html>
+
