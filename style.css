@@ -222,11 +222,13 @@ body {
 }
 
 
+/* প্রজেক্ট কার্ডগুলোকে গ্রিড আকারে সাজানোর জন্য */
 .projects-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  justify-content: space-between;
 }
+
 
 
 .project-card {
