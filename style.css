@@ -293,3 +293,15 @@ footer p { color: var(--text-dim2); font-size: 14px; margin-bottom: 20px; }
 #backToTop { position: fixed; bottom: 26px; right: 26px; width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--grad-btn); background-size: 220%; animation: gradientMove 5s ease infinite; color: var(--bg); font-size: 16px; cursor: pointer; z-index: 400; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.7); transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 15px rgba(0, 230, 255, 0.4); }
 #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 #backToTop:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 0 25px rgba(0, 255, 136, 0.8); }
+
+/* ============ About Me ============ */
+#about { padding: 90px 50px 60px; text-align: center; position: relative; }
+.about-divider { width: 90px; height: 4px; margin: 18px auto 40px; border-radius: 4px; background: var(--grad-main); background-size: 300%; animation: gradientMove 4s linear infinite; }
+.about-text { max-width: 700px; margin: 0 auto; text-align: left; }
+.about-text p { color: var(--text-dim2); font-size: 16px; line-height: 1.8; margin-bottom: 22px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-link { text-decoration: none; font-weight: 700; }
+.hl-cyan { color: var(--c-cyan); }
+.hl-green { color: var(--c-green); }
+.hl-pink { color: var(--c-pink); }
+@media (max-width: 768px) { #about { padding: 60px 20px 40px; text-align: left; } .about-divider { margin-left: 0; } }
