@@ -1,27 +1,37 @@
 /* ============================================================
    My Portfolio — animation & interaction script
    Sections: Preloader, Scroll progress, Nav menu, Cursor glow,
-   Particle background, Scroll reveals, Skill rings, Card tilt,
-   Back-to-top
+   Blob parallax, Particle background, Scroll reveals, Skill rings,
+   Scramble text, Card tilt, Back-to-top
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- Preloader ---------- */
+  /* ---------- Preloader (with live % counter) ---------- */
   const preloader = document.getElementById('preloader');
-  window.addEventListener('load', () => {
-    setTimeout(() => preloader && preloader.classList.add('done'), 500);
-  });
+  const loaderPct = document.getElementById('loaderPct');
+  let pct = 0;
+  const pctTimer = setInterval(() => {
+    pct = Math.min(pct + Math.random() * 14, 97);
+    if (loaderPct) loaderPct.textContent = Math.floor(pct) + '%';
+  }, 120);
+
+  function finishLoading() {
+    clearInterval(pctTimer);
+    if (loaderPct) loaderPct.textContent = '100%';
+    setTimeout(() => preloader && preloader.classList.add('done'), 400);
+  }
+  window.addEventListener('load', finishLoading);
   // Fallback in case 'load' already fired or takes too long
-  setTimeout(() => preloader && preloader.classList.add('done'), 2500);
+  setTimeout(finishLoading, 2500);
 
   /* ---------- Scroll progress bar ---------- */
   const progressBar = document.getElementById('scroll-progress');
   function updateProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-    if (progressBar) progressBar.style.width = pct + '%';
+    const pctVal = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    if (progressBar) progressBar.style.width = pctVal + '%';
   }
   window.addEventListener('scroll', updateProgress, { passive: true });
   updateProgress();
@@ -42,17 +52,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- Cursor glow (desktop only) ---------- */
+  /* ---------- Cursor glow + blob parallax (desktop only) ---------- */
   const cursorGlow = document.getElementById('cursorGlow');
   const isTouch = window.matchMedia('(hover: none)').matches;
-  if (cursorGlow && !isTouch) {
+  const blobA = document.getElementById('blobA');
+  const blobB = document.getElementById('blobB');
+  const blobC = document.getElementById('blobC');
+
+  if (!isTouch) {
     window.addEventListener('mousemove', (e) => {
-      cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+      if (cursorGlow) {
+        cursorGlow.classList.add('active');
+        cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+      }
+      // ব্যাকগ্রাউন্ড ব্লবগুলো মাউসের সাথে হালকা প্যারালাক্স মুভমেন্ট করবে
+      const xPct = (e.clientX / window.innerWidth - 0.5);
+      const yPct = (e.clientY / window.innerHeight - 0.5);
+      if (blobA) blobA.style.transform = `translate(${xPct * -30}px, ${yPct * -30}px)`;
+      if (blobB) blobB.style.transform = `translate(${xPct * 25}px, ${yPct * 25}px)`;
+      if (blobC) blobC.style.transform = `translate(${xPct * -20}px, ${yPct * 20}px)`;
     });
   }
 
   /* ---------- Scroll reveal animations ---------- */
-  const revealEls = document.querySelectorAll('.reveal-up');
+  const revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {

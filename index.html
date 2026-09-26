@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Frontend Developer Portfolio — HTML, CSS, JavaScript & Node.js projects.">
   <title>My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -12,12 +14,8 @@
 
   <!-- Preloader -->
   <div id="preloader">
-    <div class="preloader-inner">
-      <span class="preloader-bracket">&lt;</span>
-      <span class="preloader-text">Dev</span>
-      <span class="preloader-bracket">/&gt;</span>
-    </div>
-    <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+    <div class="loader-ring"></div>
+    <div class="loader-text"><span class="gradient-text">Loading</span><span class="loader-pct" id="loaderPct">0%</span></div>
   </div>
 
   <!-- Scroll progress -->
@@ -26,13 +24,19 @@
   <!-- Cursor glow (desktop only, ignored on touch) -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
+  <!-- Floating background blobs -->
+  <div class="blob blob-a" id="blobA"></div>
+  <div class="blob blob-b" id="blobB"></div>
+  <div class="blob blob-c" id="blobC"></div>
+
   <div id="nav">
     <nav>
-      <div class="logo" data-text="My Portfolio">My Portfolio</div>
+      <div class="logo gradient-text">My Portfolio</div>
 
       <ul id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#collaborations">Collaborations</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -47,22 +51,30 @@
   <section id="home">
     <section id="hero">
       <canvas id="particles"></canvas>
-      <div class="hero-content">
-        <p class="hero-eyebrow reveal-up"><span class="dot-blink"></span> Available for new projects</p>
-        <h1 class="reveal-up" style="--delay:0.1s">
+      <div class="hero-content reveal-left">
+        <p class="hero-eyebrow"><span class="dot-blink"></span> Available for new projects</p>
+        <h1>
           <span class="typed-line">Frontend</span><br>
-          <span class="highlight typed-line-2">Developer</span>
+          <span class="gradient-text" id="scrambleWord" style="font-size: 1.1em; display:inline-block; padding-bottom: 5px;">Developer</span>
         </h1>
-        <p class="reveal-up" style="--delay:0.2s">Building with HTML/CSS/JS today. Exploring new languages tomorrow!</p>
-        <div class="hero-btns reveal-up" style="--delay:0.3s">
+        <p>Building with HTML/CSS/JS today. Exploring new languages tomorrow!</p>
+        <div class="hero-btns">
           <a href="contact.html" class="btn btn-glow">Let's Connect</a>
-          <a href="#projects" class="btn btn-outline">See Projects <i class="fa-solid fa-arrow-down"></i></a>
+          <a href="#collaborations" class="btn btn-outline">See Work <i class="fa-solid fa-arrow-down"></i></a>
         </div>
       </div>
 
-      <div class="hero-image reveal-up" style="--delay:0.15s">
+      <div class="hero-image reveal-right">
         <div class="orbit-ring ring-1"></div>
         <div class="orbit-ring ring-2"></div>
+        <div class="tech-orbit">
+          <div class="tech-orbit-track">
+            <div class="tech-badge" style="--angle:0deg"><span><i class="fa-brands fa-html5"></i></span></div>
+            <div class="tech-badge" style="--angle:90deg"><span><i class="fa-brands fa-css3-alt"></i></span></div>
+            <div class="tech-badge" style="--angle:180deg"><span><i class="fa-brands fa-js"></i></span></div>
+            <div class="tech-badge" style="--angle:270deg"><span><i class="fa-brands fa-node-js"></i></span></div>
+          </div>
+        </div>
         <img src="https://imgs.search.brave.com/Qf-vpF2lGwZwW754cgbCYX_8DVlMlM-dPCyZSQ5uE-s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDkxNjg1/ODIuanBn" alt="My Profile Picture">
       </div>
 
@@ -70,10 +82,20 @@
     </section>
   </section>
 
+  <!-- Tech marquee ticker -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span>
+      <span>Open to Collaborate</span><span>Frontend Development</span><span>Git &amp; GitHub</span><span>Always Learning</span>
+      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span>
+      <span>Open to Collaborate</span><span>Frontend Development</span><span>Git &amp; GitHub</span><span>Always Learning</span>
+    </div>
+  </div>
+
   <!-- Technical Expertise Section -->
   <section id="skills">
     <h2 class="section-title reveal-up">Technical Expertise</h2>
-    <p class="section-sub reveal-up" style="--delay:0.05s">Tools and technologies I build with</p>
+    <p class="section-sub reveal-up" style="--delay:0.05s">Tools and technologies I build with &amp; currently learning</p>
 
     <div class="skills-container">
       <div class="skill-card reveal-up" style="--delay:0.1s">
@@ -84,17 +106,62 @@
       </div>
 
       <div class="skill-card reveal-up" style="--delay:0.2s">
-        <div class="ring" style="--pct:70"><span>70%</span></div>
+        <div class="ring" style="--pct:40"><span>40%</span></div>
         <div class="icon"><i class="fa-solid fa-server"></i></div>
         <h3>Backend Development</h3>
-        <p>Node.js, Python, MongoDB, PostgreSQL</p>
+        <p>Currently learning Node.js, Python, MongoDB.</p>
       </div>
 
       <div class="skill-card reveal-up" style="--delay:0.3s">
-        <div class="ring" style="--pct:75"><span>75%</span></div>
+        <div class="ring" style="--pct:45"><span>45%</span></div>
         <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
         <h3>UI/UX Design</h3>
-        <p>Figma, Adobe XD, Prototyping, User Testing</p>
+        <p>Learning Figma, Wireframing, and Prototyping.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collaboration Projects Section — এইটা Projects এর আগে রাখা হয়েছে কারণ এগুলো বেশি আকর্ষণীয় -->
+  <section id="collaborations">
+    <h2 class="section-title reveal-up">Collaboration Projects</h2>
+    <p class="section-sub reveal-up" style="--delay:0.05s">Amazing things built together as a team</p>
+
+    <div class="projects-container">
+      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
+        <span class="featured-ribbon">TEAM PROJECT</span>
+        <div class="project-image"><img src="image/beyonder.jpg" alt="Beyonder AI"></div>
+        <div class="project-info">
+          <h3>Beyonder Ai</h3>
+          <p>An Artificial Intelligence created for students. Built in collaboration to integrate diverse ideas.</p>
+
+          <!-- Creators box: কে frontend করেছে, কে backend করেছে সেটা এখানে স্পষ্ট লেখা আছে -->
+          <div class="creators-box">
+            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
+
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
+                <span class="role-tag frontend">Frontend &amp; Node.js</span>
+              </div>
+              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
+                <span class="role-tag backend">Backend &amp; Database</span>
+              </div>
+              <!-- এখানে অর্ণবের গিটহাব লিংক দিতে পারবেন (# এর জায়গায়) -->
+              <a href="#" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>APIs</span></div>
+          <div class="project-links">
+            <a href="https://duttaanubhab777-code.github.io/Beyonder-Ai-2.0/"><i class="fa-solid fa-link"></i> Live Demo</a>
+            <a href="https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -102,23 +169,9 @@
   <!-- Projects Section -->
   <section id="projects">
     <h2 class="section-title reveal-up">My Projects</h2>
-    <p class="section-sub reveal-up" style="--delay:0.05s">A few things I've shipped and broken and fixed again</p>
+    <p class="section-sub reveal-up" style="--delay:0.05s">A few things I've shipped and built</p>
 
     <div class="projects-container">
-
-      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
-        <div class="project-image"><img src="image/beyonder.jpg" alt="Beyonder AI"></div>
-        <div class="project-info">
-          <h3>Beyonder Ai</h3>
-          <p>It is an Artificial Intelligence, create for students not for commercial use.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Beyonder-Ai-2.0/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
       <div class="project-card reveal-up tilt-card" style="--delay:0.1s">
         <div class="project-image"><img src="image/weather.jpg" alt="Weather App"></div>
         <div class="project-info">
@@ -175,7 +228,7 @@
         <div class="project-image"><img src="image/Result.jpg" alt="Result Analysis"></div>
         <div class="project-info">
           <h3>Result Analysis</h3>
-          <p>Initially, this project has been created for Class 11 and 12 science students, especially those from the WBCHSE board. Over time, I will upgrade this project and try to make it accessible to everyone.</p>
+          <p>Created for WBCHSE Class 11 and 12 science students to help analyze their results efficiently.</p>
           <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
           <div class="project-links">
             <a href="https://duttaanubhab777-code.github.io/Result-Analysis/"><i class="fa-solid fa-link"></i> Live Demo</a>
@@ -183,7 +236,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
