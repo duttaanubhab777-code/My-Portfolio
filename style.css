@@ -85,7 +85,9 @@ a { color: inherit; }
 .logo { font-size: 24px; font-weight: 800; cursor: default; }
 
 #nav ul { display: flex; list-style: none; gap: 30px; }
-#nav a { text-decoration: none; color: #e0e0e0; font-size: 16px; font-weight: 500; position: relative; transition: all 0.3s ease; }
+/* nav লিঙ্কে icon+text রাখার জন্য inline-flex — gap আইকন আর টেক্সটের মাঝের ফাঁক */
+#nav a { text-decoration: none; color: #e0e0e0; font-size: 16px; font-weight: 500; position: relative; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+#nav a i { font-size: 14px; background: linear-gradient(45deg, var(--c-green), var(--c-cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 #nav a::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: linear-gradient(90deg, var(--c-cyan), var(--c-green)); box-shadow: 0 0 8px var(--c-green); transition: width 0.3s ease; }
 #nav a:hover { color: var(--c-green); text-shadow: 0 0 8px var(--c-green); }
 #nav a:hover::after { width: 100%; }
@@ -152,16 +154,29 @@ a { color: inherit; }
 @media (max-width: 768px) {
   #nav nav { padding: 15px 20px; }
   #menuToggle { display: flex; }
-  #navLinks { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: center; background: rgba(11, 15, 25, 0.97); backdrop-filter: blur(10px); gap: 0; max-height: 0; overflow-y: hidden; transition: max-height 0.4s ease; }
-  #navLinks.open { max-height: 350px; overflow-y: auto; }
-  #navLinks li { width: 100%; text-align: center; opacity: 0; transform: translateY(-8px); transition: opacity 0.35s ease, transform 0.35s ease; }
+  /* ব্যাকগ্রাউন্ডে হালকা রঙিন glow (radial-gradient) + dark base */
+  #navLinks { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: center;
+    background: radial-gradient(circle at 25% 15%, rgba(0,255,136,0.10), transparent 55%), radial-gradient(circle at 80% 75%, rgba(255,43,110,0.10), transparent 55%), rgba(11, 15, 25, 0.97);
+    backdrop-filter: blur(10px); gap: 0; max-height: 0; overflow-y: hidden; transition: max-height 0.4s ease; }
+  #navLinks.open { max-height: 420px; overflow-y: auto; }
+  #navLinks li { width: 100%; text-align: center; opacity: 0; transform: translateY(-8px); transition: opacity 0.35s ease, transform 0.35s ease; border-bottom: 1px solid rgba(255,255,255,0.05); position: relative; }
+  /* প্রতিটা মেনু আইটেমের বাঁ পাশে আলাদা রঙের accent bar — ট্যাপ/হোভার করলে জ্বলে উঠবে */
+  #navLinks li::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--c-green), var(--c-cyan)); opacity: 0; transition: opacity 0.3s ease; }
+  #navLinks li:nth-child(2)::before { background: linear-gradient(180deg, var(--c-cyan), var(--c-pink)); }
+  #navLinks li:nth-child(3)::before { background: linear-gradient(180deg, var(--c-pink), var(--c-purple)); }
+  #navLinks li:nth-child(4)::before { background: linear-gradient(180deg, var(--c-purple), var(--c-green)); }
+  #navLinks li:nth-child(5)::before { background: linear-gradient(180deg, var(--c-green), var(--c-pink)); }
+  #navLinks li:nth-child(6)::before { background: linear-gradient(180deg, var(--c-cyan), var(--c-purple)); }
+  #navLinks li:active::before, #navLinks li:hover::before { opacity: 1; }
   #navLinks.open li { opacity: 1; transform: translateY(0); }
   #navLinks.open li:nth-child(1) { transition-delay: 0.05s; }
   #navLinks.open li:nth-child(2) { transition-delay: 0.1s; }
   #navLinks.open li:nth-child(3) { transition-delay: 0.15s; }
   #navLinks.open li:nth-child(4) { transition-delay: 0.2s; }
   #navLinks.open li:nth-child(5) { transition-delay: 0.25s; }
-  #navLinks a { display: block; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  #navLinks.open li:nth-child(6) { transition-delay: 0.3s; }
+  #navLinks a { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 0; }
+  #navLinks a:active, #navLinks a:hover { background: rgba(255,255,255,0.03); }
 
   #hero { flex-direction: column-reverse; text-align: center; padding: 40px 20px 60px; gap: 36px; }
   .hero-content h1 { font-size: 40px; }
@@ -293,15 +308,3 @@ footer p { color: var(--text-dim2); font-size: 14px; margin-bottom: 20px; }
 #backToTop { position: fixed; bottom: 26px; right: 26px; width: 46px; height: 46px; border-radius: 50%; border: none; background: var(--grad-btn); background-size: 220%; animation: gradientMove 5s ease infinite; color: var(--bg); font-size: 16px; cursor: pointer; z-index: 400; opacity: 0; visibility: hidden; transform: translateY(10px) scale(0.7); transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 0 15px rgba(0, 230, 255, 0.4); }
 #backToTop.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
 #backToTop:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 0 25px rgba(0, 255, 136, 0.8); }
-
-/* ============ About Me ============ */
-#about { padding: 90px 50px 60px; text-align: center; position: relative; }
-.about-divider { width: 90px; height: 4px; margin: 18px auto 40px; border-radius: 4px; background: var(--grad-main); background-size: 300%; animation: gradientMove 4s linear infinite; }
-.about-text { max-width: 700px; margin: 0 auto; text-align: left; }
-.about-text p { color: var(--text-dim2); font-size: 16px; line-height: 1.8; margin-bottom: 22px; }
-.about-text p:last-child { margin-bottom: 0; }
-.about-link { text-decoration: none; font-weight: 700; }
-.hl-cyan { color: var(--c-cyan); }
-.hl-green { color: var(--c-green); }
-.hl-pink { color: var(--c-pink); }
-@media (max-width: 768px) { #about { padding: 60px 20px 40px; text-align: left; } .about-divider { margin-left: 0; } }

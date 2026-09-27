@@ -34,12 +34,12 @@
       <div class="logo gradient-text">My Portfolio</div>
 
       <ul id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#collaborations">Collaborations</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+        <li><a href="#collaborations"><i class="fa-solid fa-people-group"></i> Collaborations</a></li>
+        <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
+        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
 
       <button id="menuToggle" aria-label="Toggle menu">
@@ -137,11 +137,53 @@
   </section>
 
   <!-- Collaboration Projects Section — এইটা Projects এর আগে রাখা হয়েছে কারণ এগুলো বেশি আকর্ষণীয় -->
-  <section id="collaborations">
+
+<!-- ফিক্স করা হয়েছে: <selection> ভুল ট্যাগ ছিল, <section> হবে -->
+<section id="collaborations">
     <h2 class="section-title reveal-up">Collaboration Projects</h2>
     <p class="section-sub reveal-up" style="--delay:0.05s">Amazing things built together as a team</p>
 
+    <!-- ফিক্স করা হয়েছে: আগে দুটো card দুটো আলাদা .projects-container এ ছিল,
+         তাই grid এ পাশাপাশি না বসে একটার নিচে একটা বসছিল।
+         এখন থেকে নতুন যেকোনো collaboration card এই একটামাত্র .projects-container এর ভেতরেই বসাবে। -->
     <div class="projects-container">
+      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
+        <span class="featured-ribbon">TEAM PROJECT</span>
+        <div class="project-image"><img src="image/friendly-flux.jpg" alt="Friendly Flux"></div>
+        <div class="project-info">
+          <h3>Friendly Flux</h3>
+          <p>Physics|Chemistry|Mathematics solve step by step. It is create those who learnings science.</p>
+
+          <!-- Creators box: কে frontend করেছে, কে backend করেছে সেটা এখানে স্পষ্ট লেখা আছে -->
+          <div class="creators-box">
+            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
+
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
+                <span class="role-tag frontend">Frontend</span>
+              </div>
+              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
+                <span class="role-tag backend">Backend</span>
+              </div>
+              <!-- এখানে অর্ণবের গিটহাব লিংক দিতে পারবেন (# এর জায়গায়) -->
+              <a href="https://arnabadhikari777.github.io/My-Portfolio./" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span><span>SQL Lite</span><span>APIs</span></div>
+          <div class="project-links">
+            <a href="https://duttaanubhab777-code.github.io/Friendly-Flux/frontend/"><i class="fa-solid fa-link"></i> Live Demo</a>
+            <a href="https://github.com/duttaanubhab777-code/Friendly-Flux/tree/main"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
         <span class="featured-ribbon">TEAM PROJECT</span>
         <div class="project-image"><img src="image/beyonder.jpg" alt="Beyonder AI"></div>
@@ -178,8 +220,49 @@
           </div>
         </div>
       </div>
+
+      <!-- ============================================================
+           নতুন Collaboration Project যোগ করার TEMPLATE
+           নতুন প্রজেক্ট বানাতে এই পুরো ব্লকটা কপি করো, শুরু আর শেষের
+           কমেন্ট চিহ্ন দুটো মুছে uncomment করো, তারপর ৫টা জায়গা বদলে
+           এই ঘরের </div> এর ঠিক আগে বসিয়ে দাও (এই .projects-container এর
+           ভেতরেই বসবে, নতুন করে .projects-container বানানো লাগবে না):
+
+      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
+        <span class="featured-ribbon">TEAM PROJECT</span>
+        <div class="project-image"><img src="image/YOUR-IMAGE.jpg" alt="Project Name"></div>  1. ছবির path ও নাম বদলাও
+        <div class="project-info">
+          <h3>Project Name</h3>                                                                2. প্রজেক্টের নাম
+          <p>Short one-line description of the project.</p>                                    3. বর্ণনা
+
+          <div class="creators-box">
+            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
+                <span class="role-tag frontend">Frontend</span>                                4. এখানে role-tag frontend/backend ঠিক করো
+              </div>
+              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+            <div class="creator-row">
+              <div class="creator-who">
+                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
+                <span class="role-tag backend">Backend</span>
+              </div>
+              <a href="https://arnabadhikari777.github.io/My-Portfolio./" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+          <div class="tech-stack"><span>HTML</span><span>CSS</span></div>                      5. ব্যবহৃত tech গুলো বসাও
+          <div class="project-links">
+            <a href="YOUR-LIVE-DEMO-LINK"><i class="fa-solid fa-link"></i> Live Demo</a>
+            <a href="YOUR-GITHUB-CODE-LINK"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+      </div>
+      -->
     </div>
-  </section>
+</section>
 
   <!-- Projects Section -->
   <section id="projects">
