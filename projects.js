@@ -62,7 +62,8 @@ const PROJECTS = [
             "Python",
             "Flask",
             "SQL Lite",
-            "APIs"
+            "APIs",
+            "PWA"
         ],
         demo: "https://duttaanubhab777-code.github.io/Beyonder-Ai-2.0/",
         code: "https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main",
@@ -91,6 +92,7 @@ const PROJECTS = [
             "Flask",
             "SQL Lite",
             "APIs"
+            
         ],
         demo: "https://arnabadhikari125117y.pythonanywhere.com/",
         code: "https://github.com/arnabadhikari777/AA_News/tree/main",
@@ -139,7 +141,7 @@ const PROJECTS = [
   <li><b>Polished UX &amp; Animations:</b> Dark and light themes, sound effects, vibration feedback and CSS animations like confetti and win-lines.</li>
   <li><b>Solo Development &amp; Deployment:</b> Pure vanilla JavaScript with no frameworks or build tools, hosted on GitHub Pages.</li>
 </ul>`,
-        tech: ["HTML", "CSS", "JavaScript"],
+        tech: ["HTML", "CSS", "JavaScript","PWA"],
         demo: "https://duttaanubhab777-code.github.io/Tic-Tac-Toe/",
         code: "https://github.com/duttaanubhab777-code/Tic-Tac-Toe/tree/main"
     },
