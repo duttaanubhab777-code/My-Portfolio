@@ -1,366 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frontend Developer Portfolio — HTML, CSS, JavaScript & Node.js projects.">
-  <title>My Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- Preloader -->
-  <div id="preloader">
-    <div class="loader-ring"></div>
-    <div class="loader-text"><span class="gradient-text">Loading</span><span class="loader-pct" id="loaderPct">0%</span></div>
-  </div>
-
-  <!-- Scroll progress -->
-  <div id="scroll-progress"></div>
-
-  <!-- Cursor glow (desktop only, ignored on touch) -->
-  <div class="cursor-glow" id="cursorGlow"></div>
-
-  <!-- Floating background blobs -->
-  <div class="blob blob-a" id="blobA"></div>
-  <div class="blob blob-b" id="blobB"></div>
-  <div class="blob blob-c" id="blobC"></div>
-
-  <div id="nav">
-    <nav>
-      <div class="logo gradient-text">My Portfolio</div>
-
-      <ul id="navLinks">
-        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="#about"><i class="fa-solid fa-user"></i> About</a></li>
-        <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
-        <li><a href="#collaborations"><i class="fa-solid fa-people-group"></i> Collaborations</a></li>
-        <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i> Projects</a></li>
-        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a></li>
-      </ul>
-
-      <button id="menuToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </nav>
-  </div>
-
-  <!-- Hero Section -->
-  <section id="home">
-    <section id="hero">
-      <canvas id="particles"></canvas>
-      <div class="hero-content reveal-left">
-        <p class="hero-eyebrow"><span class="dot-blink"></span> Available for new projects</p>
-        <h1>
-          <span class="typed-line">Frontend</span><br>
-          <span class="gradient-text" id="scrambleWord" style="font-size: 1.1em; display:inline-block; padding-bottom: 5px;">Developer</span>
-        </h1>
-        <p>Building with HTML/CSS/JS today. Exploring new languages tomorrow!</p>
-        <div class="hero-btns">
-          <a href="contact.html" class="btn btn-glow">Let's Connect</a>
-          <a href="#collaborations" class="btn btn-outline">See Work <i class="fa-solid fa-arrow-down"></i></a>
-        </div>
-      </div>
-
-      <div class="hero-image reveal-right">
-        <div class="orbit-ring ring-1"></div>
-        <div class="orbit-ring ring-2"></div>
-        <div class="tech-orbit">
-          <div class="tech-orbit-track">
-            <div class="tech-badge" style="--angle:0deg"><span><i class="fa-brands fa-html5"></i></span></div>
-            <div class="tech-badge" style="--angle:90deg"><span><i class="fa-brands fa-css3-alt"></i></span></div>
-            <div class="tech-badge" style="--angle:180deg"><span><i class="fa-brands fa-js"></i></span></div>
-            <div class="tech-badge" style="--angle:270deg"><span><i class="fa-brands fa-node-js"></i></span></div>
-          </div>
-        </div>
-        <img src="https://imgs.search.brave.com/Qf-vpF2lGwZwW754cgbCYX_8DVlMlM-dPCyZSQ5uE-s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDkxNjg1/ODIuanBn" alt="My Profile Picture">
-      </div>
-
-      <a href="#skills" class="scroll-cue" aria-label="Scroll down"><span></span></a>
-    </section>
-  </section>
-
-  <!-- Tech marquee ticker -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span>
-      <span>Open to Collaborate</span><span>Frontend Development</span><span>Git &amp; GitHub</span><span>Always Learning</span>
-      <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span>
-      <span>Open to Collaborate</span><span>Frontend Development</span><span>Git &amp; GitHub</span><span>Always Learning</span>
-    </div>
-  </div>
-<!-- About Me Section -->
-<section id="about">
-  <h2 class="section-title reveal-up">About Me</h2>
-  <div class="about-divider reveal-up" style="--delay:0.05s"></div>
-
-  <div class="about-text">
-    <p class="reveal-up" style="--delay:0.1s">I'm a student developer who loves turning ideas into real, working websites. My main stack is <strong class="hl-cyan">HTML, CSS &amp; JavaScript</strong>, and I'm currently exploring <strong class="hl-green">Node.js</strong> to grow into full-stack development.</p>
-
-    <p class="reveal-up" style="--delay:0.2s">I often team up with my friend <strong class="hl-pink">Arnab Adhikari</strong> (<a href="https://github.com/arnabadhikari777" target="_blank" class="gradient-text about-link">@arnabadhikari777</a>), who's great with Flask and databases. Together we build complete projects — I handle the frontend and user experience, while he takes care of the backend and data.</p>
-    <!-- উপরের href="#" এর জায়গায় অর্ণবের আসল GitHub লিংক আর username বসিয়ে দিও -->
-
-    <p class="reveal-up" style="--delay:0.3s">I enjoy learning by building — from AI chat apps to calculators, QR tools and result analyzers — turning everyday problems into small tools anyone can use.</p>
-  </div>
-</section>
-  
-  <!-- Technical Expertise Section -->
-  <section id="skills">
-    <h2 class="section-title reveal-up">Technical Expertise</h2>
-    <p class="section-sub reveal-up" style="--delay:0.05s">Tools and technologies I build with &amp; currently learning</p>
-
-    <div class="skills-container">
-      <div class="skill-card reveal-up" style="--delay:0.1s">
-        <div class="ring" style="--pct:90"><span>90%</span></div>
-        <div class="icon"><i class="fa-solid fa-code"></i></div>
-        <h3>Frontend Development</h3>
-        <p>HTML5, CSS3, JavaScript</p>
-      </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.2s">
-        <div class="ring" style="--pct:40"><span>40%</span></div>
-        <div class="icon"><i class="fa-solid fa-server"></i></div>
-        <h3>Backend Development</h3>
-        <p>Currently learning Node.js, Python, MongoDB.</p>
-      </div>
-
-      <div class="skill-card reveal-up" style="--delay:0.3s">
-        <div class="ring" style="--pct:45"><span>45%</span></div>
-        <div class="icon"><i class="fa-solid fa-pen-ruler"></i></div>
-        <h3>UI/UX Design</h3>
-        <p>Learning Figma, Wireframing, and Prototyping.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Collaboration Projects Section — এইটা Projects এর আগে রাখা হয়েছে কারণ এগুলো বেশি আকর্ষণীয় -->
-
-<!-- ফিক্স করা হয়েছে: <selection> ভুল ট্যাগ ছিল, <section> হবে -->
-<section id="collaborations">
-    <h2 class="section-title reveal-up">Collaboration Projects</h2>
-    <p class="section-sub reveal-up" style="--delay:0.05s">Amazing things built together as a team</p>
-
-    <!-- ফিক্স করা হয়েছে: আগে দুটো card দুটো আলাদা .projects-container এ ছিল,
-         তাই grid এ পাশাপাশি না বসে একটার নিচে একটা বসছিল।
-         এখন থেকে নতুন যেকোনো collaboration card এই একটামাত্র .projects-container এর ভেতরেই বসাবে। -->
-    <div class="projects-container">
-      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
-        <span class="featured-ribbon">TEAM PROJECT</span>
-        <div class="project-image"><img src="image/friendly-flux.jpg" alt="Friendly Flux"></div>
-        <div class="project-info">
-          <h3>Friendly Flux</h3>
-          <p>Physics|Chemistry|Mathematics solve step by step. It is create those who learnings science.</p>
-
-          <!-- Creators box: কে frontend করেছে, কে backend করেছে সেটা এখানে স্পষ্ট লেখা আছে -->
-          <div class="creators-box">
-            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
-
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
-                <span class="role-tag frontend">Frontend</span>
-              </div>
-              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="Frontend Developer Portfolio — HTML, CSS, JavaScript & Node.js projects."
+        />
+        <title>My Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader-ring"></div>
+            <div class="loader-text">
+                <span class="gradient-text">Loading</span
+                ><span class="loader-pct" id="loaderPct">0%</span>
             </div>
+        </div>
 
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
-                <span class="role-tag backend">Backend</span>
-              </div>
-              <!-- এখানে অর্ণবের গিটহাব লিংক দিতে পারবেন (# এর জায়গায়) -->
-              <a href="https://arnabadhikari777.github.io/My-Portfolio./" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+        <!-- Scroll progress -->
+        <div id="scroll-progress"></div>
+
+        <!-- Cursor glow (desktop only, ignored on touch) -->
+        <div class="cursor-glow" id="cursorGlow"></div>
+
+        <!-- Floating background blobs -->
+        <div class="blob blob-a" id="blobA"></div>
+        <div class="blob blob-b" id="blobB"></div>
+        <div class="blob blob-c" id="blobC"></div>
+
+        <div id="nav">
+            <nav>
+                <div class="logo gradient-text">My Portfolio</div>
+
+                <ul id="navLinks">
+                    <li>
+                        <a href="#home"
+                            ><i class="fa-solid fa-house"></i> Home</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#about"
+                            ><i class="fa-solid fa-user"></i> About</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#skills"
+                            ><i class="fa-solid fa-code"></i> Skills</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#collaborations"
+                            ><i class="fa-solid fa-people-group"></i>
+                            Collaborations</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#projects"
+                            ><i class="fa-solid fa-diagram-project"></i>
+                            Projects</a
+                        >
+                    </li>
+                    <li>
+                        <a href="contact.html"
+                            ><i class="fa-solid fa-envelope"></i> Contact</a
+                        >
+                    </li>
+                </ul>
+
+                <button id="menuToggle" aria-label="Toggle menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home">
+            <section id="hero">
+                <canvas id="particles"></canvas>
+                <div class="hero-content reveal-left">
+                    <p class="hero-eyebrow">
+                        <span class="dot-blink"></span> Available for new
+                        projects
+                    </p>
+                    <h1>
+                        <span class="typed-line">Frontend</span><br />
+                        <span
+                            class="gradient-text"
+                            id="scrambleWord"
+                            style="
+                                font-size: 1.1em;
+                                display: inline-block;
+                                padding-bottom: 5px;
+                            "
+                            >Developer</span
+                        >
+                    </h1>
+                    <p>
+                        Building with HTML/CSS/JS today. Exploring new languages
+                        tomorrow!
+                    </p>
+                    <div class="hero-btns">
+                        <a href="contact.html" class="btn btn-glow"
+                            >Let's Connect</a
+                        >
+                        <a href="#collaborations" class="btn btn-outline"
+                            >See Work <i class="fa-solid fa-arrow-down"></i
+                        ></a>
+                    </div>
+                </div>
+
+                <div class="hero-image reveal-right">
+                    <div class="orbit-ring ring-1"></div>
+                    <div class="orbit-ring ring-2"></div>
+                    <div class="tech-orbit">
+                        <div class="tech-orbit-track">
+                            <div class="tech-badge" style="--angle: 0deg">
+                                <span><i class="fa-brands fa-html5"></i></span>
+                            </div>
+                            <div class="tech-badge" style="--angle: 90deg">
+                                <span
+                                    ><i class="fa-brands fa-css3-alt"></i
+                                ></span>
+                            </div>
+                            <div class="tech-badge" style="--angle: 180deg">
+                                <span><i class="fa-brands fa-js"></i></span>
+                            </div>
+                            <div class="tech-badge" style="--angle: 270deg">
+                                <span
+                                    ><i class="fa-brands fa-node-js"></i
+                                ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <img
+                        src="https://imgs.search.brave.com/Qf-vpF2lGwZwW754cgbCYX_8DVlMlM-dPCyZSQ5uE-s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDkxNjg1/ODIuanBn"
+                        alt="My Profile Picture"
+                    />
+                </div>
+
+                <a href="#skills" class="scroll-cue" aria-label="Scroll down"
+                    ><span></span
+                ></a>
+            </section>
+        </section>
+
+        <!-- Tech marquee ticker -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span
+                ><span>Node.js</span> <span>Open to Collaborate</span
+                ><span>Frontend Development</span><span>Git &amp; GitHub</span
+                ><span>Always Learning</span> <span>HTML5</span><span>CSS3</span
+                ><span>JavaScript</span><span>Node.js</span>
+                <span>Open to Collaborate</span><span>Frontend Development</span
+                ><span>Git &amp; GitHub</span><span>Always Learning</span>
             </div>
-          </div>
-
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span><span>SQL Lite</span><span>APIs</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Friendly-Flux/frontend/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Friendly-Flux/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
         </div>
-      </div>
+        <!-- About Me Section -->
+        <section id="about">
+            <h2 class="section-title reveal-up">About Me</h2>
+            <div class="about-divider reveal-up" style="--delay: 0.05s"></div>
 
-      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
-        <span class="featured-ribbon">TEAM PROJECT</span>
-        <div class="project-image"><img src="image/beyonder.jpg" alt="Beyonder AI"></div>
-        <div class="project-info">
-          <h3>Beyonder Ai</h3>
-          <p>An Artificial Intelligence created for students. Built in collaboration to integrate diverse ideas.</p>
+            <div class="about-text">
+                <p class="reveal-up" style="--delay: 0.1s">
+                    I'm a student developer who loves turning ideas into real,
+                    working websites. My main stack is
+                    <strong class="hl-cyan">HTML, CSS &amp; JavaScript</strong>,
+                    and I'm currently exploring
+                    <strong class="hl-green">Node.js</strong> to grow into
+                    full-stack development.
+                </p>
 
-          <!-- Creators box: কে frontend করেছে, কে backend করেছে সেটা এখানে স্পষ্ট লেখা আছে -->
-          <div class="creators-box">
-            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
+                <p class="reveal-up" style="--delay: 0.2s">
+                    I often team up with my friend
+                    <strong class="hl-pink">Arnab Adhikari</strong> (<a
+                        href="https://github.com/arnabadhikari777"
+                        target="_blank"
+                        class="gradient-text about-link"
+                        >@arnabadhikari777</a
+                    >), who's great with Flask and databases. Together we build
+                    complete projects — I handle the frontend and user
+                    experience, while he takes care of the backend and data.
+                </p>
+                <!-- উপরের href="#" এর জায়গায় অর্ণবের আসল GitHub লিংক আর username বসিয়ে দিও -->
 
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
-                <span class="role-tag frontend">Frontend</span>
-              </div>
-              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+                <p class="reveal-up" style="--delay: 0.3s">
+                    I enjoy learning by building — from AI chat apps to
+                    calculators, QR tools and result analyzers — turning
+                    everyday problems into small tools anyone can use.
+                </p>
             </div>
+        </section>
 
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
-                <span class="role-tag backend">Backend &amp; Database</span>
-              </div>
-              <!-- এখানে অর্ণবের গিটহাব লিংক দিতে পারবেন (# এর জায়গায়) -->
-              <a href="https://arnabadhikari777.github.io/My-Portfolio./" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+        <!-- Technical Expertise Section -->
+        <section id="skills">
+            <h2 class="section-title reveal-up">Technical Expertise</h2>
+            <p class="section-sub reveal-up" style="--delay: 0.05s">
+                Tools and technologies I build with &amp; currently learning
+            </p>
+
+            <div class="skills-container">
+                <div class="skill-card reveal-up" style="--delay: 0.1s">
+                    <div class="ring" style="--pct: 90"><span>90%</span></div>
+                    <div class="icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Frontend Development</h3>
+                    <p>HTML5, CSS3, JavaScript</p>
+                </div>
+
+                <div class="skill-card reveal-up" style="--delay: 0.2s">
+                    <div class="ring" style="--pct: 40"><span>40%</span></div>
+                    <div class="icon"><i class="fa-solid fa-server"></i></div>
+                    <h3>Backend Development</h3>
+                    <p>Currently learning Node.js, Python, MongoDB.</p>
+                </div>
+
+                <div class="skill-card reveal-up" style="--delay: 0.3s">
+                    <div class="ring" style="--pct: 45"><span>45%</span></div>
+                    <div class="icon">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Learning Figma, Wireframing, and Prototyping.</p>
+                </div>
             </div>
-          </div>
+        </section>
 
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span><span>SQL Lite</span><span>APIs</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Beyonder-Ai-2.0/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
+        <!-- Collaboration Projects Section — এইটা Projects এর আগে রাখা হয়েছে কারণ এগুলো বেশি আকর্ষণীয় -->
 
-      <!-- ============================================================
-           নতুন Collaboration Project যোগ করার TEMPLATE
-           নতুন প্রজেক্ট বানাতে এই পুরো ব্লকটা কপি করো, শুরু আর শেষের
-           কমেন্ট চিহ্ন দুটো মুছে uncomment করো, তারপর ৫টা জায়গা বদলে
-           এই ঘরের </div> এর ঠিক আগে বসিয়ে দাও (এই .projects-container এর
-           ভেতরেই বসবে, নতুন করে .projects-container বানানো লাগবে না):
+        <!-- ফিক্স করা হয়েছে: <selection> ভুল ট্যাগ ছিল, <section> হবে -->
+        <section id="collaborations">
+            <h2 class="section-title reveal-up">Collaboration Projects</h2>
+            <p class="section-sub reveal-up" style="--delay: 0.05s">
+                Amazing things built together as a team
+            </p>
 
-      <div class="project-card reveal-up tilt-card" style="--delay:0.05s">
-        <span class="featured-ribbon">TEAM PROJECT</span>
-        <div class="project-image"><img src="image/YOUR-IMAGE.jpg" alt="Project Name"></div>  1. ছবির path ও নাম বদলাও
-        <div class="project-info">
-          <h3>Project Name</h3>                                                                2. প্রজেক্টের নাম
-          <p>Short one-line description of the project.</p>                                    3. বর্ণনা
+            <!-- card গুলো projects.js থেকে এখানে বসে। নতুন প্রজেক্ট যোগ করতে projects.js এ PROJECTS array এ block বসাও (team সহ) -->
+            <div class="projects-container" id="collab-grid"></div>
+        </section>
 
-          <div class="creators-box">
-            <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-astronaut" style="color: #00ff88;"></i> Anubhab Dutta</span>
-                <span class="role-tag frontend">Frontend</span>                                4. এখানে role-tag frontend/backend ঠিক করো
-              </div>
-              <a href="https://github.com/duttaanubhab777-code" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title reveal-up">My Projects</h2>
+            <p class="section-sub reveal-up" style="--delay: 0.05s">
+                A few things I've shipped and built
+            </p>
+
+            <!-- card গুলো projects.js থেকে এখানে বসে। নতুন প্রজেক্ট যোগ করতে projects.js এ PROJECTS array তে block বসাও (team ছাড়া) -->
+            <div class="projects-container" id="projects-grid"></div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer>
+            <p class="reveal-up">
+                &copy; 2026 My Portfolio. All rights reserved.
+            </p>
+
+            <div class="social-links reveal-up" style="--delay: 0.1s">
+                <a
+                    href="https://github.com/duttaanubhab777-code"
+                    aria-label="GitHub"
+                    ><i class="fa-brands fa-github"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                    ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="WhatsApp"
+                    ><i class="fa-brands fa-whatsapp"></i
+                ></a>
+                <a href="#" aria-label="Facebook"
+                    ><i class="fa-brands fa-facebook"></i
+                ></a>
+                <a href="contact.html" aria-label="Email"
+                    ><i class="fa-solid fa-envelope"></i
+                ></a>
             </div>
-            <div class="creator-row">
-              <div class="creator-who">
-                <span class="creator-name"><i class="fa-solid fa-user-ninja" style="color: #ff2b6e;"></i> Arnab Adhikari</span>
-                <span class="role-tag backend">Backend</span>
-              </div>
-              <a href="https://arnabadhikari777.github.io/My-Portfolio./" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
-            </div>
-          </div>
+        </footer>
 
-          <div class="tech-stack"><span>HTML</span><span>CSS</span></div>                      5. ব্যবহৃত tech গুলো বসাও
-          <div class="project-links">
-            <a href="YOUR-LIVE-DEMO-LINK"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="YOUR-GITHUB-CODE-LINK"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-      -->
-    </div>
-</section>
+        <button id="backToTop" aria-label="Back to top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2 class="section-title reveal-up">My Projects</h2>
-    <p class="section-sub reveal-up" style="--delay:0.05s">A few things I've shipped and built</p>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-BSBQLS52YH"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-BSBQLS52YH");
+        </script>
 
-    <div class="projects-container">
-      <div class="project-card reveal-up tilt-card" style="--delay:0.1s">
-        <div class="project-image"><img src="image/weather.jpg" alt="Weather App"></div>
-        <div class="project-info">
-          <h3>Weather App</h3>
-          <p>A real-time weather application showing current temperature and forecast.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Live-Weather-App/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Live-Weather-App/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up tilt-card" style="--delay:0.15s">
-        <div class="project-image"><img src="image/calculator.jpg" alt="Calculator"></div>
-        <div class="project-info">
-          <h3>Calculator</h3>
-          <p>A simple calculator create for small calculation.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JS</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Calculator/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Calculator/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up tilt-card" style="--delay:0.2s">
-        <div class="project-image"><img src="image/Tic-Tac-Toe.jpg" alt="Tic-Tac-Toe"></div>
-        <div class="project-info">
-          <h3>Tic-Tac-Toe</h3>
-          <p>It is create for fun.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Tic-Tac-Toe/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Tic-Tac-Toe/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up tilt-card" style="--delay:0.25s">
-        <div class="project-image"><img src="image/QRgenerator.jpg" alt="QR Code Generator"></div>
-        <div class="project-info">
-          <h3>QR Code Generator</h3>
-          <p>Any text or URL you can easily convert into QR Code.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/QR-Code-Generator/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/QR-Code-Generator/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal-up tilt-card" style="--delay:0.3s">
-        <div class="project-image"><img src="image/Result.jpg" alt="Result Analysis"></div>
-        <div class="project-info">
-          <h3>Result Analysis</h3>
-          <p>Created for WBCHSE Class 11 and 12 science students to help analyze their results efficiently.</p>
-          <div class="tech-stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <div class="project-links">
-            <a href="https://duttaanubhab777-code.github.io/Result-Analysis/"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="https://github.com/duttaanubhab777-code/Result-Analysis/tree/main"><i class="fa-brands fa-github"></i> Code</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer Section -->
-  <footer>
-    <p class="reveal-up">&copy; 2026 My Portfolio. All rights reserved.</p>
-
-    <div class="social-links reveal-up" style="--delay:0.1s">
-      <a href="https://github.com/duttaanubhab777-code" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-      <a href="contact.html" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-    </div>
-  </footer>
-
-  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSBQLS52YH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-BSBQLS52YH');
-  </script>
-
-  <script src="script.js"></script>
-</body>
+        <script src="projects.js"></script>
+        <script src="script.js"></script>
+    </body>
 </html>
