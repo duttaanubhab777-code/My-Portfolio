@@ -104,12 +104,12 @@ const PROJECTS = [
     {
         title: "Weather App",
         image: "image/weather.jpg",
-        desc: `Live Weather App is a clean, responsive web application designed to provide users with real-time weather updates and accurate forecasts.<br><br>
-<ul style="margin-left: 20px; list-style-type: disc;">
-  <li><b>Frontend Interface:</b> Designed an intuitive and visually appealing user interface utilizing HTML5 and CSS3, ensuring a fully responsive layout across mobile and desktop devices.</li>
-  <li><b>Dynamic Data Integration:</b> Developed the core application logic using Vanilla JavaScript to efficiently fetch, process, and display live weather data from external APIs.</li>
-  <li><b>Solo Development:</b> Independently managed the entire project lifecycle from UI design to logic implementation, demonstrating strong foundational frontend development skills.</li>
-  <li><b>Deployment & Version Control:</b> Maintained clean, structured source code on GitHub and successfully deployed the fast-loading static web application via GitHub Pages.</li>
+        desc: `A clean, fast weather app that shows live conditions and forecasts the moment you ask for them.<br><br>
+<ul>
+  <li><b>Live Data Engine:</b> Fetches real-time weather from an external API with async JavaScript and presents it instantly and clearly.</li>
+  <li><b>Clean, Responsive UI:</b> A mobile-first layout in HTML5 and CSS3 that stays sharp and easy to read on every screen size.</li>
+  <li><b>Built Solo:</b> Designed, coded and debugged end to end on my own, from first sketch to final polish.</li>
+  <li><b>Deployment &amp; Version Control:</b> Source managed on GitHub and hosted on GitHub Pages for fast, free loading.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JavaScript"],
         demo: "https://duttaanubhab777-code.github.io/Live-Weather-App/",
@@ -118,12 +118,12 @@ const PROJECTS = [
     {
         title: "Calculator",
         image: "image/calculator.jpg",
-        desc: `A sleek and responsive web-based calculator application built to perform fundamental arithmetic operations accurately.<br><br>
-<ul style="margin-left: 20px; list-style-type: disc;">
-  <li><b>Frontend Interface:</b> Designed a clean, user-friendly, and responsive interface using HTML5 and CSS3, ensuring a smooth visual experience across devices.</li>
-  <li><b>Core Logic & Functionality:</b> Implemented dynamic calculation logic utilizing Vanilla JavaScript to handle user inputs, mathematical operations, and real-time display updates.</li>
-  <li><b>Solo Development:</b> Independently built the entire application from scratch, demonstrating strong problem-solving skills and a solid understanding of DOM manipulation.</li>
-  <li><b>Deployment & Version Control:</b> Maintained version-controlled source code on GitHub and successfully deployed the interactive static application via GitHub Pages.</li>
+        desc: `A sleek, responsive calculator that handles everyday arithmetic accurately with a smooth real-time display.<br><br>
+<ul>
+  <li><b>Clean Interface:</b> A tap-friendly HTML5 and CSS3 layout that feels natural on both phone and desktop.</li>
+  <li><b>Core Logic:</b> Vanilla JavaScript manages input, operator order and live display updates with zero libraries.</li>
+  <li><b>Built Solo:</b> Written from scratch as a hands-on deep dive into DOM manipulation and event handling.</li>
+  <li><b>Deployment &amp; Version Control:</b> Versioned on GitHub and live on GitHub Pages.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JS"],
         demo: "https://duttaanubhab777-code.github.io/Calculator/",
@@ -132,12 +132,12 @@ const PROJECTS = [
     {
         title: "Tic-Tac-Toe",
         image: "image/Tic-Tac-Toe.jpg",
-        desc: `A feature-rich, installable Tic-Tac-Toe web application offering advanced AI opponents, dynamic gameplay modes, and offline capabilities.<br><br>
-<ul style="margin-left: 20px; list-style-type: disc;">
-  <li><b>Advanced Game Logic & AI:</b> Engineered complex state management in Vanilla JavaScript, featuring a custom series mode, live scoreboards, and a 5-level computer AI that utilizes the Minimax algorithm for an unbeatable 'Genius' difficulty.</li>
-  <li><b>Progressive Web App (PWA):</b> Transformed the web game into a fully installable, mobile-ready application with full offline support by implementing Service Workers (sw.js) and a Web App Manifest.</li>
-  <li><b>Interactive UX & Animations:</b> Designed a highly engaging UI using HTML5 and CSS3, integrating system-aware dark/light themes, sound effects, device vibration, and smooth CSS animations (like confetti and win-lines).</li>
-  <li><b>Solo Development & Deployment:</b> Built the complete application independently without relying on external build tools or frameworks, maintaining structured code on GitHub and hosting seamlessly on GitHub Pages.</li>
+        desc: `An installable, offline-ready Tic-Tac-Toe game with five AI levels, series mode and live scoreboards.<br><br>
+<ul>
+  <li><b>Smart AI:</b> Five computer difficulty levels, topped by an unbeatable 'Genius' mode powered by the Minimax algorithm.</li>
+  <li><b>Installable PWA:</b> A service worker and web manifest make it installable on your phone and playable fully offline.</li>
+  <li><b>Polished UX &amp; Animations:</b> Dark and light themes, sound effects, vibration feedback and CSS animations like confetti and win-lines.</li>
+  <li><b>Solo Development &amp; Deployment:</b> Pure vanilla JavaScript with no frameworks or build tools, hosted on GitHub Pages.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JavaScript"],
         demo: "https://duttaanubhab777-code.github.io/Tic-Tac-Toe/",
@@ -146,12 +146,12 @@ const PROJECTS = [
     {
         title: "QR Code Generator",
         image: "image/QRgenerator.jpg",
-        desc: `A fast and interactive web application that instantly generates scannable QR codes from user-provided text or URLs.<br><br>
-<ul style="margin-left: 20px; list-style-type: disc;">
-  <li><b>Frontend Interface:</b> Designed a clean, intuitive, and fully responsive UI using HTML5 and CSS3, providing a seamless experience across all devices.</li>
-  <li><b>Dynamic Generation:</b> Implemented Vanilla JavaScript to capture real-time user input and dynamically render QR codes, showcasing strong DOM manipulation and event handling skills.</li>
-  <li><b>Solo Development:</b> Independently planned and developed the application from scratch, creating a highly practical and lightweight utility tool.</li>
-  <li><b>Deployment & Version Control:</b> Maintained organized source code on GitHub and successfully deployed the production-ready static app via GitHub Pages.</li>
+        desc: `A lightweight utility that turns any text or link into a scannable QR code the instant you type.<br><br>
+<ul>
+  <li><b>Instant Generation:</b> JavaScript reads live input and renders the QR code on the fly, no page reload needed.</li>
+  <li><b>Clean Interface:</b> A minimal, responsive HTML5 and CSS3 UI focused on doing one job really well.</li>
+  <li><b>Built Solo:</b> Planned and built from scratch, sharpening my event-handling and DOM skills.</li>
+  <li><b>Deployment &amp; Version Control:</b> Organised source on GitHub, deployed on GitHub Pages.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JavaScript"],
         demo: "https://duttaanubhab777-code.github.io/QR-Code-Generator/",
@@ -160,12 +160,12 @@ const PROJECTS = [
     {
         title: "Result Analysis",
         image: "image/Result.jpg",
-        desc: `An advanced, web-based result analysis application specifically designed to calculate grades, evaluate academic performance, and generate automated reports.<br><br>
-<ul style="margin-left: 20px; list-style-type: disc;">
-  <li><b>Frontend Interface:</b> Designed a clean, interactive data-entry dashboard using HTML5 and CSS3, ensuring seamless usability across all devices.</li>
-  <li><b>Core Logic & Processing:</b> Engineered complex calculation logic using Vanilla JavaScript to accurately process academic scores, percentages, and grade points tailored for higher-secondary science standards.</li>
-  <li><b>Automated PDF Export:</b> Implemented dynamic document generation features allowing users to instantly compile and download their calculated academic results as polished PDF reports.</li>
-  <li><b>Solo Development & Deployment:</b> Independently developed the entire application from scratch, successfully deploying the optimized, production-ready static site via GitHub Pages.</li>
+        desc: `A results calculator for higher-secondary science students that turns raw marks into grades, percentages and a downloadable report.<br><br>
+<ul>
+  <li><b>Smart Calculations:</b> JavaScript processes scores, percentages and grade points following higher-secondary science standards.</li>
+  <li><b>Data-Entry Dashboard:</b> An interactive, easy-to-fill layout that works smoothly across all devices.</li>
+  <li><b>One-Tap PDF Report:</b> Generates a polished PDF of the calculated result that can be downloaded instantly.</li>
+  <li><b>Solo Development &amp; Deployment:</b> Built from scratch and deployed as an optimised static site on GitHub Pages.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JavaScript"],
         demo: "https://duttaanubhab777-code.github.io/Result-Analysis/",
@@ -175,17 +175,51 @@ const PROJECTS = [
 
 /* =====================================================
    Render — এই নিচের অংশ সাধারণত বদলানো লাগবে না
+   desc এর ভেতরের intro লাইন + <li><b>Title:</b> text</li> গুলো
+   অটোমেটিক সুন্দর feature card এ রূপান্তরিত হয়।
    ===================================================== */
 
-/* একটা প্রজেক্ট থেকে একটা card এর HTML বানায় */
+/* বুলেটের title দেখে উপযুক্ত আইকন বেছে নেয় */
+const ICON_RULES = [
+    [/\bAI\b/i, "fa-robot"],
+    [/database/i, "fa-database"],
+    [/backend|server|templating/i, "fa-server"],
+    [/pwa|progressive/i, "fa-mobile-screen"],
+    [/pdf|export/i, "fa-file-pdf"],
+    [/solo/i, "fa-user-astronaut"],
+    [/deploy/i, "fa-rocket"],
+    [/frontend|interface|ux|dashboard/i, "fa-wand-magic-sparkles"],
+    [/logic|engine|calculation|generation|integration|problem/i, "fa-gears"]
+];
+const pickIcon = t =>
+    (ICON_RULES.find(([re]) => re.test(t)) || [0, "fa-circle-check"])[1];
+
+/* desc HTML থেকে intro আর bullet আলাদা করে */
+function parseDesc(html) {
+    const box = document.createElement("div");
+    box.innerHTML = html;
+    const lead = (box.childNodes[0].textContent || "").trim();
+    const items = [...box.querySelectorAll("li")].map(li => {
+        const b = li.querySelector("b");
+        const title = b ? b.textContent.replace(/:\s*$/, "") : "";
+        if (b) b.remove();
+        return { title, text: li.textContent.trim() };
+    });
+    return { lead, items };
+}
+
 function cardHTML(p, i) {
-    const ribbon = p.team
+    const { lead, items } = parseDesc(p.desc);
+    const isTeam = !!p.team;
+    const ribbon = isTeam
         ? `<span class="featured-ribbon">TEAM PROJECT</span>`
         : "";
+    const kind = isTeam
+        ? ""
+        : `<span class="kind"><i class="fa-solid fa-bolt"></i> SOLO BUILD</span>`;
 
-    const creators = p.team
-        ? `
-          <div class="creators-box">
+    const creators = isTeam
+        ? `<div class="creators-box">
             <p class="creators-title"><i class="fa-solid fa-laptop-code"></i> Creators :</p>
             ${p.team
                 .map(m => {
@@ -195,27 +229,46 @@ function cardHTML(p, i) {
                 <span class="creator-name"><i class="fa-solid ${c.icon}" style="color: ${c.color};"></i> ${c.name}</span>
                 <span class="role-tag ${m.type}">${m.role}</span>
               </div>
-              <a href="${c.github}" target="_blank" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a href="${c.github}" target="_blank" rel="noopener" class="github-link"><i class="fa-brands fa-github"></i> GitHub</a>
             </div>`;
                 })
                 .join("")}
           </div>`
         : "";
 
+    const feats = items
+        .map(
+            (it, n) => `<li style="--i:${n}">
+              <span class="feat-ico"><i class="fa-solid ${pickIcon(it.title)}"></i></span>
+              <div><b>${it.title}</b><span class="ft">${it.text}</span></div>
+            </li>`
+        )
+        .join("");
+
     const delay = (0.05 + i * 0.05).toFixed(2);
+    const num = String(i + 1).padStart(2, "0");
 
     return `
-      <div class="project-card reveal-up tilt-card" style="--delay:${delay}s">
+      <div class="project-card reveal-up tilt-card ${isTeam ? "team" : "solo"}" style="--delay:${delay}s">
         ${ribbon}
-        <div class="project-image"><img src="${p.image}" alt="${p.title}"></div>
+        <div class="project-image">
+          <div class="stage-bg" style="background-image:url('${p.image}')"></div>
+          <span class="idx">${num}</span>
+          <div class="phone" data-full="${p.image}" data-title="${p.title}">
+            <img src="${p.image}" alt="${p.title} screenshot" loading="lazy">
+          </div>
+          <button class="zoom-chip" type="button" aria-label="View ${p.title} screenshot full size"><i class="fa-solid fa-expand"></i> View full</button>
+        </div>
         <div class="project-info">
-          <h3>${p.title}</h3>
-          <p>${p.desc}</p>
+          <div class="pi-head"><h3>${p.title}</h3>${kind}</div>
+          <p class="lead">${lead}</p>
           ${creators}
           <div class="tech-stack">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
+          <div class="details"><div class="details-inner"><ul class="feat-list">${feats}</ul></div></div>
+          <button class="more-btn" type="button" aria-expanded="false"><span>Read more</span> <i class="fa-solid fa-chevron-down"></i></button>
           <div class="project-links">
-            <a href="${p.demo}"><i class="fa-solid fa-link"></i> Live Demo</a>
-            <a href="${p.code}"><i class="fa-brands fa-github"></i> Code</a>
+            <a href="${p.demo}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+            <a href="${p.code}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </div>
       </div>`;
@@ -235,3 +288,51 @@ if (projectsGrid) {
         .map(cardHTML)
         .join("");
 }
+
+/* ---------- Read more toggle + Lightbox (event delegation) ---------- */
+const lightbox = document.createElement("div");
+lightbox.className = "lightbox";
+lightbox.innerHTML = `<button class="lb-close" type="button" aria-label="Close"><i class="fa-solid fa-xmark"></i></button><img alt=""><p class="lb-cap"></p>`;
+document.body.appendChild(lightbox);
+
+function openLightbox(src, title) {
+    lightbox.querySelector("img").src = src;
+    lightbox.querySelector(".lb-cap").textContent = title;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+function closeLightbox() {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+}
+lightbox.addEventListener("click", closeLightbox);
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeLightbox();
+});
+
+document.addEventListener("click", e => {
+    const more = e.target.closest(".more-btn");
+    if (more) {
+        const card = more.closest(".project-card");
+        const open = card.classList.toggle("open");
+        more.setAttribute("aria-expanded", open);
+        more.querySelector("span").textContent = open
+            ? "Show less"
+            : "Read more";
+        return;
+    }
+    const view = e.target.closest(".phone, .zoom-chip");
+    if (view) {
+        const phone = view.closest(".project-card").querySelector(".phone");
+        openLightbox(phone.dataset.full, phone.dataset.title);
+    }
+});
+
+/* mouse spotlight — card এর ভেতর কার্সরের পজিশন CSS এ পাঠায় */
+document.querySelectorAll(".project-card").forEach(card => {
+    card.addEventListener("pointermove", e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", e.clientX - r.left + "px");
+        card.style.setProperty("--my", e.clientY - r.top + "px");
+    });
+});
