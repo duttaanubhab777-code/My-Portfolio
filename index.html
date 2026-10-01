@@ -8,6 +8,19 @@
             content="Frontend Developer Portfolio — HTML, CSS, JavaScript & Node.js projects."
         />
         <title>My Portfolio</title>
+        <meta name="theme-color" content="#08121a" />
+        <link
+            rel="preload"
+            as="image"
+            href="image/profile.webp"
+            type="image/webp"
+        />
+        <link
+            rel="preconnect"
+            href="https://cdnjs.cloudflare.com"
+            crossorigin
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -122,32 +135,50 @@
                 </div>
 
                 <div class="hero-image reveal-right">
-                    <div class="orbit-ring ring-1"></div>
-                    <div class="orbit-ring ring-2"></div>
-                    <div class="tech-orbit">
-                        <div class="tech-orbit-track">
-                            <div class="tech-badge" style="--angle: 0deg">
-                                <span><i class="fa-brands fa-html5"></i></span>
-                            </div>
-                            <div class="tech-badge" style="--angle: 90deg">
-                                <span
-                                    ><i class="fa-brands fa-css3-alt"></i
-                                ></span>
-                            </div>
-                            <div class="tech-badge" style="--angle: 180deg">
-                                <span><i class="fa-brands fa-js"></i></span>
-                            </div>
-                            <div class="tech-badge" style="--angle: 270deg">
-                                <span
-                                    ><i class="fa-brands fa-node-js"></i
-                                ></span>
+                    <div class="hero-stage">
+                        <div class="orbit-ring ring-1"></div>
+                        <div class="orbit-ring ring-2"></div>
+                        <div class="hero-disc"></div>
+                        <div class="hero-photo-wrap">
+                            <img
+                                class="hero-photo"
+                                src="image/profile.webp"
+                                alt="My profile picture"
+                                width="640"
+                                height="711"
+                                fetchpriority="high"
+                                decoding="async"
+                            />
+                        </div>
+                        <div class="tech-orbit">
+                            <div class="tech-orbit-track">
+                                <div class="tech-badge" style="--angle: 0deg">
+                                    <span
+                                        ><i class="fa-brands fa-html5"></i
+                                    ></span>
+                                </div>
+                                <div class="tech-badge" style="--angle: 90deg">
+                                    <span
+                                        ><i class="fa-brands fa-css3-alt"></i
+                                    ></span>
+                                </div>
+                                <div class="tech-badge" style="--angle: 180deg">
+                                    <span><i class="fa-brands fa-js"></i></span>
+                                </div>
+                                <div class="tech-badge" style="--angle: 270deg">
+                                    <span
+                                        ><i class="fa-brands fa-node-js"></i
+                                    ></span>
+                                </div>
                             </div>
                         </div>
+                        <div class="hero-chip chip-a">
+                            <i class="fa-solid fa-code"></i> Frontend Dev
+                        </div>
+                        <div class="hero-chip chip-b">
+                            <span class="dot-blink"></span> Open to collaborate
+                        </div>
                     </div>
-                    <img
-                        src="https://imgs.search.brave.com/Qf-vpF2lGwZwW754cgbCYX_8DVlMlM-dPCyZSQ5uE-s/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDkxNjg1/ODIuanBn"
-                        alt="My Profile Picture"
-                    />
                 </div>
 
                 <a href="#skills" class="scroll-cue" aria-label="Scroll down"
@@ -160,7 +191,8 @@
         <div class="marquee" aria-hidden="true">
             <div class="marquee-track">
                 <span>HTML5</span><span>CSS3</span><span>JavaScript</span
-                ><span>Node.js</span><span>Mongoose</span><span>MongoDB</span><span>Open to Collaborate</span
+                ><span>Node.js</span><span>Mongoose</span><span>MongoDB</span
+                ><span>Open to Collaborate</span
                 ><span>Frontend Development</span><span>Git &amp; GitHub</span
                 ><span>Always Learning</span> <span>HTML5</span><span>CSS3</span
                 ><span>JavaScript</span><span>Node.js</span>
@@ -173,34 +205,101 @@
             <h2 class="section-title reveal-up">About Me</h2>
             <div class="about-divider reveal-up" style="--delay: 0.05s"></div>
 
-            <div class="about-text">
-                <p class="reveal-up" style="--delay: 0.1s">
-                    I'm a student developer who loves turning ideas into real,
-                    working websites. My main stack is
-                    <strong class="hl-cyan">HTML, CSS &amp; JavaScript</strong>,
-                    and I'm currently exploring
-                    <strong class="hl-green">Node.js, Mongoose & MongoDB</strong> to grow into
-                    full-stack development.
-                </p>
+            <div class="about-grid">
+                <div class="code-card reveal-left">
+                    <div class="cc-bar">
+                        <i></i><i></i><i></i><span>developer.js</span>
+                    </div>
+                    <div class="cc-body">
+                        <span class="ln" style="--i: 0"
+                            ><span class="k">const</span>
+                            <span class="v">me</span> = {</span
+                        ><span class="ln" style="--i: 1">
+                            <span class="p">role</span>:
+                            <span class="s">"Student Developer"</span>,</span
+                        ><span class="ln" style="--i: 2">
+                            <span class="p">stack</span>: [<span class="s"
+                                >"HTML"</span
+                            >, <span class="s">"CSS"</span>,
+                            <span class="s">"JavaScript"</span>],</span
+                        ><span class="ln" style="--i: 3">
+                            <span class="p">learning</span>: [<span class="s"
+                                >"Node.js"</span
+                            >, <span class="s">"Mongoose"</span>,
+                            <span class="s">"MongoDB"</span>],</span
+                        ><span class="ln" style="--i: 4">
+                            <span class="p">teamsUpWith</span>:
+                            <span class="s">"Arnab Adhikari"</span>,</span
+                        ><span class="ln" style="--i: 5">
+                            <span class="p">motto</span>:
+                            <span class="s">"Learn by building"</span>,</span
+                        ><span class="ln" style="--i: 6">
+                            <span class="p">openToCollab</span>:
+                            <span class="b">true</span></span
+                        ><span class="ln" style="--i: 7">};</span>
+                    </div>
+                </div>
 
-                <p class="reveal-up" style="--delay: 0.2s">
-                    I often team up with my friend
-                    <strong class="hl-pink">Arnab Adhikari</strong> (<a
-                        href="https://github.com/arnabadhikari777"
-                        target="_blank"
-                        class="gradient-text about-link"
-                        >@arnabadhikari777</a
-                    >), who's great with Flask and databases. Together we build
-                    complete projects — I handle the frontend and user
-                    experience, while he takes care of the backend and data.
-                </p>
-                <!-- উপরের href="#" এর জায়গায় অর্ণবের আসল GitHub লিংক আর username বসিয়ে দিও -->
+                <div class="about-text reveal-right">
+                    <p>
+                        I'm a student developer who loves turning ideas into
+                        real, working websites. My main stack is
+                        <strong class="hl-cyan"
+                            >HTML, CSS &amp; JavaScript</strong
+                        >, and I'm currently exploring
+                        <strong class="hl-green"
+                            >Node.js, Mongoose &amp; MongoDB</strong
+                        >
+                        to grow into full-stack development.
+                    </p>
+                    <p>
+                        I often team up with my friend
+                        <strong class="hl-pink">Arnab Adhikari</strong> (<a
+                            href="https://github.com/arnabadhikari777"
+                            target="_blank"
+                            rel="noopener"
+                            class="gradient-text about-link"
+                            >@arnabadhikari777</a
+                        >), who's great with Flask and databases. Together we
+                        build complete projects — I handle the frontend and user
+                        experience, while he takes care of the backend and data.
+                    </p>
+                    <p>
+                        I enjoy learning by building — from AI chat apps to
+                        calculators, QR tools and result analyzers — turning
+                        everyday problems into small tools anyone can use.
+                    </p>
+                    <div class="about-cta">
+                        <a href="contact.html" class="btn btn-glow"
+                            >Let's Work Together</a
+                        >
+                        <a
+                            href="https://github.com/duttaanubhab777-code"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-outline"
+                            ><i class="fa-brands fa-github"></i> GitHub</a
+                        >
+                    </div>
+                </div>
+            </div>
 
-                <p class="reveal-up" style="--delay: 0.3s">
-                    I enjoy learning by building — from AI chat apps to
-                    calculators, QR tools and result analyzers — turning
-                    everyday problems into small tools anyone can use.
-                </p>
+            <div class="about-stats">
+                <div class="stat reveal-up" style="--delay: 0.05s">
+                    <i class="fa-solid fa-rocket"></i
+                    ><b data-stat="projects" data-count="0">0</b
+                    ><span>Projects Built</span>
+                </div>
+                <div class="stat reveal-up" style="--delay: 0.15s">
+                    <i class="fa-solid fa-people-group"></i
+                    ><b data-stat="team" data-count="0">0</b
+                    ><span>Team Projects</span>
+                </div>
+                <div class="stat reveal-up" style="--delay: 0.25s">
+                    <i class="fa-solid fa-layer-group"></i
+                    ><b data-stat="tech" data-count="0">0</b
+                    ><span>Technologies Used</span>
+                </div>
             </div>
         </section>
 

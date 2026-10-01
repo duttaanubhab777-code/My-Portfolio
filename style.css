@@ -6,18 +6,18 @@
    ============================================================ */
 
 :root {
-    --bg: #0b0f19;
-    --surface: #121826;
-    --border: #1f2937;
+    --bg: #08121a;
+    --surface: #0e1b25;
+    --border: #1b2c38;
     --text: #e0e0e0;
     --text-dim: #8a93a6;
     --text-dim2: #a0a0a0;
 
     /* Brand accent colors — এই তিনটে রং সারা সাইটে ঘুরেফিরে আসে */
-    --c-green: #00ff88;
-    --c-cyan: #00e6ff;
-    --c-pink: #ff2b6e;
-    --c-purple: #7c4dff;
+    --c-green: #2de2b4;
+    --c-cyan: #38c7ff;
+    --c-pink: #ff9f7a;
+    --c-purple: #7c8cff;
 
     /* Reusable gradients */
     --grad-main: linear-gradient(
@@ -120,7 +120,7 @@ a {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 4px solid rgba(0, 255, 136, 0.12);
+    border: 4px solid rgba(45, 226, 180, 0.12);
     border-top-color: var(--c-green);
     border-right-color: var(--c-cyan);
     animation: spinRing 1s linear infinite;
@@ -131,7 +131,7 @@ a {
     position: absolute;
     inset: 8px;
     border-radius: 50%;
-    border: 4px solid rgba(0, 230, 255, 0.1);
+    border: 4px solid rgba(56, 199, 255, 0.1);
     border-top-color: var(--c-pink);
     border-left-color: var(--c-cyan);
     animation: spinRing 2s linear infinite reverse;
@@ -165,13 +165,12 @@ a {
     top: 0;
     left: 0;
     height: 4px;
-    width: 0%;
+    width: 100%;
     background: var(--grad-main);
-    background-size: 300%;
-    animation: gradientMove 4s linear infinite;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.6);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
     z-index: 2000;
-    transition: width 0.1s ease-out;
+    pointer-events: none;
 }
 
 /* ============ Cursor glow (desktop only) ============ */
@@ -185,10 +184,10 @@ a {
     pointer-events: none;
     background: conic-gradient(
         from 0deg,
-        rgba(0, 255, 136, 0.16),
-        rgba(0, 230, 255, 0.16),
-        rgba(255, 43, 110, 0.16),
-        rgba(0, 255, 136, 0.16)
+        rgba(45, 226, 180, 0.16),
+        rgba(56, 199, 255, 0.16),
+        rgba(255, 159, 122, 0.16),
+        rgba(45, 226, 180, 0.16)
     );
     filter: blur(30px);
     transform: translate(-50%, -50%);
@@ -252,8 +251,7 @@ a {
     position: sticky;
     top: 0;
     z-index: 500;
-    background: rgba(11, 15, 25, 0.75);
-    backdrop-filter: blur(10px);
+    background: rgba(8, 18, 26, 0.94);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 #nav::after {
@@ -265,7 +263,6 @@ a {
     height: 2px;
     background: var(--grad-main);
     background-size: 300%;
-    animation: gradientMove 6s linear infinite;
     opacity: 0.6;
 }
 #nav nav {
@@ -377,11 +374,11 @@ a {
     font-size: 13px;
     letter-spacing: 0.5px;
     color: var(--c-green);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    border: 1px solid rgba(45, 226, 180, 0.3);
     padding: 6px 14px;
     border-radius: 30px;
     margin-bottom: 20px;
-    background: rgba(0, 255, 136, 0.05);
+    background: rgba(45, 226, 180, 0.05);
 }
 .dot-blink {
     width: 7px;
@@ -464,7 +461,7 @@ a {
     background-size: 220%;
     color: var(--bg);
     border: none;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+    box-shadow: 0 0 15px rgba(45, 226, 180, 0.4);
     animation: gradientMove 5s ease infinite;
 }
 .btn-glow::before {
@@ -482,7 +479,7 @@ a {
     left: 130%;
 }
 .btn-glow:hover {
-    box-shadow: 0 0 25px rgba(0, 230, 255, 0.8);
+    box-shadow: 0 0 25px rgba(56, 199, 255, 0.8);
     transform: translateY(-3px);
     color: #fff;
 }
@@ -522,20 +519,6 @@ a {
     position: relative;
     z-index: 2;
 }
-.hero-image img {
-    width: 340px;
-    height: 340px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 40px rgba(0, 230, 255, 0.4);
-    animation: float 4s ease-in-out infinite;
-    position: relative;
-    z-index: 2;
-    border: 3px solid transparent;
-    background:
-        linear-gradient(var(--bg), var(--bg)) padding-box,
-        var(--grad-main) border-box;
-}
 @keyframes float {
     0% {
         transform: translateY(0);
@@ -550,7 +533,7 @@ a {
 
 .orbit-ring {
     position: absolute;
-    border: 1px dashed rgba(0, 255, 136, 0.35);
+    border: 1px dashed rgba(45, 226, 180, 0.35);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -565,7 +548,7 @@ a {
     width: 460px;
     height: 460px;
     margin: -230px 0 0 -230px;
-    border-color: rgba(255, 43, 110, 0.2);
+    border-color: rgba(255, 159, 122, 0.2);
     animation: spin 26s linear infinite reverse;
 }
 @keyframes spin {
@@ -609,20 +592,20 @@ a {
     background: linear-gradient(135deg, var(--c-green), var(--c-cyan));
     color: var(--bg);
     font-size: 17px;
-    box-shadow: 0 0 14px rgba(0, 255, 136, 0.5);
+    box-shadow: 0 0 14px rgba(45, 226, 180, 0.5);
     animation: counterSpin 26s linear infinite;
 }
 .tech-badge:nth-child(2) span {
     background: linear-gradient(135deg, var(--c-cyan), var(--c-pink));
-    box-shadow: 0 0 14px rgba(0, 230, 255, 0.5);
+    box-shadow: 0 0 14px rgba(56, 199, 255, 0.5);
 }
 .tech-badge:nth-child(3) span {
     background: linear-gradient(135deg, var(--c-pink), var(--c-purple));
-    box-shadow: 0 0 14px rgba(255, 43, 110, 0.5);
+    box-shadow: 0 0 14px rgba(255, 159, 122, 0.5);
 }
 .tech-badge:nth-child(4) span {
     background: linear-gradient(135deg, var(--c-purple), var(--c-green));
-    box-shadow: 0 0 14px rgba(124, 77, 255, 0.5);
+    box-shadow: 0 0 14px rgba(124, 140, 255, 0.5);
 }
 @keyframes orbitSpin {
     to {
@@ -692,16 +675,15 @@ a {
         background:
             radial-gradient(
                 circle at 25% 15%,
-                rgba(0, 255, 136, 0.1),
+                rgba(45, 226, 180, 0.1),
                 transparent 55%
             ),
             radial-gradient(
                 circle at 80% 75%,
-                rgba(255, 43, 110, 0.1),
+                rgba(255, 159, 122, 0.1),
                 transparent 55%
             ),
-            rgba(11, 15, 25, 0.97);
-        backdrop-filter: blur(10px);
+            rgba(8, 18, 26, 0.97);
         gap: 0;
         max-height: 0;
         overflow-y: hidden;
@@ -815,10 +797,6 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
-    .hero-image img {
-        width: 210px;
-        height: 210px;
-    }
     .ring-1 {
         width: 260px;
         height: 260px;
@@ -843,10 +821,6 @@ a {
 @media (max-width: 380px) {
     .hero-content h1 {
         font-size: 34px;
-    }
-    .hero-image img {
-        width: 170px;
-        height: 170px;
     }
     .ring-1 {
         width: 210px;
@@ -944,7 +918,7 @@ a {
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     padding: 16px 0;
-    background: #0d1220;
+    background: #0a1720;
     white-space: nowrap;
 }
 .marquee-track {
@@ -1062,7 +1036,7 @@ a {
     opacity: 1;
 }
 .skill-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 230, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(56, 199, 255, 0.15);
     transform: translateY(-8px);
 }
 
@@ -1078,7 +1052,7 @@ a {
     background: conic-gradient(
         var(--c-green) calc(var(--pct) * 1%),
         var(--c-cyan) calc(var(--pct) * 1%),
-        #1f2937 0
+        #1b2c38 0
     );
     position: relative;
     animation: ringGrow 1.4s ease forwards;
@@ -1153,15 +1127,13 @@ a {
     --accent: var(--c-cyan);
     --mx: 50%;
     --my: 50%;
-    background: linear-gradient(180deg, #141b2b, var(--surface) 45%);
+    background: linear-gradient(180deg, #0f202b, var(--surface) 45%);
     border-radius: 18px;
     border: 1px solid var(--border);
     overflow: hidden;
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
-    transform-style: preserve-3d;
-    will-change: transform;
     position: relative;
 }
 .project-card.solo {
@@ -1256,7 +1228,7 @@ a {
     position: absolute;
     inset: auto 0 0;
     height: 70px;
-    background: linear-gradient(transparent, #141b2b);
+    background: linear-gradient(transparent, #0f202b);
     pointer-events: none;
 }
 .phone {
@@ -1265,7 +1237,7 @@ a {
     width: min(232px, 72%);
     padding: 7px;
     border-radius: 30px;
-    background: linear-gradient(145deg, #2a3348, #0b0f19);
+    background: linear-gradient(145deg, #27404d, #08121a);
     border: 1px solid rgba(255, 255, 255, 0.14);
     box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55);
     cursor: zoom-in;
@@ -1310,9 +1282,8 @@ a {
     color: #fff;
     cursor: pointer;
     border-radius: 20px;
-    background: rgba(11, 15, 25, 0.7);
+    background: rgba(8, 18, 26, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(6px);
     transition:
         background 0.3s ease,
         color 0.3s ease;
@@ -1348,8 +1319,8 @@ a {
     padding: 4px 10px;
     border-radius: 20px;
     color: var(--c-green);
-    background: rgba(0, 255, 136, 0.1);
-    border: 1px solid rgba(0, 255, 136, 0.3);
+    background: rgba(45, 226, 180, 0.1);
+    border: 1px solid rgba(45, 226, 180, 0.3);
 }
 .lead {
     color: var(--text-dim2);
@@ -1364,7 +1335,7 @@ a {
 .creators-box {
     margin: 15px 0;
     padding: 15px;
-    background: rgba(0, 230, 255, 0.05);
+    background: rgba(56, 199, 255, 0.05);
     border-radius: 8px;
     border-left: 3px solid var(--c-cyan);
     display: flex;
@@ -1406,14 +1377,14 @@ a {
     width: fit-content;
 }
 .role-tag.frontend {
-    background: rgba(0, 255, 136, 0.12);
+    background: rgba(45, 226, 180, 0.12);
     color: var(--c-green);
-    border: 1px solid rgba(0, 255, 136, 0.35);
+    border: 1px solid rgba(45, 226, 180, 0.35);
 }
 .role-tag.backend {
-    background: rgba(0, 230, 255, 0.12);
+    background: rgba(56, 199, 255, 0.12);
     color: var(--c-cyan);
-    border: 1px solid rgba(0, 230, 255, 0.35);
+    border: 1px solid rgba(56, 199, 255, 0.35);
 }
 .github-link {
     font-size: 13px;
@@ -1443,19 +1414,19 @@ a {
 .tech-stack span {
     font-size: 12px;
     padding: 5px 11px;
-    background: rgba(0, 230, 255, 0.1);
+    background: rgba(56, 199, 255, 0.1);
     color: var(--c-cyan);
     border-radius: 20px;
     transition:
         transform 0.2s ease,
         background 0.3s ease;
-    border: 1px solid rgba(0, 230, 255, 0.2);
+    border: 1px solid rgba(56, 199, 255, 0.2);
 }
 .project-card:hover .tech-stack span {
     transform: translateY(-2px);
-    background: rgba(0, 255, 136, 0.1);
+    background: rgba(45, 226, 180, 0.1);
     color: var(--c-green);
-    border-color: rgba(0, 255, 136, 0.3);
+    border-color: rgba(45, 226, 180, 0.3);
 }
 
 /* ---- Read more (animated expand) ---- */
@@ -1569,7 +1540,7 @@ a {
 }
 .project-links a:first-child:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 22px rgba(0, 255, 136, 0.35);
+    box-shadow: 0 8px 22px rgba(45, 226, 180, 0.35);
 }
 .project-links a:last-child {
     color: var(--text);
@@ -1593,7 +1564,6 @@ a {
     gap: 12px;
     padding: 20px;
     background: rgba(5, 8, 15, 0.92);
-    backdrop-filter: blur(10px);
     opacity: 0;
     visibility: hidden;
     transition:
@@ -1609,7 +1579,7 @@ a {
     max-height: 84vh;
     object-fit: contain;
     border-radius: 16px;
-    box-shadow: 0 0 60px rgba(0, 230, 255, 0.25);
+    box-shadow: 0 0 60px rgba(56, 199, 255, 0.25);
     transform: scale(0.88);
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -1659,7 +1629,6 @@ footer::before {
     height: 1px;
     background: var(--grad-main);
     background-size: 300%;
-    animation: gradientMove 6s linear infinite;
     opacity: 0.5;
 }
 footer p {
@@ -1709,7 +1678,7 @@ footer p {
         visibility 0.3s ease,
         transform 0.3s ease,
         box-shadow 0.3s ease;
-    box-shadow: 0 0 15px rgba(0, 230, 255, 0.4);
+    box-shadow: 0 0 15px rgba(56, 199, 255, 0.4);
 }
 #backToTop.show {
     opacity: 1;
@@ -1718,7 +1687,7 @@ footer p {
 }
 #backToTop:hover {
     transform: translateY(-3px) scale(1.08);
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.8);
+    box-shadow: 0 0 25px rgba(45, 226, 180, 0.8);
 }
 
 /* ============ About Me ============ */
@@ -1771,4 +1740,559 @@ footer p {
     .about-divider {
         margin-left: 0;
     }
+}
+
+/* ============================================================
+   Redesign + Performance layer
+   (এই অংশ সবার শেষে আছে বলে উপরের পুরনো rule গুলোকে override করে)
+   ============================================================ */
+
+/* ---------- Perf: হালকা করা ---------- */
+#nav .gradient-text {
+    animation: none;
+}
+#nav a.active {
+    color: var(--c-green);
+}
+.btn-glow,
+#backToTop {
+    animation: none;
+}
+.skill-card::after,
+.project-card::after,
+.btn-outline::before {
+    animation: none;
+}
+.skill-card:hover::after,
+.project-card:hover::after,
+.btn-outline:hover::before {
+    animation: gradientMove 5s linear infinite;
+}
+.skill-card {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+.gradient-text {
+    animation-duration: 8s;
+}
+@keyframes scrollDot {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 14px);
+    }
+}
+/* ঝাপসা blur ফিল্টারের বদলে radial-gradient — দেখতে একই, খরচ প্রায় শূন্য */
+.blob {
+    filter: none;
+    opacity: 0.15;
+}
+.blob-a {
+    background: radial-gradient(circle, var(--c-green), transparent 68%);
+}
+.blob-b {
+    background: radial-gradient(circle, var(--c-cyan), transparent 68%);
+}
+.blob-c {
+    background: radial-gradient(circle, var(--c-pink), transparent 68%);
+}
+@media (max-width: 768px) {
+    .blob {
+        animation: none;
+        opacity: 0.13;
+        filter: none;
+    }
+}
+.cursor-glow {
+    background: radial-gradient(
+        circle,
+        rgba(45, 226, 180, 0.16),
+        transparent 65%
+    );
+    filter: none;
+    animation: none;
+}
+/* project card: ভারী layer/blur বাদ */
+.stage-bg {
+    inset: 0;
+    filter: none;
+    transform: none;
+    background: radial-gradient(
+        circle at 50% 42%,
+        color-mix(in srgb, var(--accent) 34%, transparent),
+        transparent 68%
+    );
+}
+.project-card:hover .stage-bg {
+    transform: none;
+}
+.zoom-chip {
+    background: rgba(8, 18, 26, 0.88);
+}
+.lightbox {
+    background: rgba(4, 10, 15, 0.96);
+}
+@media (hover: none) {
+    .project-card::before {
+        display: none;
+    }
+}
+
+/* ---------- Hero: photo stage ---------- */
+#hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            520px 380px at 78% 52%,
+            rgba(45, 226, 180, 0.1),
+            transparent 70%
+        ),
+        radial-gradient(
+            420px 260px at 8% 8%,
+            rgba(255, 159, 122, 0.06),
+            transparent 70%
+        );
+}
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+.hero-stage {
+    --s: 360px;
+    position: relative;
+    width: var(--s);
+    height: calc(var(--s) * 1.12);
+}
+.hero-disc {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: calc(var(--s) * 0.78);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 50% 28%,
+        rgba(56, 199, 255, 0.5),
+        rgba(45, 226, 180, 0.26) 55%,
+        rgba(45, 226, 180, 0.05) 100%
+    );
+    border: 1px solid rgba(45, 226, 180, 0.4);
+    box-shadow:
+        0 0 70px rgba(45, 226, 180, 0.2),
+        inset 0 0 40px rgba(56, 199, 255, 0.16);
+}
+.orbit-ring {
+    top: 55%;
+    left: 50%;
+}
+.ring-1 {
+    width: calc(var(--s) * 0.98);
+    height: calc(var(--s) * 0.98);
+    margin: calc(var(--s) * -0.49) 0 0 calc(var(--s) * -0.49);
+}
+.ring-2 {
+    width: calc(var(--s) * 1.12);
+    height: calc(var(--s) * 1.12);
+    margin: calc(var(--s) * -0.56) 0 0 calc(var(--s) * -0.56);
+}
+.hero-photo-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    animation: float 5s ease-in-out infinite;
+}
+.hero-photo {
+    display: block;
+    width: calc(var(--s) * 0.92);
+    height: auto;
+    -webkit-mask-image: radial-gradient(
+        ellipse 52% 66% at 50% 36%,
+        #000 52%,
+        transparent 98%
+    );
+    mask-image: radial-gradient(
+        ellipse 52% 66% at 50% 36%,
+        #000 52%,
+        transparent 98%
+    );
+}
+.tech-orbit {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: 0;
+    height: 0;
+    z-index: 3;
+    pointer-events: none;
+    right: auto;
+    bottom: auto;
+}
+.tech-orbit-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    right: auto;
+    bottom: auto;
+}
+.tech-badge {
+    --r: calc(var(--s) * 0.5);
+    --bd: calc(var(--s) * 0.115);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--bd);
+    height: var(--bd);
+    margin: calc(var(--bd) / -2);
+    transform: rotate(var(--angle)) translateY(calc(var(--r) * -1));
+}
+.tech-badge span {
+    rotate: calc(var(--angle) * -1);
+    font-size: calc(var(--s) * 0.046);
+}
+.hero-chip {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 14px;
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+    border-radius: 30px;
+    background: rgba(14, 27, 37, 0.9);
+    border: 1px solid rgba(45, 226, 180, 0.35);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+    animation: chipFloat 5s ease-in-out infinite alternate;
+}
+.hero-chip i {
+    color: var(--c-cyan);
+}
+.chip-a {
+    left: -6%;
+    top: 12%;
+}
+.chip-b {
+    right: -4%;
+    bottom: 14%;
+    animation-delay: -2.5s;
+}
+@keyframes chipFloat {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-9px);
+    }
+}
+@media (max-width: 768px) {
+    .hero-stage {
+        --s: 270px;
+    }
+    .hero-chip {
+        font-size: 11px;
+        padding: 6px 11px;
+    }
+    .chip-a {
+        left: -2%;
+    }
+    .chip-b {
+        right: 0;
+    }
+}
+@media (max-width: 380px) {
+    .hero-stage {
+        --s: 235px;
+    }
+}
+
+/* ---------- About ---------- */
+#about {
+    padding: 90px 50px 60px;
+}
+.about-divider {
+    animation: none;
+}
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 38px;
+    align-items: center;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+.about-grid .about-text {
+    max-width: none;
+    margin: 0;
+}
+.code-card {
+    text-align: left;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0f202b, var(--surface));
+    border: 1px solid var(--border);
+    box-shadow:
+        0 22px 45px rgba(0, 0, 0, 0.35),
+        0 0 40px rgba(45, 226, 180, 0.06);
+}
+.cc-bar {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.02);
+}
+.cc-bar i {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #ff5f57;
+}
+.cc-bar i:nth-child(2) {
+    background: #febc2e;
+}
+.cc-bar i:nth-child(3) {
+    background: #28c840;
+}
+.cc-bar span {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dim);
+}
+.cc-body {
+    padding: 18px 18px 22px;
+    font-size: 13.5px;
+    line-height: 1.8;
+    overflow-x: auto;
+}
+.cc-body,
+.cc-body *,
+.cc-bar span {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+.ln {
+    display: block;
+    white-space: normal;
+    padding-left: calc(var(--ind, 0) * 2ch + 2ch);
+    text-indent: -2ch; /* লাইন ভাঙলে hanging indent */
+    opacity: 0;
+    transform: translateX(-12px);
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+    transition-delay: calc(var(--i) * 0.09s + 0.3s);
+}
+.cc-body .s {
+    white-space: nowrap;
+}
+.code-card.visible .ln {
+    opacity: 1;
+    transform: none;
+}
+.ln:last-child::after {
+    content: "▍";
+    color: var(--c-green);
+    animation: caret 1s steps(2) infinite;
+}
+@keyframes caret {
+    50% {
+        opacity: 0;
+    }
+}
+.cc-body .k {
+    color: var(--c-pink);
+}
+.cc-body .v {
+    color: var(--c-cyan);
+}
+.cc-body .p {
+    color: #d7e6ee;
+}
+.cc-body .s {
+    color: var(--c-green);
+}
+.cc-body .b {
+    color: var(--c-purple);
+}
+.about-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+}
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    max-width: 1050px;
+    margin: 36px auto 0;
+}
+.stat {
+    padding: 22px 12px;
+    text-align: center;
+    border-radius: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+.stat:hover {
+    transform: translateY(-5px);
+    border-color: rgba(45, 226, 180, 0.45);
+}
+.stat i {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: var(--c-cyan);
+}
+.stat b {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--c-green), var(--c-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.stat span {
+    font-size: 12.5px;
+    letter-spacing: 0.4px;
+    color: var(--text-dim);
+}
+@media (max-width: 768px) {
+    #about {
+        padding: 60px 20px 40px;
+        text-align: left;
+    }
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+    .about-cta .btn {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+    .about-stats {
+        gap: 10px;
+    }
+    .stat {
+        padding: 16px 6px;
+    }
+    .stat b {
+        font-size: 26px;
+    }
+    .stat span {
+        font-size: 11px;
+    }
+    .cc-body {
+        font-size: 12.5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-divider {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media (max-width: 420px) {
+    .cc-body {
+        font-size: 11.5px;
+        padding: 16px 14px 20px;
+    }
+}
+
+/* ============================================================
+   Lag fix v2
+   ============================================================ */
+/* ১) Read more: layout এক ঝটকায়, অ্যানিমেশন শুধু opacity/transform (GPU) —
+      নিচের পুরো পেজ প্রতি ফ্রেমে আর re-layout/repaint হয় না */
+.details {
+    display: none;
+    transition: none;
+}
+.project-card.open .details {
+    display: block;
+}
+.details-inner {
+    overflow: visible;
+}
+.feat-list {
+    padding: 0 0 18px;
+}
+.more-btn {
+    margin-bottom: 14px;
+}
+.feat-list li {
+    opacity: 1;
+    transform: none;
+    transition: none;
+}
+.project-card.open .feat-list li {
+    animation: featIn 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 0.07s);
+    transition: none;
+}
+@keyframes featIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ২) ফোনে ট্যাপ করলে :hover আটকে থাকে (sticky hover) — তখন মাস্ক করা gradient border
+      অনবরত অ্যানিমেট হতো। টাচ ডিভাইসে hover ইফেক্ট পুরোপুরি বন্ধ */
+@media (hover: none) {
+    .project-card::before,
+    .project-card::after,
+    .skill-card::after {
+        display: none !important;
+    }
+    .project-card:hover {
+        box-shadow: none;
+    }
+    .project-card:hover .phone {
+        transform: none;
+        box-shadow: 0 22px 45px rgba(0, 0, 0, 0.55);
+    }
+    .project-card:hover .tech-stack span {
+        transform: none;
+        background: rgba(56, 199, 255, 0.1);
+        color: var(--c-cyan);
+        border-color: rgba(56, 199, 255, 0.2);
+    }
+    .skill-card:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+/* ৩) স্ক্রিনের বাইরের section এর অ্যানিমেশন থামানো (script.js .in-view বসায়) */
+.anim-gate:not(.in-view),
+.anim-gate:not(.in-view) *,
+.anim-gate:not(.in-view) *::before,
+.anim-gate:not(.in-view) *::after {
+    animation-play-state: paused !important;
 }

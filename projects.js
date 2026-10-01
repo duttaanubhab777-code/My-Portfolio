@@ -12,13 +12,13 @@ const PEOPLE = {
     anubhab: {
         name: "Anubhab Dutta",
         icon: "fa-user-astronaut",
-        color: "#00ff88",
+        color: "#2de2b4",
         github: "https://github.com/duttaanubhab777-code"
     },
     arnab: {
         name: "Arnab Adhikari",
         icon: "fa-user-ninja",
-        color: "#ff2b6e",
+        color: "#ff9f7a",
         github: "https://arnabadhikari777.github.io/My-Portfolio./"
     }
 };
@@ -92,7 +92,6 @@ const PROJECTS = [
             "Flask",
             "SQL Lite",
             "APIs"
-            
         ],
         demo: "https://arnabadhikari125117y.pythonanywhere.com/",
         code: "https://github.com/arnabadhikari777/AA_News/tree/main",
@@ -141,7 +140,7 @@ const PROJECTS = [
   <li><b>Polished UX &amp; Animations:</b> Dark and light themes, sound effects, vibration feedback and CSS animations like confetti and win-lines.</li>
   <li><b>Solo Development &amp; Deployment:</b> Pure vanilla JavaScript with no frameworks or build tools, hosted on GitHub Pages.</li>
 </ul>`,
-        tech: ["HTML", "CSS", "JavaScript","PWA"],
+        tech: ["HTML", "CSS", "JavaScript", "PWA"],
         demo: "https://duttaanubhab777-code.github.io/Tic-Tac-Toe/",
         code: "https://github.com/duttaanubhab777-code/Tic-Tac-Toe/tree/main"
     },
@@ -210,6 +209,9 @@ function parseDesc(html) {
     return { lead, items };
 }
 
+/* কার্ডে হালকা thumb (image/thumb/*.webp), ফুল ছবি শুধু lightbox এ লোড হয় */
+const thumbOf = s => s.replace(/^image\/([^/]+)\.\w+$/, "image/thumb/$1.webp");
+
 function cardHTML(p, i) {
     const { lead, items } = parseDesc(p.desc);
     const isTeam = !!p.team;
@@ -254,10 +256,10 @@ function cardHTML(p, i) {
       <div class="project-card reveal-up tilt-card ${isTeam ? "team" : "solo"}" style="--delay:${delay}s">
         ${ribbon}
         <div class="project-image">
-          <div class="stage-bg" style="background-image:url('${p.image}')"></div>
+          <div class="stage-bg"></div>
           <span class="idx">${num}</span>
           <div class="phone" data-full="${p.image}" data-title="${p.title}">
-            <img src="${p.image}" alt="${p.title} screenshot" loading="lazy">
+            <img src="${thumbOf(p.image)}" alt="${p.title} screenshot" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${p.image}'">
           </div>
           <button class="zoom-chip" type="button" aria-label="View ${p.title} screenshot full size"><i class="fa-solid fa-expand"></i> View full</button>
         </div>
@@ -266,8 +268,8 @@ function cardHTML(p, i) {
           <p class="lead">${lead}</p>
           ${creators}
           <div class="tech-stack">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
-          <div class="details"><div class="details-inner"><ul class="feat-list">${feats}</ul></div></div>
           <button class="more-btn" type="button" aria-expanded="false"><span>Read more</span> <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="details"><div class="details-inner"><ul class="feat-list">${feats}</ul></div></div>
           <div class="project-links">
             <a href="${p.demo}" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
             <a href="${p.code}" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
@@ -330,11 +332,22 @@ document.addEventListener("click", e => {
     }
 });
 
-/* mouse spotlight — card এর ভেতর কার্সরের পজিশন CSS এ পাঠায় */
-document.querySelectorAll(".project-card").forEach(card => {
-    card.addEventListener("pointermove", e => {
-        const r = card.getBoundingClientRect();
-        card.style.setProperty("--mx", e.clientX - r.left + "px");
-        card.style.setProperty("--my", e.clientY - r.top + "px");
+/* mouse spotlight — শুধু মাউস আছে এমন ডিভাইসে, rAF দিয়ে throttled */
+if (matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".project-card").forEach(card => {
+        let raf = 0,
+            x = 0,
+            y = 0;
+        card.addEventListener("pointermove", e => {
+            x = e.clientX;
+            y = e.clientY;
+            if (raf) return;
+            raf = requestAnimationFrame(() => {
+                const r = card.getBoundingClientRect();
+                card.style.setProperty("--mx", x - r.left + "px");
+                card.style.setProperty("--my", y - r.top + "px");
+                raf = 0;
+            });
+        });
     });
-});
+}
