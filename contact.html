@@ -3,216 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#08121a">
     <title>Contact | My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ============================================================
+           Contact page — calm & easy on the eyes
+           নিয়ম: বড় glow/blur/ঝলমলে gradient নেই। রং কম-saturated, সব সফট।
+           infinite অ্যানিমেশন প্রায় নেই; যা আছে তা শুধু transform/opacity (হালকা)।
+           ============================================================ */
         :root {
-            --c-green: #00ff88;
-            --c-cyan: #00e6ff;
-            --c-pink: #ff2b6e;
-            --c-purple: #7c4dff;
+            --bg: #08121a;
+            --surface: #0e1b25;
+            --surface-2: #0f202b;
+            --field: #0a1620;
+            --line: #1b2c38;
+            --line-2: #27404d;
+            --text: #dbe7ee;
+            --muted: #8fa3b0;
+            --dim: #6c8190;
+            --green: #2de2b4;
+            --cyan: #38c7ff;
+            --peach: #ff9f7a;
+            --danger: #ef8b76;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0f19;
-            /* মাল্টি-কালার রেডিয়াল গ্রেডিয়েন্ট ব্যাকগ্রাউন্ড */
-            background-image:
-                radial-gradient(circle at 15% 50%, rgba(255, 43, 110, 0.15), transparent 50%),
-                radial-gradient(circle at 85% 30%, rgba(0, 230, 255, 0.15), transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(0, 255, 136, 0.15), transparent 50%);
-            color: #fff; min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
-            padding: 2rem 1rem; position: relative; overflow-x: hidden;
+            font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
-
-        /* ভাসমান গ্র্যাডিয়েন্ট ব্লব — index.html এর সাথে ভিজ্যুয়াল consistency রাখার জন্য */
-        .blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: 0.12; pointer-events: none; z-index: 0; }
-        .blob-a { width: 300px; height: 300px; background: var(--c-green); top: -60px; left: -60px; animation: blobFloat 14s ease-in-out infinite; }
-        .blob-b { width: 260px; height: 260px; background: var(--c-cyan); bottom: -60px; right: -40px; animation: blobFloat 18s ease-in-out infinite reverse; }
-        @keyframes blobFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -30px) scale(1.15); } 66% { transform: translate(-20px, 20px) scale(0.9); } }
+        /* স্থির (static) সফট ব্যাকগ্রাউন্ড: দুটো ঝাপসা আলো + হালকা dot-grid */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                radial-gradient(620px 420px at 88% 6%, rgba(56, 199, 255, 0.07), transparent 70%),
+                radial-gradient(520px 380px at 6% 96%, rgba(45, 226, 180, 0.06), transparent 70%),
+                radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1.3px) 0 0 / 26px 26px;
+        }
+        :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+        ::selection { background: var(--cyan); color: var(--bg); }
 
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
         }
 
-        /* অ্যানিমেটেড গ্রেডিয়েন্ট টেক্সট */
-        .gradient-text {
-            background: linear-gradient(90deg, var(--c-green), var(--c-cyan), var(--c-pink), var(--c-green));
-            background-size: 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradientMove 5s ease infinite;
-        }
+        /* ---------- Entrance (একবারই চলে) ---------- */
+        .rise { animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 70ms); }
+        @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* মূল ফর্ম কন্টেইনার */
-        .neon-container {
-            width: 100%; max-width: 32rem; margin: auto; padding: 2.5rem 2rem;
-            border-radius: 1rem; position: relative; z-index: 10;
-            background: rgba(11, 15, 25, 0.85); backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        /* কন্টেইনারের চারপাশে অ্যানিমেটেড গ্রেডিয়েন্ট বর্ডার গ্লো */
-        .neon-container::before {
-            content: ''; position: absolute; inset: -3px;
-            background: linear-gradient(45deg, var(--c-pink), var(--c-cyan), var(--c-green), var(--c-purple), var(--c-pink));
-            background-size: 400%; z-index: -1; filter: blur(15px); opacity: 0.7;
-            border-radius: inherit; animation: glowing 8s linear infinite;
-        }
-        @keyframes glowing {
-            0% { background-position: 0 0; }
-            50% { background-position: 400% 0; }
-            100% { background-position: 0 0; }
-        }
-
+        /* ---------- Layout ---------- */
+        .shell { max-width: 1040px; margin: 0 auto; padding: 20px 18px 44px; min-height: 100vh; display: flex; flex-direction: column; }
+        .top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
         .back-home {
-            position: absolute; top: 1.25rem; left: 1.25rem; text-decoration: none; font-size: 0.85rem;
-            display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s ease;
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+            font-size: 14px; font-weight: 600; color: var(--text);
+            padding: 9px 16px; border-radius: 30px; background: var(--surface); border: 1px solid var(--line);
+            transition: border-color 0.25s ease, color 0.25s ease;
         }
         .back-home .arrow { display: inline-block; transition: transform 0.3s ease; }
+        .back-home:hover { border-color: var(--line-2); color: var(--green); }
         .back-home:hover .arrow { transform: translateX(-4px); }
+        .brand { font-size: 17px; font-weight: 800; background: linear-gradient(90deg, var(--green), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
-        .form-header { text-align: center; margin-bottom: 2rem; }
-        .form-header h2 { font-size: 2.2rem; font-weight: 800; filter: drop-shadow(0 0 8px rgba(0, 230, 255, 0.3)); }
-        .form-header p { color: #a0a0a0; margin-top: 0.5rem; font-size: 0.95rem; }
+        .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr); gap: 56px; align-items: start; margin: auto 0; }
 
-        form { display: flex; flex-direction: column; gap: 1.25rem; }
-        .field-group { width: 100%; position: relative; }
+        /* ---------- Left: intro ---------- */
+        .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; color: var(--green); padding: 7px 14px; border-radius: 30px; background: rgba(45, 226, 180, 0.07); border: 1px solid rgba(45, 226, 180, 0.22); margin-bottom: 22px; }
+        .eyebrow .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
+        .eyebrow .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--green); animation: ping 2.4s ease-out infinite; }
+        @keyframes ping { 0% { transform: scale(1); opacity: 0.5; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
 
-        .neon-label { color: #cbd5e1; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.5rem; display: block; transition: all 0.3s ease; }
+        h1 { font-size: clamp(32px, 5.2vw, 48px); line-height: 1.14; font-weight: 800; letter-spacing: -0.8px; color: #e8f1f5; margin-bottom: 18px; }
+        h1 .hl { position: relative; display: inline-block; color: var(--green); }
+        h1 .hl i { position: absolute; left: 0; right: 0; bottom: -5px; height: 3px; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--cyan)); transform-origin: left; animation: underline 0.9s 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+        @keyframes underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .lead { color: var(--muted); font-size: 16px; line-height: 1.75; max-width: 440px; margin-bottom: 28px; }
 
-        /* ইনপুট ফিল্ডে ফোকাস করলে লেবেল গ্রেডিয়েন্ট হবে */
-        .field-group:focus-within .neon-label {
-            background: linear-gradient(90deg, var(--c-cyan), var(--c-green));
-            -webkit-background-clip: text; background-clip: text; color: transparent;
+        .info { list-style: none; display: grid; gap: 12px; margin-bottom: 34px; }
+        .info a, .info .item {
+            display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-radius: 14px; text-decoration: none; color: inherit;
+            background: var(--surface); border: 1px solid var(--line); transition: transform 0.25s ease, border-color 0.25s ease;
         }
+        .info a:hover { transform: translateX(4px); border-color: rgba(45, 226, 180, 0.4); }
+        .ico { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; color: var(--cyan); background: rgba(56, 199, 255, 0.09); border: 1px solid rgba(56, 199, 255, 0.2); }
+        .ico svg { width: 19px; height: 19px; }
+        .info .item:nth-child(2) .ico { color: var(--green); background: rgba(45, 226, 180, 0.09); border-color: rgba(45, 226, 180, 0.22); }
+        .info .item:nth-child(3) .ico { color: var(--peach); background: rgba(255, 159, 122, 0.09); border-color: rgba(255, 159, 122, 0.22); }
+        .info small { display: block; font-size: 12px; color: var(--dim); margin-bottom: 2px; letter-spacing: 0.3px; }
+        .info b { font-size: 14.5px; font-weight: 600; color: var(--text); overflow-wrap: anywhere; }
 
-        .neon-input {
-            width: 100%; background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 0.5rem;
-            padding: 0.875rem 1rem; color: #fff; font-size: 1rem; font-family: inherit; transition: all 0.3s ease;
+        .steps { list-style: none; counter-reset: s; display: grid; gap: 18px; }
+        .steps li { position: relative; padding-left: 46px; counter-increment: s; font-size: 14px; color: var(--muted); line-height: 1.5; }
+        .steps li b { display: block; color: var(--text); font-size: 14.5px; margin-bottom: 1px; }
+        .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 32px; height: 32px; display: grid; place-items: center; font-size: 13px; font-weight: 700; color: var(--green); border-radius: 50%; background: var(--surface); border: 1px solid var(--line-2); }
+        .steps li:not(:last-child)::after { content: ""; position: absolute; left: 15.5px; top: 36px; bottom: -14px; width: 1px; background: var(--line-2); }
+
+        /* ---------- Right: card ---------- */
+        .card {
+            position: relative; padding: 28px 26px 26px; border-radius: 22px;
+            background: linear-gradient(180deg, var(--surface-2), var(--surface));
+            border: 1px solid var(--line); box-shadow: 0 24px 50px rgba(0, 0, 0, 0.32);
         }
-        textarea.neon-input { resize: none; }
-        .neon-input::placeholder { color: rgba(255, 255, 255, 0.3); }
+        .card::after { content: ""; position: absolute; left: 26px; right: 26px; top: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(45, 226, 180, 0.5), rgba(56, 199, 255, 0.5), transparent); pointer-events: none; }
+        .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity 0.35s ease; background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 0%), rgba(56, 199, 255, 0.06), transparent 65%); }
+        @media (hover: hover) { .card:hover::before { opacity: 1; } }
 
-        /* ইনপুট ফিল্ডে ফোকাস গ্রেডিয়েন্ট শ্যাডো */
-        .neon-input:focus {
-            outline: none;
-            border-color: var(--c-cyan);
-            box-shadow: 0 0 15px rgba(0, 230, 255, 0.4), inset 0 0 8px rgba(255, 43, 110, 0.2);
-            background: rgba(0, 230, 255, 0.05);
+        form { position: relative; display: flex; flex-direction: column; gap: 14px; }
+        .card-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+        .card-head h2 { font-size: 21px; font-weight: 800; letter-spacing: -0.2px; }
+        .card-head p { font-size: 13px; color: var(--dim); margin-top: 2px; }
+        .pill { flex: none; font-size: 12.5px; font-weight: 700; color: var(--muted); padding: 6px 12px; border-radius: 20px; background: var(--field); border: 1px solid var(--line); transition: color 0.3s ease, border-color 0.3s ease; }
+        .pill.done { color: var(--green); border-color: rgba(45, 226, 180, 0.4); }
+        .meter { height: 3px; border-radius: 3px; background: var(--line); overflow: hidden; margin-bottom: 6px; }
+        .meter i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--green), var(--cyan)); transform: scaleX(0); transform-origin: left; transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+        /* ---------- Floating-label fields ---------- */
+        .field { position: relative; }
+        .field input, .field textarea {
+            display: block; width: 100%; font: inherit; font-size: 16px; color: var(--text);
+            background: var(--field); border: 1px solid var(--line); border-radius: 14px;
+            padding: 25px 14px 9px 46px; caret-color: var(--green);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            -webkit-appearance: none; appearance: none;
         }
+        .field textarea { resize: none; min-height: 126px; padding-bottom: 30px; line-height: 1.55; }
+        .field input::placeholder, .field textarea::placeholder { color: transparent; transition: color 0.2s ease; }
+        .field input:focus::placeholder, .field textarea:focus::placeholder { color: var(--dim); }
+        .field input:focus, .field textarea:focus { outline: none; border-color: rgba(45, 226, 180, 0.65); box-shadow: 0 0 0 3px rgba(45, 226, 180, 0.12); background: #0b1a25; }
+        .field input:valid:not(:placeholder-shown), .field textarea:valid:not(:placeholder-shown) { border-color: rgba(45, 226, 180, 0.28); }
+        .field label { position: absolute; left: 46px; top: 18px; font-size: 15px; color: var(--muted); pointer-events: none; transform-origin: left top; transition: transform 0.2s ease, color 0.2s ease; }
+        .field input:focus + label, .field input:not(:placeholder-shown) + label,
+        .field textarea:focus + label, .field textarea:not(:placeholder-shown) + label { transform: translateY(-11px) scale(0.78); color: var(--green); }
+        .f-ico { position: absolute; left: 15px; top: 18px; width: 19px; height: 19px; color: var(--dim); pointer-events: none; transition: color 0.2s ease; }
+        .field:focus-within .f-ico { color: var(--green); }
+        .hint { display: block; max-height: 0; opacity: 0; overflow: hidden; font-size: 12.5px; color: var(--danger); margin: 0 4px; transition: max-height 0.25s ease, opacity 0.25s ease, margin 0.25s ease; }
+        .field.touched input:invalid, .field.touched textarea:invalid { border-color: rgba(239, 139, 118, 0.7); }
+        .field.touched input:invalid ~ .hint, .field.touched textarea:invalid ~ .hint { max-height: 22px; opacity: 1; margin-top: 6px; }
+        .count { position: absolute; right: 14px; bottom: 10px; font-size: 11.5px; color: var(--dim); pointer-events: none; }
 
-        .btn-wrap { padding-top: 1rem; }
+        .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: -2px; }
+        .chips-label { font-size: 12px; color: var(--dim); margin-right: 2px; }
+        .chip { font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; padding: 7px 13px; border-radius: 20px; color: var(--muted); background: transparent; border: 1px solid var(--line-2); transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.15s ease; }
+        .chip:hover { color: var(--text); border-color: var(--dim); }
+        .chip:active { transform: scale(0.96); }
+        .chip.active { color: var(--green); border-color: rgba(45, 226, 180, 0.55); background: rgba(45, 226, 180, 0.09); }
 
-        /* হাই-এনার্জি অ্যানিমেটেড গ্রেডিয়েন্ট বাটন */
+        .form-error { display: none; padding: 12px 14px; border-radius: 12px; font-size: 14px; color: #f3b3a4; background: rgba(239, 139, 118, 0.1); border: 1px solid rgba(239, 139, 118, 0.35); }
+        .form-error.show { display: block; animation: rise 0.35s ease both; }
+
+        /* ---------- Send button ---------- */
+        .btn-wrap { padding-top: 6px; }
         .neon-btn {
-            width: 100%; padding: 1rem; border-radius: 0.5rem; display: flex; justify-content: center; align-items: center; gap: 0.5rem;
-            background: linear-gradient(90deg, var(--c-pink), var(--c-cyan), var(--c-green), var(--c-pink)); background-size: 300%;
-            animation: gradientMove 4s linear infinite; border: none;
-            color: #0b0f19; font-weight: 800; font-size: 1.1rem; font-family: inherit; cursor: pointer; position: relative; overflow: hidden; transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 230, 255, 0.5);
+            width: 100%; height: 54px; border: 0; border-radius: 14px; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+            font: inherit; font-size: 16px; font-weight: 800; color: #04141a;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            box-shadow: 0 10px 24px rgba(45, 226, 180, 0.14);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
         }
-        .neon-btn svg { width: 1.25rem; height: 1.25rem; }
-        .neon-btn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(255, 43, 110, 0.6), 0 0 20px rgba(0, 255, 136, 0.6);
-            color: #fff;
+        .neon-btn svg { width: 20px; height: 20px; }
+        .neon-btn .plane { transform: rotate(90deg); transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        @media (hover: hover) {
+            .neon-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(45, 226, 180, 0.2); }
+            .neon-btn:hover .plane { transform: rotate(90deg) translateY(-5px); }
         }
-        .neon-btn:active { transform: scale(0.98); }
+        .neon-btn:active { transform: scale(0.985); }
+        .secure { text-align: center; font-size: 12px; color: var(--dim); margin-top: 2px; }
 
-        /* Spinner */
+        /* Spinner (script এর স্পিনার এটাই ব্যবহার করে) */
         .spin { animation: spin 1s linear infinite; }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-        /* সাকসেস মেসেজ স্টাইল */
-        .success-state { display: none; text-align: center; padding: 2rem 0; }
+        /* ---------- Success ---------- */
+        .success-state { display: none; position: relative; text-align: center; padding: 26px 6px 8px; }
         .success-state.show { display: block; }
-        .success-icon { display: inline-flex; align-items: center; justify-content: center; width: 4.5rem; height: 4.5rem; border-radius: 50%; background: linear-gradient(45deg, var(--c-green), var(--c-cyan)); margin-bottom: 1rem; box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); animation: popIn 0.5s ease; }
-        @keyframes popIn { 0% { transform: scale(0); opacity: 0; } 70% { transform: scale(1.15); } 100% { transform: scale(1); opacity: 1; } }
-        .success-icon svg { width: 2.5rem; height: 2.5rem; color: #0b0f19; }
-        .success-state h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
-        .success-state p { color: #a0a0a0; font-size: 0.95rem; }
-        .reset-btn { margin-top: 1.5rem; background: none; border: none; font-size: 1rem; font-weight: 600; font-family: inherit; cursor: pointer; transition: all 0.2s ease; }
-        .reset-btn.gradient-text { display: inline-block; }
-        .reset-btn:hover { filter: brightness(1.2); text-decoration: underline; }
+        .sent-art { position: relative; width: 120px; height: 100px; margin: 0 auto 14px; }
+        .sent-plane { position: absolute; left: 50%; top: 50%; width: 38px; height: 38px; margin: -19px; color: var(--cyan); opacity: 0; }
+        .success-state.show .sent-plane { animation: planeFly 1.1s cubic-bezier(0.5, 0, 0.3, 1) both; }
+        @keyframes planeFly {
+            0% { opacity: 0; transform: translate(-90px, 46px) rotate(60deg) scale(0.7); }
+            30% { opacity: 1; }
+            100% { opacity: 0; transform: translate(80px, -60px) rotate(100deg) scale(1); }
+        }
+        .sent-check { position: absolute; left: 50%; top: 50%; width: 76px; height: 76px; margin: -38px; }
+        .sent-check circle { fill: rgba(45, 226, 180, 0.08); stroke: var(--green); stroke-width: 2.5; stroke-dasharray: 145; stroke-dashoffset: 145; }
+        .sent-check path { fill: none; stroke: var(--green); stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 40; stroke-dashoffset: 40; }
+        .success-state.show .sent-check circle { animation: draw 0.7s 0.55s ease forwards; }
+        .success-state.show .sent-check path { animation: draw 0.45s 1s ease forwards; }
+        @keyframes draw { to { stroke-dashoffset: 0; } }
+        .success-state h3 { font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #e8f1f5; outline: none; }
+        .success-state p { color: var(--muted); font-size: 15px; line-height: 1.6; max-width: 320px; margin: 0 auto; }
+        .s-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 24px; }
+        .reset-btn, .home-link { font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; text-decoration: none; padding: 11px 20px; border-radius: 12px; transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease; }
+        .reset-btn { color: #04141a; border: 0; background: linear-gradient(135deg, var(--green), var(--cyan)); }
+        .home-link { color: var(--text); background: transparent; border: 1px solid var(--line-2); }
+        .home-link:hover { border-color: var(--green); color: var(--green); }
+        .reset-btn:active, .home-link:active { transform: scale(0.97); }
+
+        /* ---------- Mobile ---------- */
+        @media (max-width: 860px) {
+            .grid { grid-template-columns: 1fr; gap: 26px; }
+            .steps { display: none; }
+            .lead { margin-bottom: 20px; }
+            .info { grid-template-columns: 1fr; margin-bottom: 4px; }
+            .info a, .info .item { padding: 9px 12px; gap: 11px; }
+            .ico { width: 34px; height: 34px; border-radius: 10px; }
+            .ico svg { width: 17px; height: 17px; }
+            .info small { display: none; }
+            .info b { font-size: 14px; }
+            .info .item { display: none; } /* ছোট স্ক্রিনে শুধু GitHub কার্ড */
+        }
+        @media (max-width: 480px) {
+            .shell { padding: 14px 14px 36px; }
+            .top { margin-bottom: 22px; }
+            .card { padding: 22px 16px 20px; border-radius: 20px; }
+            .card::after { left: 16px; right: 16px; }
+            .info a, .info .item { padding: 11px 13px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-
-    <div class="neon-container">
-        <a href="index.html" class="back-home gradient-text"><span class="arrow">&#8592;</span> Home</a>
-
-        <div class="form-header">
-            <h2 class="gradient-text">Contact Us</h2>
-            <p>We would love to hear from you!</p>
+    <div class="shell">
+        <div class="top rise">
+            <a href="index.html" class="back-home"><span class="arrow">&#8592;</span> Home</a>
+            <span class="brand">My Portfolio</span>
         </div>
 
-        <form action="https://api.web3forms.com/submit" method="post" id="glowForm">
-            <input type="hidden" name="access_key" value="3f1cc6be-ed95-4831-b984-0b19db2647e6">
+        <main class="grid">
+            <!-- ===== Left: intro ===== -->
+            <aside>
+                <p class="eyebrow rise" style="--i: 1"><span class="dot"></span> Open to collaborate</p>
+                <h1 class="rise" style="--i: 2">Let's build something <span class="hl">together<i></i></span></h1>
+                <p class="lead rise" style="--i: 3">Have a project idea, a collaboration in mind, or just want to say hi? Drop a message below &mdash; we would love to hear from you!</p>
 
-            <div class="field-group">
-                <label for="fullName" class="neon-label">Your Name</label>
-                <input type="text" id="fullName" name="from_name" class="neon-input" placeholder="e.g. John Doe" required>
-            </div>
-            <div class="field-group">
-                <label for="email" class="neon-label">Email Address</label>
-                <input type="email" id="email" name="email" class="neon-input" placeholder="e.g. john@example.com" required>
-            </div>
-            <div class="field-group">
-                <label for="subject" class="neon-label">Subject</label>
-                <input type="text" id="subject" name="subject" class="neon-input" placeholder="How can I help?" required>
-            </div>
-            <div class="field-group">
-                <label for="message" class="neon-label">Message</label>
-                <textarea id="message" name="message" rows="4" class="neon-input" placeholder="Write your message here..." required></textarea>
-            </div>
+                <ul class="info rise" style="--i: 4">
+                    <li>
+                        <a href="https://github.com/duttaanubhab777-code" target="_blank" rel="noopener">
+                            <span class="ico"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></span>
+                            <span><small>GitHub</small><b>@duttaanubhab777-code</b></span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg></span>
+                        <span><small>Collaboration</small><b>Open to team projects</b></span>
+                    </li>
+                    <li class="item">
+                        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></span>
+                        <span><small>Works with</small><b>HTML &middot; CSS &middot; JavaScript &middot; Node.js</b></span>
+                    </li>
+                </ul>
 
-            <div class="btn-wrap">
-                <button type="submit" class="neon-btn">
-                    <span>Send Message</span>
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                </button>
-            </div>
-        </form>
+                <ol class="steps rise" style="--i: 5">
+                    <li><b>Write</b>Tell us what's on your mind.</li>
+                    <li><b>Send</b>It's delivered straight to our inbox.</li>
+                    <li><b>Reply</b>You'll hear back by email.</li>
+                </ol>
+            </aside>
 
-        <div id="successState" class="success-state">
-            <div class="success-icon">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                </svg>
-            </div>
-            <h3 class="gradient-text">Message Sent!</h3>
-            <p>Thank you for contacting us. We will get back to you soon.</p>
-            <button onclick="resetForm()" class="reset-btn gradient-text">Send another message</button>
-        </div>
+            <!-- ===== Right: form card ===== -->
+            <section class="card rise" style="--i: 3" id="card">
+                <form action="https://api.web3forms.com/submit" method="post" id="glowForm">
+                    <input type="hidden" name="access_key" value="3f1cc6be-ed95-4831-b984-0b19db2647e6">
+                    <!-- spam protection (Web3Forms honeypot) — ইচ্ছাকৃতভাবে লুকানো -->
+                    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+                    <div class="card-head">
+                        <div>
+                            <h2>Send a message</h2>
+                            <p>Takes less than a minute</p>
+                        </div>
+                        <span class="pill" id="pill" aria-live="polite">0/4</span>
+                    </div>
+                    <div class="meter" aria-hidden="true"><i id="meterBar"></i></div>
+
+                    <div class="field">
+                        <svg class="f-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        <input type="text" id="fullName" name="from_name" placeholder="e.g. John Doe" autocomplete="name" required>
+                        <label for="fullName">Your Name</label>
+                        <small class="hint">Please enter your name</small>
+                    </div>
+
+                    <div class="field">
+                        <svg class="f-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <input type="email" id="email" name="email" placeholder="e.g. john@example.com" autocomplete="email" inputmode="email" required>
+                        <label for="email">Email Address</label>
+                        <small class="hint">Enter a valid email, like name@example.com</small>
+                    </div>
+
+                    <div class="field">
+                        <svg class="f-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                        <input type="text" id="subject" name="subject" placeholder="How can I help?" required>
+                        <label for="subject">Subject</label>
+                        <small class="hint">Add a short subject</small>
+                    </div>
+
+                    <div class="chips" role="group" aria-label="Quick subjects">
+                        <span class="chips-label">Quick pick</span>
+                        <button type="button" class="chip" data-subject="Collaboration">Collaboration</button>
+                        <button type="button" class="chip" data-subject="Project idea">Project idea</button>
+                        <button type="button" class="chip" data-subject="Feedback">Feedback</button>
+                        <button type="button" class="chip" data-subject="Say hi">Say hi</button>
+                    </div>
+
+                    <div class="field">
+                        <svg class="f-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+                        <textarea id="message" name="message" rows="4" maxlength="1000" placeholder="Write your message here..." required></textarea>
+                        <label for="message">Message</label>
+                        <span class="count" id="count">0 / 1000</span>
+                        <small class="hint">Write a few words</small>
+                    </div>
+
+                    <div class="form-error" id="formError" role="alert"></div>
+
+                    <div class="btn-wrap">
+                        <button type="submit" class="neon-btn">
+                            <span>Send Message</span>
+                            <svg class="plane" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="secure">Thank You for connecting.</p>
+                </form>
+
+                <div id="successState" class="success-state" role="status" aria-live="polite">
+                    <div class="sent-art">
+                        <svg class="sent-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        <svg class="sent-check" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="23"/><path d="M15 27l8 8 14-16"/></svg>
+                    </div>
+                    <h3 tabindex="-1">Message Sent!</h3>
+                    <p>Thank you for contacting us. We will get back to you soon.</p>
+                    <div class="s-actions">
+                        <button onclick="resetForm()" class="reset-btn">Send another message</button>
+                        <a href="index.html" class="home-link">Back to portfolio</a>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.getElementById('glowForm');
             if (form) {
+                const errorBox = document.getElementById('formError');
+                // alert() এর বদলে ফর্মের ভেতরেই সুন্দর করে error দেখায় (মেসেজ একই)
+                function showError(msg) {
+                    if (errorBox) { errorBox.textContent = msg; errorBox.classList.add('show'); }
+                    else { alert(msg); }
+                }
+
                 form.addEventListener('submit', function(event) {
                     event.preventDefault();
 
                     const successState = document.getElementById('successState');
                     const submitBtn = form.querySelector('button[type="submit"]');
                     const originalBtnContent = submitBtn.innerHTML;
+                    if (errorBox) errorBox.classList.remove('show');
 
                     // লোডিং স্পিনার অ্যানিমেশন
                     submitBtn.innerHTML = `
@@ -234,17 +394,73 @@
                             form.style.display = 'none';
                             successState.classList.add('show');
                             form.reset();
+                            const done = successState.querySelector('h3');
+                            if (done) done.focus({ preventScroll: true });
+                            const c = document.getElementById('card');
+                            if (c) c.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         } else {
-                            alert("Oops! Something went wrong.");
+                            showError("Oops! Something went wrong.");
                         }
                     }).catch(error => {
-                        alert("Network error! Please check your connection.");
+                        showError("Network error! Please check your connection.");
                     }).finally(() => {
                         submitBtn.innerHTML = originalBtnContent;
                         submitBtn.style.pointerEvents = 'auto';
                         submitBtn.style.opacity = '1';
                     });
                 });
+
+                /* ---------- UX: progress, counter, chips, validation hints ---------- */
+                const req = form.querySelectorAll('[required]');
+                const pill = document.getElementById('pill');
+                const bar = document.getElementById('meterBar');
+                const subject = document.getElementById('subject');
+                const msg = document.getElementById('message');
+                const count = document.getElementById('count');
+                const chips = form.querySelectorAll('.chip');
+
+                function refresh() {
+                    let n = 0;
+                    req.forEach(el => { if (el.validity.valid) n++; }); // checkValidity() 'invalid' ইভেন্ট ছোঁড়ে, তাই validity.valid
+                    pill.textContent = n + '/' + req.length;
+                    pill.classList.toggle('done', n === req.length);
+                    bar.style.transform = 'scaleX(' + (n / req.length) + ')';
+                    chips.forEach(c => c.classList.toggle('active', c.dataset.subject === subject.value.trim()));
+                    count.textContent = msg.value.length + ' / ' + msg.maxLength;
+                    msg.style.height = 'auto';
+                    msg.style.height = Math.min(Math.max(msg.scrollHeight, 126), 300) + 'px';
+                }
+                form.addEventListener('input', refresh);
+                form.addEventListener('reset', () => setTimeout(() => {
+                    form.querySelectorAll('.field').forEach(f => f.classList.remove('touched'));
+                    msg.style.height = '';
+                    refresh();
+                }, 0));
+                req.forEach(el => el.addEventListener('blur', () => el.closest('.field').classList.add('touched')));
+                // ভুল থাকা ফিল্ড submit এ আটকালে hint দেখাও
+                form.addEventListener('invalid', e => { const f = e.target.closest('.field'); if (f) f.classList.add('touched'); }, true);
+
+                chips.forEach(chip => chip.addEventListener('click', () => {
+                    subject.value = chip.dataset.subject;
+                    subject.dispatchEvent(new Event('input', { bubbles: true }));
+                }));
+                refresh();
+
+                /* কার্ডের ওপর কার্সরের জায়গায় খুব হালকা আলো (শুধু মাউস থাকলে) */
+                const card = document.getElementById('card');
+                if (card && window.matchMedia('(hover: hover)').matches) {
+                    let raf = 0, px = 0, py = 0;
+                    card.addEventListener('pointermove', e => {
+                        px = e.clientX; py = e.clientY;
+                        if (raf) return;
+                        raf = requestAnimationFrame(() => {
+                            const r = card.getBoundingClientRect();
+                            card.style.setProperty('--mx', (px - r.left) + 'px');
+                            card.style.setProperty('--my', (py - r.top) + 'px');
+                            raf = 0;
+                        });
+                    });
+                }
             }
         });
 
