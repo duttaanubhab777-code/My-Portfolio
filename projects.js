@@ -103,6 +103,22 @@ const PROJECTS = [
 
     /* ===== My Projects (team নেই) ===== */
     {
+        title: "Email Sender",
+        image: "image/email-sender.jpg",
+        fallback: "https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png",
+        desc: `Email Sender is my own full-stack contact-form API service — it does what Formspree or Web3Forms does, but I own every line of it.<br><br>
+<ul>
+  <li><b>Reliable Mail Delivery:</b> Messages are saved to the database first, then sent through a Flask and Gmail SMTP relay with automatic retries, so nothing is lost even when the free server sleeps.</li>
+  <li><b>Secure Accounts &amp; API Keys:</b> OTP-verified signup and password reset, bcrypt hashing, JWT sessions in httpOnly cookies, per-key monthly limits, rate limiting and a spam honeypot.</li>
+  <li><b>Admin &amp; Kill Switch:</b> Admin and Super Admin roles with an approval system, user and email management, broadcast notices and a five-step emergency Kill Switch.</li>
+  <li><b>Frontend &amp; PWA:</b> A hand-written React 19 + Vite dashboard with dark and light themes, live charts, a built-in API tester, 14 copy-paste code snippets, web push notifications and installable PWA support.</li>
+  <li><b>Built Solo &amp; Deployed:</b> Designed, coded and tested entirely from my phone, deployed with Node.js and Express on Render, MongoDB Atlas, and the relay on PythonAnywhere.</li>
+</ul>`,
+        tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Flask", "PWA", "REST API"],
+        demo: "https://email-sender-wy5o.onrender.com",
+        code: "https://github.com/duttaanubhab777-code/Email-Sender"
+    },
+    {
         title: "Weather App",
         image: "image/weather.jpg",
         desc: `A clean, fast weather app that shows live conditions and forecasts the moment you ask for them.<br><br>
@@ -182,6 +198,9 @@ const PROJECTS = [
 
 /* বুলেটের title দেখে উপযুক্ত আইকন বেছে নেয় */
 const ICON_RULES = [
+    [/mail|delivery|outbox/i, "fa-envelope"],
+    [/secure|auth|security|account/i, "fa-shield-halved"],
+    [/admin|kill/i, "fa-user-shield"],
     [/\bAI\b/i, "fa-robot"],
     [/database/i, "fa-database"],
     [/backend|server|templating/i, "fa-server"],
@@ -259,7 +278,7 @@ function cardHTML(p, i) {
           <div class="stage-bg"></div>
           <span class="idx">${num}</span>
           <div class="phone" data-full="${p.image}" data-title="${p.title}">
-            <img src="${thumbOf(p.image)}" alt="${p.title} screenshot" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${p.image}'">
+            <img src="${thumbOf(p.image)}" alt="${p.title} screenshot" loading="lazy" decoding="async" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${p.image}'}else{this.onerror=null;${p.fallback ? `this.src='${p.fallback}'` : ''}}">
           </div>
           <button class="zoom-chip" type="button" aria-label="View ${p.title} screenshot full size"><i class="fa-solid fa-expand"></i> View full</button>
         </div>

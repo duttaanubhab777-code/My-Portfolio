@@ -148,9 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
      লাইনগুলো এই ডাটা থেকে JS বানায়, তাই index.html ফরম্যাট/Prettier করলেও
      কার্ড আর ভাঙবে না। কিছু বদলাতে চাইলে শুধু নিচের ME অবজেক্ট এডিট করো। */
     const ME = {
-        role: "Student Developer",
-        stack: ["HTML", "CSS", "JavaScript"],
-        learning: ["Node.js","Mongoose", "MongoDB"],
+        role: "Full-Stack Developer",
+        frontend: ["HTML", "CSS", "JavaScript", "React"],
+        backend: ["Node.js", "Express", "MongoDB"],
+        builtSolo: "Email Sender",
         teamsUpWith: "Arnab Adhikari",
         motto: "Learn by building",
         openToCollab: true

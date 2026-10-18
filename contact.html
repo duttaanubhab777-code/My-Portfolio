@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#08121a" />
+        <link rel="icon" type="image/png" href="https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png" />
         <title>Contact | My Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -685,6 +686,50 @@
                 margin-top: 2px;
             }
 
+            /* Honeypot (Email Sender spam trap) — মানুষ দেখে না, বট পূরণ করে */
+            .hp {
+                position: absolute;
+                left: -9999px;
+                width: 0;
+                height: 0;
+                opacity: 0;
+            }
+
+            /* Powered by Email Sender badge */
+            .powered {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                margin-top: 16px;
+                padding-top: 14px;
+                border-top: 1px dashed var(--line);
+                font-size: 12.5px;
+                color: var(--dim);
+                text-decoration: none;
+                transition: color 0.25s ease;
+            }
+            .powered img {
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+                transition: transform 0.35s ease;
+            }
+            .powered b {
+                font-size: 13.5px;
+                font-weight: 800;
+                color: #4da3ff;
+            }
+            .powered b span {
+                color: #ff8a2a;
+            }
+            .powered:hover {
+                color: var(--muted);
+            }
+            .powered:hover img {
+                transform: rotate(-10deg) scale(1.12);
+            }
+
             /* Spinner (script এর স্পিনার এটাই ব্যবহার করে) */
             .spin {
                 animation: spin 1s linear infinite;
@@ -977,8 +1022,8 @@
                             <span
                                 ><small>Works with</small
                                 ><b
-                                    >HTML &middot; CSS &middot; JavaScript
-                                    &middot; Node.js</b
+                                    >React &middot; Node.js &middot; Express
+                                    &middot; MongoDB</b
                                 ></span
                             >
                         </li>
@@ -996,28 +1041,24 @@
                 <!-- ===== Right: form card ===== -->
                 <section class="card rise" style="--i: 3" id="card">
                     <form
-                        action="https://api.web3forms.com/submit"
-                        method="post"
+                        action="https://email-sender-wy5o.onrender.com/api/v1/mail/send"
+                        method="POST"
                         id="glowForm"
                     >
+                        <!-- Email Sender (my own contact-form API) -->
                         <input
                             type="hidden"
                             name="access_key"
-                            value="1ad30035-b220-47ad-b40c-1d84261c2b1b"
+                            value="Anubhab_email_sndr_e221578d3b6597a271ed3804ff1e1d48"
                         />
-
+                        <!-- spam protection (Email Sender honeypot) — ইচ্ছাকৃতভাবে লুকানো -->
                         <input
-                            type="hidden"
-                            name="subject"
-                            value="New Message from Portfolio"
-                        />
-                        <!-- spam protection (Web3Forms honeypot) — ইচ্ছাকৃতভাবে লুকানো -->
-                        <input
-                            type="checkbox"
+                            type="text"
                             name="botcheck"
+                            class="hp"
                             tabindex="-1"
                             autocomplete="off"
-                            style="display: none"
+                            aria-hidden="true"
                         />
 
                         <div class="card-head">
@@ -1051,7 +1092,7 @@
                             <input
                                 type="text"
                                 id="fullName"
-                                name="from_name"
+                                name="name"
                                 placeholder="e.g. John Doe"
                                 autocomplete="name"
                                 required
@@ -1109,7 +1150,7 @@
                             <input
                                 type="text"
                                 id="subject"
-                                name="user_subject"
+                                name="subject"
                                 placeholder="How can I help?"
                                 required
                             />
@@ -1206,6 +1247,23 @@
                             </button>
                         </div>
                         <p class="secure">Thank You for connecting.</p>
+                        <a
+                            class="powered"
+                            href="https://email-sender-wy5o.onrender.com"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            Powered by
+                            <img
+                                src="https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png"
+                                data-fb="https://res.cloudinary.com/khvkgpxq/image/upload/w_64,h_64,c_fit,f_auto,q_auto/v1791551108/badge-logo.png"
+                                alt=""
+                                width="30"
+                                height="30"
+                                onerror="if(this.dataset.f){this.style.display='none'}else{this.dataset.f=1;this.src=this.dataset.fb}"
+                            />
+                            <b>Email <span>Sender</span></b>
+                        </a>
                     </form>
 
                     <div
@@ -1259,7 +1317,16 @@
                 const form = document.getElementById("glowForm");
                 if (form) {
                     const errorBox = document.getElementById("formError");
-                    // alert() এর বদলে ফর্মের ভেতরেই সুন্দর করে error দেখায় (মেসেজ একই)
+                    const successState =
+                        document.getElementById("successState");
+                    const submitBtn = form.querySelector(
+                        'button[type="submit"]'
+                    );
+                    const originalBtnContent = submitBtn.innerHTML;
+                    const OUTBOX = "es-outbox";
+                    const RETRY = [3000, 8000, 20000, 45000, 90000];
+
+                    // alert() এর বদলে ফর্মের ভেতরেই সুন্দর করে error দেখায়
                     function showError(msg) {
                         if (errorBox) {
                             errorBox.textContent = msg;
@@ -1269,15 +1336,136 @@
                         }
                     }
 
+                    /* ---------- Email Sender: outbox + retry ----------
+                       মেসেজ আগে ডিভাইসে সেভ হয়, তারপর পাঠানো হয়।
+                       সার্ভার ঘুমিয়ে থাকলেও মেসেজ হারায় না। একই submissionId
+                       আবার পাঠালেও সার্ভারে ডুপ্লিকেট হয় না। */
+                    function uid() {
+                        try {
+                            return crypto.randomUUID();
+                        } catch (e) {}
+                        return (
+                            "es" +
+                            Date.now().toString(36) +
+                            Math.random().toString(36).slice(2, 12)
+                        );
+                    }
+                    function load() {
+                        try {
+                            return JSON.parse(localStorage.getItem(OUTBOX)) || [];
+                        } catch (e) {
+                            return [];
+                        }
+                    }
+                    function save(list) {
+                        try {
+                            localStorage.setItem(OUTBOX, JSON.stringify(list));
+                        } catch (e) {}
+                    }
+                    function drop(id) {
+                        save(load().filter(m => m.id !== id));
+                    }
+
+                    // ফর্ম খোলা/ফোকাস হলেই সার্ভারকে জাগিয়ে দেয় (ঘুমিয়ে থাকলে)
+                    let warmed = false;
+                    function warm() {
+                        if (warmed) return;
+                        warmed = true;
+                        try {
+                            fetch(form.action.replace(/send$/, "ping"), {
+                                mode: "no-cors",
+                                cache: "no-store"
+                            }).catch(function () {});
+                        } catch (e) {}
+                    }
+                    form.addEventListener("focusin", warm);
+                    form.addEventListener("pointerdown", warm);
+                    if ("IntersectionObserver" in window) {
+                        new IntersectionObserver(function (entries, observer) {
+                            if (entries[0].isIntersecting) {
+                                warm();
+                                observer.disconnect();
+                            }
+                        }).observe(form);
+                    }
+
+                    function onResponse(res) {
+                        if (res.ok) return { ok: true };
+                        // 400-403 = ফর্ম/কী ভুল, আবার চেষ্টা করে লাভ নেই
+                        const isFinal = res.status >= 400 && res.status <= 403;
+                        return { ok: false, final: isFinal, status: res.status };
+                    }
+                    function onNetworkError() {
+                        return { ok: false, final: false, status: 0 };
+                    }
+                    function post(item) {
+                        let body = item.body;
+                        if (typeof body === "string")
+                            body = new URLSearchParams(body);
+                        return fetch(item.action, {
+                            method: "POST",
+                            headers: { Accept: "application/json" },
+                            body: body,
+                            keepalive: body.toString().length < 60000
+                        }).then(onResponse, onNetworkError);
+                    }
+                    function deliver(item, n) {
+                        return post(item).then(function (r) {
+                            if (r.ok || r.final) {
+                                drop(item.id);
+                                return r;
+                            }
+                            // রিট্রাই শেষ হলে outbox এ থাকে, পরের ভিজিটে আবার যায়
+                            if (n >= RETRY.length) return r;
+                            return new Promise(function (resolve) {
+                                setTimeout(resolve, RETRY[n]);
+                            }).then(function () {
+                                return deliver(item, n + 1);
+                            });
+                        });
+                    }
+
+                    // আগের বার যা যায়নি (ট্যাব বন্ধ/অফলাইন) পেজ খুললেই আবার পাঠায়
+                    const DAY = 24 * 3600 * 1000;
+                    load().forEach(function (item) {
+                        if (Date.now() - item.t > DAY) return drop(item.id);
+                        if (item.action === form.action) deliver(item, 1);
+                    });
+
+                    function showSent() {
+                        form.style.display = "none";
+                        successState.classList.add("show");
+                        form.reset();
+                        const done = successState.querySelector("h3");
+                        if (done) done.focus({ preventScroll: true });
+                        const c = document.getElementById("card");
+                        if (c)
+                            c.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+                    }
+                    function fail(r) {
+                        if (r.status === 0)
+                            showError(
+                                "Network error! Please check your connection."
+                            );
+                        else if (r.status === 429)
+                            showError(
+                                "Too many messages. Please try again in a little while."
+                            );
+                        else if (r.status === 401 || r.status === 403)
+                            showError("This form is not set up correctly.");
+                        else showError("Oops! Something went wrong.");
+                    }
+                    function idle() {
+                        submitBtn.innerHTML = originalBtnContent;
+                        submitBtn.style.pointerEvents = "auto";
+                        submitBtn.style.opacity = "1";
+                    }
+
                     form.addEventListener("submit", function (event) {
                         event.preventDefault();
-
-                        const successState =
-                            document.getElementById("successState");
-                        const submitBtn = form.querySelector(
-                            'button[type="submit"]'
-                        );
-                        const originalBtnContent = submitBtn.innerHTML;
                         if (errorBox) errorBox.classList.remove("show");
 
                         // লোডিং স্পিনার অ্যানিমেশন
@@ -1291,40 +1479,52 @@
                         submitBtn.style.pointerEvents = "none";
                         submitBtn.style.opacity = "0.9";
 
-                        fetch(form.action, {
-                            method: form.method,
-                            body: new FormData(form),
-                            headers: { Accept: "application/json" }
-                        })
-                            .then(response => {
-                                if (response.ok) {
-                                    form.style.display = "none";
-                                    successState.classList.add("show");
-                                    form.reset();
-                                    const done =
-                                        successState.querySelector("h3");
-                                    if (done)
-                                        done.focus({ preventScroll: true });
-                                    const c = document.getElementById("card");
-                                    if (c)
-                                        c.scrollIntoView({
-                                            behavior: "smooth",
-                                            block: "center"
-                                        });
-                                } else {
-                                    showError("Oops! Something went wrong.");
-                                }
-                            })
-                            .catch(error => {
-                                showError(
-                                    "Network error! Please check your connection."
-                                );
-                            })
-                            .finally(() => {
-                                submitBtn.innerHTML = originalBtnContent;
-                                submitBtn.style.pointerEvents = "auto";
-                                submitBtn.style.opacity = "1";
-                            });
+                        const data = new FormData(form);
+                        const id = uid();
+                        data.set("submissionId", id);
+                        // পোর্টফোলিও থেকে এসেছে বোঝার জন্য সাবজেক্টের আগে ট্যাগ
+                        data.set(
+                            "subject",
+                            "[Portfolio] " +
+                                String(data.get("subject") || "").slice(0, 180)
+                        );
+                        // যে পেজে ফর্ম পূরণ হয়েছে তার পুরো লিংক
+                        data.set("pageUrl", window.location.href);
+                        const item = {
+                            id: id,
+                            action: form.action,
+                            body: new URLSearchParams(data),
+                            t: Date.now()
+                        };
+                        // আগে ডিভাইসে সেভ, তারপর পাঠানো
+                        const list = load();
+                        list.push({
+                            id: id,
+                            action: item.action,
+                            body: item.body.toString(),
+                            t: item.t
+                        });
+                        save(list);
+
+                        let settled = false;
+                        function finish(r) {
+                            if (settled) return;
+                            settled = true;
+                            if (r.ok) showSent();
+                            else fail(r);
+                            idle();
+                        }
+
+                        // সার্ভার সাধারণত ১-২ সেকেন্ডে উত্তর দেয়। ২.৫ সেকেন্ডের পর
+                        // ভিজিটরকে আটকে না রেখে "Sent" দেখায়; আসল ডেলিভারি
+                        // ব্যাকগ্রাউন্ডে রিট্রাই সহ চলতে থাকে।
+                        const timer = setTimeout(function () {
+                            finish({ ok: true });
+                        }, 2500);
+                        deliver(item, 0).then(function (r) {
+                            clearTimeout(timer);
+                            if (!settled) finish(r);
+                        });
                     });
 
                     /* ---------- UX: progress, counter, chips, validation hints ---------- */

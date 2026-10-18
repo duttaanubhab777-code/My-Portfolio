@@ -607,6 +607,14 @@ a {
     background: linear-gradient(135deg, var(--c-purple), var(--c-green));
     box-shadow: 0 0 14px rgba(124, 140, 255, 0.5);
 }
+.tech-badge:nth-child(5) span {
+    background: linear-gradient(135deg, var(--c-green), var(--c-pink));
+    box-shadow: 0 0 14px rgba(45, 226, 180, 0.5);
+}
+.tech-badge:nth-child(6) span {
+    background: linear-gradient(135deg, var(--c-cyan), var(--c-purple));
+    box-shadow: 0 0 14px rgba(56, 199, 255, 0.5);
+}
 @keyframes orbitSpin {
     to {
         transform: rotate(360deg);

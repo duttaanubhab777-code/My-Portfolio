@@ -1,6 +1,6 @@
 # My Portfolio
 
-A personal developer portfolio built with plain **HTML, CSS & JavaScript** — no frameworks, no build step. Dark, cyberpunk-inspired UI with a green neon accent, animated hero background, scroll-triggered reveals, and interactive project cards.
+A personal **full-stack developer** portfolio. The site itself is built with plain **HTML, CSS & JavaScript** — no frameworks, no build step — and it showcases projects across React, Node.js/Express, MongoDB and Flask. Dark, cyberpunk-inspired UI with a green neon accent, animated hero background, scroll-triggered reveals, and interactive project cards.
 
 **Live site:** https://duttaanubhab777-code.github.io/My-Portfolio/
 
@@ -25,7 +25,7 @@ A personal developer portfolio built with plain **HTML, CSS & JavaScript** — n
 ```
 My-Portfolio/
 ├── index.html      # Home page — hero, skills, projects, footer
-├── contact.html     # Standalone contact form page
+├── contact.html     # Contact page — form posts to my Email Sender API
 ├── style.css        # All styling & animations
 ├── script.js        # Preloader, scroll reveals, particles, tilt effect, nav
 ├── image/           # Project thumbnail images
@@ -38,7 +38,7 @@ My-Portfolio/
 - CSS3 (custom properties, conic-gradient, keyframe animations)
 - Vanilla JavaScript (Canvas API, IntersectionObserver)
 - [Font Awesome](https://fontawesome.com/) for icons
-- [Web3Forms](https://web3forms.com/) to handle the contact form
+- [Email Sender](https://email-sender-wy5o.onrender.com) — my own contact-form API (Node.js, Express, MongoDB, Flask mail relay) that delivers messages straight to my inbox
 
 ## 🚀 Running Locally
 
@@ -55,6 +55,10 @@ No build tools needed — it's static HTML/CSS/JS.
 
 | Project | Stack |
 |---|---|
+| Email Sender | React, Node.js, Express, MongoDB, Flask, PWA |
+| Friendly Flux (team) | HTML, CSS, JavaScript, Python, Flask |
+| Beyonder AI (team) | HTML, CSS, JavaScript, Python, Flask, SQLite |
+| AA News (team) | HTML, CSS, JavaScript, Python, Flask, SQLite |
 | Beyonder AI | HTML, CSS, JavaScript |
 | Weather App | HTML, CSS, JavaScript |
 | Calculator | HTML, CSS, JavaScript |
@@ -66,7 +70,14 @@ Each project card links to a live demo and its GitHub source.
 
 ## 📬 Contact
 
-Reach out through the [contact page](contact.html) or via the social links in the footer.
+The [contact page](contact.html) sends messages through **Email Sender**, my own form-to-inbox API (a self-built alternative to Web3Forms/Formspree):
+
+- The message is saved first and delivered in the background, so it is never lost even if the server is asleep
+- Failed sends are retried automatically; a unique `submissionId` prevents duplicate emails
+- A hidden honeypot field blocks simple bots, and the API key is checked on the server
+- The full page URL is included in the email so I know where each message came from
+
+You can also reach me via the social links in the footer.
 
 ## 📄 License
 
