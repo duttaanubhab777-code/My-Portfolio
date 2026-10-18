@@ -8,7 +8,7 @@
             content="Full-Stack Developer Portfolio — React, Node.js, Express, MongoDB, HTML, CSS & JavaScript projects."
         />
         <title>My Portfolio</title>
-        <meta name="theme-color" content="#08121a" />
+        <meta name="theme-color" content="#0a0d22" />
         <link rel="icon" type="image/png" href="https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png" />
         <link
             rel="preload"
@@ -75,6 +75,11 @@
                         >
                     </li>
                     <li>
+                        <a href="#fullstack"
+                            ><i class="fa-solid fa-layer-group"></i> Full Stack</a
+                        >
+                    </li>
+                    <li>
                         <a href="#collaborations"
                             ><i class="fa-solid fa-people-group"></i>
                             Collaborations</a
@@ -129,7 +134,7 @@
                         <a href="contact.html" class="btn btn-glow"
                             >Let's Connect</a
                         >
-                        <a href="#collaborations" class="btn btn-outline"
+                        <a href="#fullstack" class="btn btn-outline"
                             >See Work <i class="fa-solid fa-arrow-down"></i
                         ></a>
                     </div>
@@ -137,6 +142,10 @@
 
                 <div class="hero-image reveal-right">
                     <div class="hero-stage">
+                        <div class="aurora-ring" aria-hidden="true"></div>
+                        <div class="sparkles" aria-hidden="true">
+                            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                        </div>
                         <div class="orbit-ring ring-1"></div>
                         <div class="orbit-ring ring-2"></div>
                         <div class="hero-disc"></div>
@@ -145,8 +154,8 @@
                                 class="hero-photo"
                                 src="image/profile.webp"
                                 alt="My profile picture"
-                                width="640"
-                                height="711"
+                                width="720"
+                                height="798"
                                 fetchpriority="high"
                                 decoding="async"
                             />
@@ -219,16 +228,16 @@
 
                 <div class="about-text reveal-right">
                     <p>
-                        I'm a <strong class="hl-cyan">full-stack developer</strong>
+                        I'm a <strong class="hl-amber">full-stack developer</strong>
                         who loves turning ideas into real, working products —
                         from the interface to the server. I build UIs with
-                        <strong class="hl-cyan">HTML, CSS, JavaScript &amp; React</strong>
+                        <strong class="hl-amber">HTML, CSS, JavaScript &amp; React</strong>
                         and power them with
-                        <strong class="hl-green">Node.js, Express &amp; MongoDB</strong>.
+                        <strong class="hl-orange">Node.js, Express &amp; MongoDB</strong>.
                     </p>
                     <p>
                         My biggest solo build is
-                        <strong class="hl-pink">Email Sender</strong> — my own
+                        <strong class="hl-coral">Email Sender</strong> — my own
                         contact-form API, like Formspree or Web3Forms, with OTP
                         accounts, API keys, an admin panel, a retry queue so no
                         message is ever lost, and an installable PWA. It now
@@ -237,7 +246,7 @@
                     </p>
                     <p>
                         I also team up with my friend
-                        <strong class="hl-pink">Arnab Adhikari</strong> (<a
+                        <strong class="hl-coral">Arnab Adhikari</strong> (<a
                             href="https://github.com/arnabadhikari777"
                             target="_blank"
                             rel="noopener"
@@ -263,17 +272,17 @@
             </div>
 
             <div class="about-stats">
-                <div class="stat reveal-up" style="--delay: 0.05s">
+                <div class="stat reveal-pop" style="--delay: 0.05s">
                     <i class="fa-solid fa-rocket"></i
                     ><b data-stat="projects" data-count="0">0</b
                     ><span>Projects Built</span>
                 </div>
-                <div class="stat reveal-up" style="--delay: 0.15s">
+                <div class="stat reveal-pop" style="--delay: 0.15s">
                     <i class="fa-solid fa-people-group"></i
                     ><b data-stat="team" data-count="0">0</b
                     ><span>Team Projects</span>
                 </div>
-                <div class="stat reveal-up" style="--delay: 0.25s">
+                <div class="stat reveal-pop" style="--delay: 0.25s">
                     <i class="fa-solid fa-layer-group"></i
                     ><b data-stat="tech" data-count="0">0</b
                     ><span>Technologies Used</span>
@@ -289,21 +298,21 @@
             </p>
 
             <div class="skills-container">
-                <div class="skill-card reveal-up" style="--delay: 0.1s">
+                <div class="skill-card reveal-zoom" style="--delay: 0.1s">
                     <div class="ring" style="--pct: 90"><span>90%</span></div>
                     <div class="icon"><i class="fa-solid fa-code"></i></div>
                     <h3>Frontend Development</h3>
                     <p>HTML5, CSS3, JavaScript, React &amp; Vite.</p>
                 </div>
 
-                <div class="skill-card reveal-up" style="--delay: 0.2s">
+                <div class="skill-card reveal-zoom" style="--delay: 0.2s">
                     <div class="ring" style="--pct: 75"><span>75%</span></div>
                     <div class="icon"><i class="fa-solid fa-server"></i></div>
                     <h3>Backend Development</h3>
                     <p>Node.js, Express, MongoDB, Mongoose, JWT auth &amp; a Flask mail relay.</p>
                 </div>
 
-                <div class="skill-card reveal-up" style="--delay: 0.3s">
+                <div class="skill-card reveal-zoom" style="--delay: 0.3s">
                     <div class="ring" style="--pct: 25"><span>25%</span></div>
                     <div class="icon">
                         <i class="fa-solid fa-pen-ruler"></i>
@@ -312,6 +321,45 @@
                     <p>Learning Figma, Wireframing, and Prototyping.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Full-Stack Projects Section — নিজে একা বানানো পুরো full-stack প্রজেক্ট (projects.js এ type: "fullstack") -->
+        <section id="fullstack">
+            <div class="fs-deco" aria-hidden="true"><i></i><i></i><i></i></div>
+            <h2 class="section-title reveal-up">Full-Stack Projects</h2>
+            <p class="section-sub reveal-up" style="--delay: 0.05s">
+                End-to-end products &mdash; interface, API, database and
+                deployment, all built solo
+            </p>
+
+            <div class="fs-flow reveal-up" style="--delay: 0.1s" aria-label="Email Sender architecture">
+                <div class="fs-node" style="--i: 0">
+                    <span class="fs-ico"><i class="fa-brands fa-react"></i></span>
+                    <b>React + Vite</b><small>Dashboard &amp; PWA</small>
+                </div>
+                <span class="fs-link" aria-hidden="true"><i></i></span>
+                <div class="fs-node" style="--i: 1">
+                    <span class="fs-ico"><i class="fa-brands fa-node-js"></i></span>
+                    <b>Node + Express</b><small>REST API &amp; JWT</small>
+                </div>
+                <span class="fs-link" aria-hidden="true"><i></i></span>
+                <div class="fs-node" style="--i: 2">
+                    <span class="fs-ico"><i class="fa-solid fa-database"></i></span>
+                    <b>MongoDB Atlas</b><small>Users, keys &amp; mail</small>
+                </div>
+                <span class="fs-link" aria-hidden="true"><i></i></span>
+                <div class="fs-node" style="--i: 3">
+                    <span class="fs-ico"><i class="fa-brands fa-python"></i></span>
+                    <b>Flask Relay</b><small>SMTP sender</small>
+                </div>
+                <span class="fs-link" aria-hidden="true"><i></i></span>
+                <div class="fs-node" style="--i: 4">
+                    <span class="fs-ico"><i class="fa-solid fa-paper-plane"></i></span>
+                    <b>Inbox</b><small>Delivered</small>
+                </div>
+            </div>
+
+            <div class="projects-container fs-container" id="fullstack-grid"></div>
         </section>
 
         <!-- Collaboration Projects Section — এইটা Projects এর আগে রাখা হয়েছে কারণ এগুলো বেশি আকর্ষণীয় -->

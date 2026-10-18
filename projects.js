@@ -3,8 +3,9 @@
    নতুন প্রজেক্ট যোগ করতে নিচের PROJECTS array তে একটা { ... } block বসাও।
    HTML বদলানোর দরকার নেই।
 
-   - "team" আছে  => Collaboration Projects section এ যাবে
-   - "team" নেই  => My Projects section এ যাবে
+   - "team" আছে          => Collaboration Projects section এ যাবে
+   - type: "fullstack"  => Full-Stack Projects section এ যাবে (একা বানানো)
+   - বাকি সব (team নেই)  => My Projects section এ যাবে
    ===================================================== */
 
 /* ---------- লোকের তথ্য (একবারই লেখা, প্রজেক্টে শুধু key দিলেই হবে) ---------- */
@@ -12,13 +13,13 @@ const PEOPLE = {
     anubhab: {
         name: "Anubhab Dutta",
         icon: "fa-user-astronaut",
-        color: "#2de2b4",
+        color: "#ff7a3d",
         github: "https://github.com/duttaanubhab777-code"
     },
     arnab: {
         name: "Arnab Adhikari",
         icon: "fa-user-ninja",
-        color: "#ff9f7a",
+        color: "#ff5a4f",
         github: "https://arnabadhikari777.github.io/My-Portfolio./"
     }
 };
@@ -101,9 +102,10 @@ const PROJECTS = [
         ]
     },
 
-    /* ===== My Projects (team নেই) ===== */
+    /* ===== Full-Stack (type: "fullstack") + My Projects (team নেই) ===== */
     {
         title: "Email Sender",
+        type: "fullstack",
         image: "image/email-sender.jpg",
         fallback: "https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png",
         desc: `Email Sender is my own full-stack contact-form API service — it does what Formspree or Web3Forms does, but I own every line of it.<br><br>
@@ -234,12 +236,17 @@ const thumbOf = s => s.replace(/^image\/([^/]+)\.\w+$/, "image/thumb/$1.webp");
 function cardHTML(p, i) {
     const { lead, items } = parseDesc(p.desc);
     const isTeam = !!p.team;
+    const isFull = p.type === "fullstack";
     const ribbon = isTeam
         ? `<span class="featured-ribbon">TEAM PROJECT</span>`
-        : "";
+        : isFull
+          ? `<span class="featured-ribbon fs-ribbon">FULL-STACK</span>`
+          : "";
     const kind = isTeam
         ? ""
-        : `<span class="kind"><i class="fa-solid fa-bolt"></i> SOLO BUILD</span>`;
+        : isFull
+          ? `<span class="kind"><i class="fa-solid fa-layer-group"></i> FULL-STACK · SOLO</span>`
+          : `<span class="kind"><i class="fa-solid fa-bolt"></i> SOLO BUILD</span>`;
 
     const creators = isTeam
         ? `<div class="creators-box">
@@ -272,7 +279,7 @@ function cardHTML(p, i) {
     const num = String(i + 1).padStart(2, "0");
 
     return `
-      <div class="project-card reveal-up tilt-card ${isTeam ? "team" : "solo"}" style="--delay:${delay}s">
+      <div class="project-card reveal-up tilt-card ${isTeam ? "team" : "solo"}${isFull ? " featured" : ""}" style="--delay:${delay}s">
         ${ribbon}
         <div class="project-image">
           <div class="stage-bg"></div>
@@ -300,14 +307,24 @@ function cardHTML(p, i) {
 /* দুই section এর container এ card বসায় */
 const collabGrid = document.getElementById("collab-grid");
 const projectsGrid = document.getElementById("projects-grid");
+const fullstackGrid = document.getElementById("fullstack-grid");
 
 if (collabGrid) {
     collabGrid.innerHTML = PROJECTS.filter(p => p.team)
         .map(cardHTML)
         .join("");
 }
+if (fullstackGrid) {
+    fullstackGrid.innerHTML = PROJECTS.filter(
+        p => !p.team && p.type === "fullstack"
+    )
+        .map(cardHTML)
+        .join("");
+}
 if (projectsGrid) {
-    projectsGrid.innerHTML = PROJECTS.filter(p => !p.team)
+    projectsGrid.innerHTML = PROJECTS.filter(
+        p => !p.team && p.type !== "fullstack"
+    )
         .map(cardHTML)
         .join("");
 }

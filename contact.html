@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#08121a" />
+        <meta name="theme-color" content="#0a0d22" />
         <link rel="icon" type="image/png" href="https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png" />
         <title>Contact | My Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,19 +20,19 @@
            infinite অ্যানিমেশন প্রায় নেই; যা আছে তা শুধু transform/opacity (হালকা)।
            ============================================================ */
             :root {
-                --bg: #08121a;
-                --surface: #0e1b25;
-                --surface-2: #0f202b;
-                --field: #0a1620;
-                --line: #1b2c38;
-                --line-2: #27404d;
-                --text: #dbe7ee;
-                --muted: #8fa3b0;
-                --dim: #6c8190;
-                --green: #2de2b4;
-                --cyan: #38c7ff;
-                --peach: #ff9f7a;
-                --danger: #ef8b76;
+                --bg: #0a0d22;
+                --surface: #12173a;
+                --surface-2: #161c46;
+                --field: #0b1030;
+                --line: #262d5c;
+                --line-2: #343c78;
+                --text: #e6e9ff;
+                --muted: #9aa3c7;
+                --dim: #7a84ad;
+                --orange: #ff7a3d;
+                --amber: #ffb347;
+                --coral: #ff5a4f;
+                --danger: #ff6e64;
             }
             * {
                 box-sizing: border-box;
@@ -61,12 +61,12 @@
                 background:
                     radial-gradient(
                         620px 420px at 88% 6%,
-                        rgba(56, 199, 255, 0.07),
+                        rgba(255, 179, 71, 0.07),
                         transparent 70%
                     ),
                     radial-gradient(
                         520px 380px at 6% 96%,
-                        rgba(45, 226, 180, 0.06),
+                        rgba(255, 122, 61, 0.06),
                         transparent 70%
                     ),
                     radial-gradient(
@@ -76,11 +76,11 @@
                         0 0 / 26px 26px;
             }
             :focus-visible {
-                outline: 2px solid var(--cyan);
+                outline: 2px solid var(--amber);
                 outline-offset: 3px;
             }
             ::selection {
-                background: var(--cyan);
+                background: var(--amber);
                 color: var(--bg);
             }
 
@@ -148,7 +148,7 @@
             }
             .back-home:hover {
                 border-color: var(--line-2);
-                color: var(--green);
+                color: var(--orange);
             }
             .back-home:hover .arrow {
                 transform: translateX(-4px);
@@ -156,7 +156,7 @@
             .brand {
                 font-size: 17px;
                 font-weight: 800;
-                background: linear-gradient(90deg, var(--green), var(--cyan));
+                background: linear-gradient(90deg, var(--orange), var(--amber));
                 -webkit-background-clip: text;
                 background-clip: text;
                 color: transparent;
@@ -177,11 +177,11 @@
                 gap: 10px;
                 font-size: 13px;
                 font-weight: 600;
-                color: var(--green);
+                color: var(--orange);
                 padding: 7px 14px;
                 border-radius: 30px;
-                background: rgba(45, 226, 180, 0.07);
-                border: 1px solid rgba(45, 226, 180, 0.22);
+                background: rgba(255, 122, 61, 0.07);
+                border: 1px solid rgba(255, 122, 61, 0.22);
                 margin-bottom: 22px;
             }
             .eyebrow .dot {
@@ -189,14 +189,14 @@
                 width: 8px;
                 height: 8px;
                 border-radius: 50%;
-                background: var(--green);
+                background: var(--orange);
             }
             .eyebrow .dot::after {
                 content: "";
                 position: absolute;
                 inset: 0;
                 border-radius: 50%;
-                background: var(--green);
+                background: var(--orange);
                 animation: ping 2.4s ease-out infinite;
             }
             @keyframes ping {
@@ -222,7 +222,7 @@
             h1 .hl {
                 position: relative;
                 display: inline-block;
-                color: var(--green);
+                color: var(--orange);
             }
             h1 .hl i {
                 position: absolute;
@@ -231,7 +231,7 @@
                 bottom: -5px;
                 height: 3px;
                 border-radius: 3px;
-                background: linear-gradient(90deg, var(--green), var(--cyan));
+                background: linear-gradient(90deg, var(--orange), var(--amber));
                 transform-origin: left;
                 animation: underline 0.9s 0.7s cubic-bezier(0.2, 0.8, 0.2, 1)
                     both;
@@ -275,7 +275,7 @@
             }
             .info a:hover {
                 transform: translateX(4px);
-                border-color: rgba(45, 226, 180, 0.4);
+                border-color: rgba(255, 122, 61, 0.4);
             }
             .ico {
                 flex: none;
@@ -284,23 +284,23 @@
                 display: grid;
                 place-items: center;
                 border-radius: 12px;
-                color: var(--cyan);
-                background: rgba(56, 199, 255, 0.09);
-                border: 1px solid rgba(56, 199, 255, 0.2);
+                color: var(--amber);
+                background: rgba(255, 179, 71, 0.09);
+                border: 1px solid rgba(255, 179, 71, 0.2);
             }
             .ico svg {
                 width: 19px;
                 height: 19px;
             }
             .info .item:nth-child(2) .ico {
-                color: var(--green);
-                background: rgba(45, 226, 180, 0.09);
-                border-color: rgba(45, 226, 180, 0.22);
+                color: var(--orange);
+                background: rgba(255, 122, 61, 0.09);
+                border-color: rgba(255, 122, 61, 0.22);
             }
             .info .item:nth-child(3) .ico {
-                color: var(--peach);
-                background: rgba(255, 159, 122, 0.09);
-                border-color: rgba(255, 159, 122, 0.22);
+                color: var(--coral);
+                background: rgba(255, 90, 79, 0.09);
+                border-color: rgba(255, 90, 79, 0.22);
             }
             .info small {
                 display: block;
@@ -347,7 +347,7 @@
                 place-items: center;
                 font-size: 13px;
                 font-weight: 700;
-                color: var(--green);
+                color: var(--orange);
                 border-radius: 50%;
                 background: var(--surface);
                 border: 1px solid var(--line-2);
@@ -385,8 +385,8 @@
                 background: linear-gradient(
                     90deg,
                     transparent,
-                    rgba(45, 226, 180, 0.5),
-                    rgba(56, 199, 255, 0.5),
+                    rgba(255, 122, 61, 0.5),
+                    rgba(255, 179, 71, 0.5),
                     transparent
                 );
                 pointer-events: none;
@@ -401,7 +401,7 @@
                 transition: opacity 0.35s ease;
                 background: radial-gradient(
                     340px circle at var(--mx, 50%) var(--my, 0%),
-                    rgba(56, 199, 255, 0.06),
+                    rgba(255, 179, 71, 0.06),
                     transparent 65%
                 );
             }
@@ -447,8 +447,8 @@
                     border-color 0.3s ease;
             }
             .pill.done {
-                color: var(--green);
-                border-color: rgba(45, 226, 180, 0.4);
+                color: var(--orange);
+                border-color: rgba(255, 122, 61, 0.4);
             }
             .meter {
                 height: 3px;
@@ -461,7 +461,7 @@
                 display: block;
                 height: 100%;
                 width: 100%;
-                background: linear-gradient(90deg, var(--green), var(--cyan));
+                background: linear-gradient(90deg, var(--orange), var(--amber));
                 transform: scaleX(0);
                 transform-origin: left;
                 transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -482,7 +482,7 @@
                 border: 1px solid var(--line);
                 border-radius: 14px;
                 padding: 25px 14px 9px 46px;
-                caret-color: var(--green);
+                caret-color: var(--orange);
                 transition:
                     border-color 0.2s ease,
                     box-shadow 0.2s ease,
@@ -508,13 +508,13 @@
             .field input:focus,
             .field textarea:focus {
                 outline: none;
-                border-color: rgba(45, 226, 180, 0.65);
-                box-shadow: 0 0 0 3px rgba(45, 226, 180, 0.12);
+                border-color: rgba(255, 122, 61, 0.65);
+                box-shadow: 0 0 0 3px rgba(255, 122, 61, 0.12);
                 background: #0b1a25;
             }
             .field input:valid:not(:placeholder-shown),
             .field textarea:valid:not(:placeholder-shown) {
-                border-color: rgba(45, 226, 180, 0.28);
+                border-color: rgba(255, 122, 61, 0.28);
             }
             .field label {
                 position: absolute;
@@ -533,7 +533,7 @@
             .field textarea:focus + label,
             .field textarea:not(:placeholder-shown) + label {
                 transform: translateY(-11px) scale(0.78);
-                color: var(--green);
+                color: var(--orange);
             }
             .f-ico {
                 position: absolute;
@@ -546,7 +546,7 @@
                 transition: color 0.2s ease;
             }
             .field:focus-within .f-ico {
-                color: var(--green);
+                color: var(--orange);
             }
             .hint {
                 display: block;
@@ -563,7 +563,7 @@
             }
             .field.touched input:invalid,
             .field.touched textarea:invalid {
-                border-color: rgba(239, 139, 118, 0.7);
+                border-color: rgba(255, 110, 100, 0.7);
             }
             .field.touched input:invalid ~ .hint,
             .field.touched textarea:invalid ~ .hint {
@@ -616,9 +616,9 @@
                 transform: scale(0.96);
             }
             .chip.active {
-                color: var(--green);
-                border-color: rgba(45, 226, 180, 0.55);
-                background: rgba(45, 226, 180, 0.09);
+                color: var(--orange);
+                border-color: rgba(255, 122, 61, 0.55);
+                background: rgba(255, 122, 61, 0.09);
             }
 
             .form-error {
@@ -627,8 +627,8 @@
                 border-radius: 12px;
                 font-size: 14px;
                 color: #f3b3a4;
-                background: rgba(239, 139, 118, 0.1);
-                border: 1px solid rgba(239, 139, 118, 0.35);
+                background: rgba(255, 110, 100, 0.1);
+                border: 1px solid rgba(255, 110, 100, 0.35);
             }
             .form-error.show {
                 display: block;
@@ -652,9 +652,9 @@
                 font: inherit;
                 font-size: 16px;
                 font-weight: 800;
-                color: #04141a;
-                background: linear-gradient(135deg, var(--green), var(--cyan));
-                box-shadow: 0 10px 24px rgba(45, 226, 180, 0.14);
+                color: #0a0d22;
+                background: linear-gradient(135deg, var(--orange), var(--amber));
+                box-shadow: 0 10px 24px rgba(255, 122, 61, 0.14);
                 transition:
                     transform 0.2s ease,
                     box-shadow 0.25s ease;
@@ -670,7 +670,7 @@
             @media (hover: hover) {
                 .neon-btn:hover {
                     transform: translateY(-2px);
-                    box-shadow: 0 14px 28px rgba(45, 226, 180, 0.2);
+                    box-shadow: 0 14px 28px rgba(255, 122, 61, 0.2);
                 }
                 .neon-btn:hover .plane {
                     transform: rotate(90deg) translateY(-5px);
@@ -766,7 +766,7 @@
                 width: 38px;
                 height: 38px;
                 margin: -19px;
-                color: var(--cyan);
+                color: var(--amber);
                 opacity: 0;
             }
             .success-state.show .sent-plane {
@@ -794,15 +794,15 @@
                 margin: -38px;
             }
             .sent-check circle {
-                fill: rgba(45, 226, 180, 0.08);
-                stroke: var(--green);
+                fill: rgba(255, 122, 61, 0.08);
+                stroke: var(--orange);
                 stroke-width: 2.5;
                 stroke-dasharray: 145;
                 stroke-dashoffset: 145;
             }
             .sent-check path {
                 fill: none;
-                stroke: var(--green);
+                stroke: var(--orange);
                 stroke-width: 3.2;
                 stroke-linecap: round;
                 stroke-linejoin: round;
@@ -856,9 +856,9 @@
                     transform 0.2s ease;
             }
             .reset-btn {
-                color: #04141a;
+                color: #0a0d22;
                 border: 0;
-                background: linear-gradient(135deg, var(--green), var(--cyan));
+                background: linear-gradient(135deg, var(--orange), var(--amber));
             }
             .home-link {
                 color: var(--text);
@@ -866,8 +866,8 @@
                 border: 1px solid var(--line-2);
             }
             .home-link:hover {
-                border-color: var(--green);
-                color: var(--green);
+                border-color: var(--orange);
+                color: var(--orange);
             }
             .reset-btn:active,
             .home-link:active {
@@ -934,9 +934,139 @@
                     padding: 11px 13px;
                 }
             }
+
+            /* ============================================================
+               v3 — Shirt theme (কমলা + নেভি) · gradient + animation
+               শুধু transform/opacity অ্যানিমেশন, তাই মোবাইলেও হালকা চলে।
+               ============================================================ */
+            :root {
+                --indigo: #7c8cff;
+                --sun: #ffd9a0;
+            }
+            @keyframes gradientMove {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+            }
+            @keyframes floatY {
+                0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+                50% { transform: translate3d(0, -22px, 0) rotate(8deg); }
+            }
+            @keyframes meshDrift {
+                0% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+                50% { transform: translate3d(3%, -2%, 0) rotate(6deg) scale(1.08); }
+                100% { transform: translate3d(-3%, 3%, 0) rotate(-5deg) scale(1.02); }
+            }
+            @keyframes shine {
+                from { transform: translateX(-130%) skewX(-20deg); }
+                to { transform: translateX(330%) skewX(-20deg); }
+            }
+            /* চলমান mesh gradient ব্যাকগ্রাউন্ড */
+            body::after {
+                content: "";
+                position: fixed;
+                inset: -25%;
+                z-index: -2;
+                pointer-events: none;
+                background:
+                    radial-gradient(40% 35% at 18% 22%, rgba(255, 122, 61, 0.2), transparent 70%),
+                    radial-gradient(34% 30% at 82% 18%, rgba(124, 140, 255, 0.18), transparent 70%),
+                    radial-gradient(40% 34% at 72% 82%, rgba(255, 90, 79, 0.15), transparent 70%),
+                    radial-gradient(30% 30% at 14% 86%, rgba(255, 179, 71, 0.12), transparent 70%);
+                animation: meshDrift 24s ease-in-out infinite alternate;
+                will-change: transform;
+            }
+            /* ভাসমান গ্রাডিয়েন্ট আকার */
+            .deco { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+            .deco i { position: absolute; border-radius: 50%; animation: floatY 9s ease-in-out infinite; }
+            .deco i:nth-child(1) { width: 150px; height: 150px; top: 12%; left: 4%; border: 2px dashed rgba(255, 179, 71, 0.28); }
+            .deco i:nth-child(2) { width: 90px; height: 90px; top: 62%; left: 8%; background: radial-gradient(circle, rgba(255, 122, 61, 0.3), transparent 70%); animation-delay: -3s; }
+            .deco i:nth-child(3) { width: 120px; height: 120px; top: 20%; right: 5%; border: 2px solid rgba(124, 140, 255, 0.28); animation-delay: -5s; }
+            .deco i:nth-child(4) { width: 70px; height: 70px; bottom: 10%; right: 9%; background: radial-gradient(circle, rgba(255, 90, 79, 0.32), transparent 70%); animation-delay: -1.5s; }
+            .brand {
+                background: linear-gradient(90deg, var(--orange), var(--amber), var(--coral), var(--orange));
+                background-size: 300%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: gradientMove 6s ease infinite;
+                font-weight: 800;
+            }
+            h1 .hl {
+                background: linear-gradient(90deg, var(--orange), var(--amber), var(--coral), var(--orange));
+                background-size: 300%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: gradientMove 6s ease infinite;
+            }
+            h1 .hl i { background: linear-gradient(90deg, var(--orange), var(--amber), var(--coral)); }
+            .eyebrow { background: linear-gradient(90deg, rgba(255, 122, 61, 0.12), rgba(124, 140, 255, 0.1)); }
+            /* কার্ড: gradient বর্ডার + চলমান উপরের আলো */
+            .card {
+                border: 1px solid transparent;
+                background:
+                    linear-gradient(180deg, var(--surface-2), var(--surface)) padding-box,
+                    linear-gradient(135deg, rgba(255, 122, 61, 0.65), rgba(124, 140, 255, 0.4), rgba(255, 179, 71, 0.6)) border-box;
+                box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(255, 122, 61, 0.1);
+            }
+            .card::after {
+                height: 3px;
+                border-radius: 3px;
+                background: linear-gradient(90deg, transparent, var(--orange), var(--amber), var(--coral), var(--indigo), transparent);
+                background-size: 300% 100%;
+                animation: gradientMove 5s linear infinite;
+            }
+            .meter i { background: linear-gradient(90deg, var(--orange), var(--amber), var(--coral)); }
+            /* বাটন: চলমান gradient + shine */
+            .neon-btn {
+                position: relative;
+                overflow: hidden;
+                background: linear-gradient(135deg, var(--amber), var(--orange), var(--coral), var(--amber));
+                background-size: 300%;
+                animation: gradientMove 6s ease infinite;
+                box-shadow: 0 10px 28px rgba(255, 122, 61, 0.35);
+            }
+            .neon-btn::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 30%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.4);
+                transform: translateX(-130%) skewX(-20deg);
+                animation: shine 3.4s ease-in-out infinite;
+                pointer-events: none;
+            }
+            .chip.active, .chip:hover { background: linear-gradient(135deg, rgba(255, 122, 61, 0.22), rgba(255, 179, 71, 0.16)); }
+            /* সিঁড়ি-ধাপে ঢুকে আসা */
+            form > .field, form > .chips, form > .btn-wrap { animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+            form > :nth-child(n + 3) { animation-delay: 0.3s; }
+            form > .field:nth-of-type(4) { animation-delay: 0.38s; }
+            form > .field:nth-of-type(5) { animation-delay: 0.46s; }
+            form > .chips { animation-delay: 0.54s; }
+            form > .field:nth-of-type(7) { animation-delay: 0.62s; }
+            form > .btn-wrap { animation-delay: 0.74s; }
+            .steps li { animation: rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+            .steps li:nth-child(1) { animation-delay: 0.5s; }
+            .steps li:nth-child(2) { animation-delay: 0.62s; }
+            .steps li:nth-child(3) { animation-delay: 0.74s; }
+            .info .ico { animation: floatY 6s ease-in-out infinite; }
+            .info li:nth-child(2) .ico { animation-delay: -2s; }
+            .info li:nth-child(3) .ico { animation-delay: -4s; }
+            .info .ico { animation-name: icoBob; }
+            @keyframes icoBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+            .burst {
+                position: fixed; width: 7px; height: 7px; border-radius: 50%; pointer-events: none; z-index: 3000;
+                transform: translate(-50%, -50%); animation: burst 0.65s ease-out forwards;
+            }
+            @keyframes burst { to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0); opacity: 0; } }
+            @media (max-width: 480px) { .deco i:nth-child(1), .deco i:nth-child(3) { width: 80px; height: 80px; } }
         </style>
     </head>
     <body>
+        <div class="deco" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
         <div class="shell">
             <div class="top rise">
                 <a href="index.html" class="back-home"
@@ -1625,6 +1755,24 @@
                     .classList.remove("show");
                 document.getElementById("glowForm").style.display = "flex";
             }
+        </script>
+
+        <script>
+            /* tap / click burst — ছোট transform অ্যানিমেশন */
+            (function () {
+                if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+                var C = ["#ff7a3d", "#ffb347", "#ff5a4f", "#7c8cff", "#ffd9a0"], live = 0;
+                document.addEventListener("pointerdown", function (e) {
+                    if (live > 24) return;
+                    for (var i = 0; i < 9; i++) {
+                        var p = document.createElement("span"), a = (Math.PI * 2 * i) / 9 + Math.random() * 0.5, d = 26 + Math.random() * 34;
+                        p.className = "burst";
+                        p.style.cssText = "left:" + e.clientX + "px;top:" + e.clientY + "px;--dx:" + Math.cos(a) * d + "px;--dy:" + Math.sin(a) * d + "px;background:" + C[i % 5];
+                        document.body.appendChild(p); live++;
+                        p.addEventListener("animationend", function () { this.remove(); live--; });
+                    }
+                }, { passive: true });
+            })();
         </script>
     </body>
 </html>

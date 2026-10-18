@@ -7,6 +7,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const $ = id => document.getElementById(id);
     const isTouch = window.matchMedia("(hover: none)").matches;
+    const hero = $("hero");
     const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -215,7 +216,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { rootMargin: "80px 0px" }
     );
     document
-        .querySelectorAll("#hero, .marquee, .section-title, .about-divider")
+        .querySelectorAll(
+            "#hero, .marquee, .section-title, .about-divider, .fs-flow, .fs-deco, .skill-card, .stat, .project-card.featured"
+        )
         .forEach(el => {
             el.classList.add("anim-gate");
             gateObs.observe(el);
@@ -234,7 +237,9 @@ document.addEventListener("DOMContentLoaded", () => {
         { threshold: 0.12 }
     );
     document
-        .querySelectorAll(".reveal-up, .reveal-left, .reveal-right")
+        .querySelectorAll(
+            ".reveal-up, .reveal-left, .reveal-right, .reveal-zoom, .reveal-pop"
+        )
         .forEach(el => revealObserver.observe(el));
 
     /* ---------- Count-up helper (rAF, ease-out) ---------- */
@@ -386,9 +391,69 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    /* ---------- Tap / click burst (transform-only, max ~24 কণা একসাথে) ---------- */
+    if (!reduceMotion) {
+        const COLORS = ["#ff7a3d", "#ffb347", "#ff5a4f", "#7c8cff", "#ffd9a0"];
+        let live = 0;
+        document.addEventListener(
+            "pointerdown",
+            e => {
+                if (live > 24) return;
+                const n = 9;
+                for (let i = 0; i < n; i++) {
+                    const p = document.createElement("span");
+                    p.className = "burst";
+                    const a = (Math.PI * 2 * i) / n + Math.random() * 0.5;
+                    const d = 26 + Math.random() * 34;
+                    p.style.cssText =
+                        "left:" + e.clientX + "px;top:" + e.clientY + "px;" +
+                        "--dx:" + Math.cos(a) * d + "px;--dy:" + Math.sin(a) * d + "px;" +
+                        "background:" + COLORS[i % COLORS.length];
+                    document.body.appendChild(p);
+                    live++;
+                    p.addEventListener("animationend", () => {
+                        p.remove();
+                        live--;
+                    });
+                }
+            },
+            { passive: true }
+        );
+    }
+
+    /* ---------- Hero parallax (শুধু মাউস আছে এমন ডিভাইসে, rAF throttled) ---------- */
+    const stage = document.querySelector(".hero-stage");
+    if (stage && !isTouch && !reduceMotion) {
+        let raf = 0,
+            px = 0,
+            py = 0;
+        hero &&
+            hero.addEventListener(
+                "mousemove",
+                e => {
+                    const r = hero.getBoundingClientRect();
+                    px = (e.clientX - r.left) / r.width - 0.5;
+                    py = (e.clientY - r.top) / r.height - 0.5;
+                    if (raf) return;
+                    raf = requestAnimationFrame(() => {
+                        stage.style.setProperty("--px", px.toFixed(3));
+                        stage.style.setProperty("--py", py.toFixed(3));
+                        raf = 0;
+                    });
+                },
+                { passive: true }
+            );
+        hero &&
+            hero.addEventListener("mouseleave", () => {
+                stage.style.setProperty("--px", 0);
+                stage.style.setProperty("--py", 0);
+            });
+    }
+
     /* ---------- Particle background (হালকা: 30fps, off-screen হলে বন্ধ) ---------- */
     const canvas = $("particles");
-    const hero = $("hero");
+    
     if (canvas && hero && !reduceMotion && !saveData) {
         const ctx = canvas.getContext("2d");
         const N = window.innerWidth < 768 ? 22 : 46;
@@ -427,7 +492,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
-            ctx.fillStyle = "rgba(45, 226, 180, 0.7)";
+            ctx.fillStyle = "rgba(255, 122, 61, 0.7)";
             ctx.beginPath();
             for (const p of pts) {
                 p.x += p.vx;
@@ -456,7 +521,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ctx.lineWidth = 1;
             for (let k = 0; k < 3; k++) {
                 if (!b[k].length) continue;
-                ctx.strokeStyle = "rgba(45, 226, 180, " + alpha[k] + ")";
+                ctx.strokeStyle = "rgba(255, 122, 61, " + alpha[k] + ")";
                 ctx.beginPath();
                 for (let m = 0; m < b[k].length; m += 2) {
                     ctx.moveTo(b[k][m].x, b[k][m].y);
