@@ -116,7 +116,7 @@ const PROJECTS = [
 </ul>`,
         tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Flask", "PWA", "REST API"],
         demo: "https://email-sender-wy5o.onrender.com",
-        code: "https://github.com/duttaanubhab777-code/Email-Sender"
+        code: "https://github.com/duttaanubhab777-code/Email-Sender/tree/main"
     },
     {
         title: "Weather App",
