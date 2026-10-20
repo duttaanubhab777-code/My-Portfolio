@@ -66,7 +66,7 @@ const PROJECTS = [
             "APIs",
             "PWA"
         ],
-        demo: "https://duttaanubhab777-code.github.io/Beyonder-Ai-2.0/",
+        demo: "https://anubhabdutta.pythonanywhere.com",
         code: "https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main",
         team: [
             { who: "anubhab", role: "Frontend", type: "frontend" },
