@@ -41,8 +41,8 @@ A personal **full-stack developer** portfolio. The site itself is built with pla
 
 <div align="center">
 
-| 🎨 Design | ⚡ Performance | 📱 Devices | ♿ Accessibility |
-|:---:|:---:|:---:|:---:|
+|       🎨 Design       |       ⚡ Performance        |   📱 Devices    |         ♿ Accessibility          |
+| :-------------------: | :-------------------------: | :-------------: | :-------------------------------: |
 | Neon gradients & glow | No framework, no build step | Phone → desktop | Respects `prefers-reduced-motion` |
 
 </div>
@@ -54,6 +54,7 @@ A personal **full-stack developer** portfolio. The site itself is built with pla
 <td width="50%" valign="top">
 
 **🎭 Motion & Effects**
+
 - ⌨️ **Animated preloader** with a typing-style flicker effect
 - 🌌 **Particle network background** in the hero (pure Canvas, no libraries)
 - 🎞️ **Scroll-triggered reveal animations** on every section (IntersectionObserver)
@@ -64,6 +65,7 @@ A personal **full-stack developer** portfolio. The site itself is built with pla
 <td width="50%" valign="top">
 
 **🧩 Interaction & UX**
+
 - 🎯 **Animated skill rings** (conic-gradient circles that fill in on scroll)
 - 🃏 **3D tilt effect** on project cards that follows the mouse
 - 📊 **Scroll progress bar** pinned to the top
@@ -196,14 +198,18 @@ A personal **full-stack developer** portfolio. The site itself is built with pla
 
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=duttaanubhab777-code&show_icons=true&hide_border=true&bg_color=0a0d22&title_color=ff7a3d&icon_color=ffb347&text_color=e0e0e0&ring_color=7c8cff&border_radius=16&include_all_commits=true" alt="GitHub stats" />
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=duttaanubhab777-code&show_icons=true&hide_border=true&bg_color=0a0d22&title_color=ff7a3d&icon_color=ffb347&text_color=e0e0e0&ring_color=7c8cff&border_radius=16" alt="GitHub stats" />
 <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=duttaanubhab777-code&layout=compact&hide_border=true&bg_color=0a0d22&title_color=ff7a3d&text_color=e0e0e0&border_radius=16" alt="Top languages" />
 
 <img src="https://streak-stats.demolab.com?user=duttaanubhab777-code&hide_border=true&background=0a0d22&stroke=262d5c&ring=ff7a3d&fire=ffb347&currStreakLabel=ffd9a0&sideLabels=7c8cff&currStreakNum=ffffff&sideNums=ffffff&dates=9aa3c7&border_radius=16" alt="GitHub streak" />
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=duttaanubhab777-code&bg_color=0a0d22&color=ffb347&line=ff7a3d&point=ffffff&area=true&area_color=ff7a3d&hide_border=true&radius=16" width="100%" alt="Contribution activity graph" />
+<img src="https://ghchart.rshah.org/ff7a3d/duttaanubhab777-code" width="95%" alt="Contribution chart" />
 
-<img src="https://github-profile-trophy.vercel.app/?username=duttaanubhab777-code&theme=radical&no-frame=true&no-bg=true&margin-w=8&column=7" alt="GitHub trophies" />
+<br/><br/>
+
+<img src="https://img.shields.io/github/followers/duttaanubhab777-code?style=for-the-badge&logo=github&color=ff7a3d&labelColor=0a0d22" alt="Followers" />
+<img src="https://img.shields.io/github/commit-activity/y/duttaanubhab777-code/My-Portfolio?style=for-the-badge&color=ffb347&labelColor=0a0d22&label=commits%20this%20year" alt="Commit activity" />
+<img src="https://img.shields.io/github/languages/top/duttaanubhab777-code/My-Portfolio?style=for-the-badge&color=7c8cff&labelColor=0a0d22" alt="Top language" />
 
 </div>
 
@@ -224,7 +230,7 @@ My-Portfolio/
 ```
 
 > 💡 **Add a new project:** open `projects.js` and add a block to the `PROJECTS` array — no HTML changes needed.
-> No `team` → *My Projects* · `team: [...]` → *Collaborations* · `type: "fullstack"` → *Full-Stack*.
+> No `team` → _My Projects_ · `team: [...]` → _Collaborations_ · `type: "fullstack"` → _Full-Stack_.
 
 ## 🔌 How the Contact Form Works
 
