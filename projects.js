@@ -136,7 +136,7 @@ const PROJECTS = [
     },
     {
         title: "Calculator",
-        image: "image/calculator.jpg",
+        image: "image/calculator.png",
         desc: `A sleek, responsive calculator that handles everyday arithmetic accurately with a smooth real-time display.<br><br>
 <ul>
   <li><b>Clean Interface:</b> A tap-friendly HTML5 and CSS3 layout that feels natural on both phone and desktop.</li>
