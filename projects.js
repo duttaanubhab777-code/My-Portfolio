@@ -1,14 +1,28 @@
 /* =====================================================
-   projects.js — সব প্রজেক্টের ডেটা এখানে
-   নতুন প্রজেক্ট যোগ করতে নিচের PROJECTS array তে একটা { ... } block বসাও।
-   HTML বদলানোর দরকার নেই।
+   projects.js - single source of truth for every project
 
-   - "team" আছে          => Collaboration Projects section এ যাবে
-   - type: "fullstack"  => Full-Stack Projects section এ যাবে (একা বানানো)
-   - বাকি সব (team নেই)  => My Projects section এ যাবে
+   To add a project:
+     1. Add one { ... } block to the PROJECTS array below.
+     2. Put the screenshot in image/.
+   That is all. The site, the thumbnails, the animated gallery SVG and the
+   README project sections (portfolio and GitHub profile) update themselves.
+   No HTML changes are needed.
+
+   Placement:
+     - "team" present      => Collaboration Projects section
+     - type: "fullstack"   => Full-Stack Projects section (built solo)
+     - everything else     => My Projects section
+
+   Optional fields:
+     - gallery: false      => leave the project out of the gallery SVG
+     - emoji: "..."        => override the emoji used in README tables
+     - fallback: "https://..." => backup image URL if the local screenshot fails
+
+   Keep PEOPLE and PROJECTS above the rendering code at the bottom of this
+   file: the build script only reads the data section.
    ===================================================== */
 
-/* ---------- লোকের তথ্য (একবারই লেখা, প্রজেক্টে শুধু key দিলেই হবে) ---------- */
+/* ---------- People (defined once; projects only reference the key) ---------- */
 const PEOPLE = {
     anubhab: {
         name: "Anubhab Dutta",
@@ -24,9 +38,9 @@ const PEOPLE = {
     }
 };
 
-/* ---------- প্রজেক্ট লিস্ট ---------- */
+/* ---------- Project list ---------- */
 const PROJECTS = [
-    /* ===== Collaboration (team আছে) ===== */
+    /* ===== Collaborations (have a "team" array) ===== */
     {
         title: "Friendly Flux",
         image: "image/friendly-flux.jpg",
@@ -102,7 +116,7 @@ const PROJECTS = [
         ]
     },
 
-    /* ===== Full-Stack (type: "fullstack") + My Projects (team নেই) ===== */
+    /* ===== Full-Stack (type: "fullstack") and My Projects (no "team") ===== */
     {
         title: "Email Sender",
         type: "fullstack",
@@ -193,12 +207,12 @@ const PROJECTS = [
 ];
 
 /* =====================================================
-   Render — এই নিচের অংশ সাধারণত বদলানো লাগবে না
-   desc এর ভেতরের intro লাইন + <li><b>Title:</b> text</li> গুলো
-   অটোমেটিক সুন্দর feature card এ রূপান্তরিত হয়।
+   Rendering - normally nothing below needs to change.
+   The intro line and the <li><b>Title:</b> text</li> items inside each
+   desc are turned into feature cards automatically.
    ===================================================== */
 
-/* বুলেটের title দেখে উপযুক্ত আইকন বেছে নেয় */
+/* Picks a suitable icon from the bullet title */
 const ICON_RULES = [
     [/mail|delivery|outbox/i, "fa-envelope"],
     [/secure|auth|security|account/i, "fa-shield-halved"],
@@ -216,7 +230,7 @@ const ICON_RULES = [
 const pickIcon = t =>
     (ICON_RULES.find(([re]) => re.test(t)) || [0, "fa-circle-check"])[1];
 
-/* desc HTML থেকে intro আর bullet আলাদা করে */
+/* Splits the desc HTML into an intro line and bullet items */
 function parseDesc(html) {
     const box = document.createElement("div");
     box.innerHTML = html;
@@ -230,7 +244,7 @@ function parseDesc(html) {
     return { lead, items };
 }
 
-/* কার্ডে হালকা thumb (image/thumb/*.webp), ফুল ছবি শুধু lightbox এ লোড হয় */
+/* Cards use a light thumbnail (image/thumb/*.webp); the full image loads only in the lightbox */
 const thumbOf = s => s.replace(/^image\/([^/]+)\.\w+$/, "image/thumb/$1.webp");
 
 function cardHTML(p, i) {
@@ -304,7 +318,7 @@ function cardHTML(p, i) {
       </div>`;
 }
 
-/* দুই section এর container এ card বসায় */
+/* Renders the cards into their section containers */
 const collabGrid = document.getElementById("collab-grid");
 const projectsGrid = document.getElementById("projects-grid");
 const fullstackGrid = document.getElementById("fullstack-grid");
@@ -368,7 +382,7 @@ document.addEventListener("click", e => {
     }
 });
 
-/* mouse spotlight — শুধু মাউস আছে এমন ডিভাইসে, rAF দিয়ে throttled */
+/* Mouse spotlight: pointer devices only, throttled with requestAnimationFrame */
 if (matchMedia("(hover: hover)").matches) {
     document.querySelectorAll(".project-card").forEach(card => {
         let raf = 0,
