@@ -170,9 +170,9 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
 <table>
 <tr>
 <td align="center" width="33%" valign="top">
-  <a href="https://duttaanubhab777-code.github.io/Live-Weather-App/"><img src="image/thumb/weather.webp" width="190" alt="Weather App" /></a><br/>
+  <a href="https://live-weather-kz39nec7v-duttaanubhab777-3275.vercel.app/"><img src="image/thumb/weather.webp" width="190" alt="Weather App" /></a><br/>
   <b>⛅ Weather App</b><br/><sub>HTML · CSS · JavaScript</sub><br/>
-  <a href="https://duttaanubhab777-code.github.io/Live-Weather-App/">Live</a> · <a href="https://github.com/duttaanubhab777-code/Live-Weather-App/tree/main">Code</a>
+  <a href="https://live-weather-kz39nec7v-duttaanubhab777-3275.vercel.app/">Live</a> · <a href="https://github.com/duttaanubhab777-code/Live-Weather-App/tree/main">Code</a>
 </td>
 <td align="center" width="33%" valign="top">
   <a href="https://duttaanubhab777-code.github.io/Calculator/"><img src="image/thumb/calculator.webp" width="190" alt="Calculator" /></a><br/>
