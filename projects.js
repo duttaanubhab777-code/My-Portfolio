@@ -147,7 +147,7 @@ const PROJECTS = [
   <li><b>Deployment &amp; Version Control:</b> Source managed on GitHub and hosted on GitHub Pages for fast, free loading.</li>
 </ul>`,
         tech: ["HTML", "CSS", "JavaScript"],
-        demo: "https://duttaanubhab777-code.github.io/Live-Weather-App/",
+        demo: "https://live-weather-kz39nec7v-duttaanubhab777-3275.vercel.app/",
         code: "https://github.com/duttaanubhab777-code/Live-Weather-App/tree/main"
     },
     {

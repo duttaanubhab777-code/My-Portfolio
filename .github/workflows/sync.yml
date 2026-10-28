@@ -1,0 +1,66 @@
+name: Sync Gallery & README
+
+# Rebuilds everything that is derived from projects.js and image/:
+#   assets/gallery.svg, image/thumb/*.webp and the README project sections.
+# Optionally notifies the GitHub profile repository so it refreshes immediately.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "projects.js"
+      - "image/**"
+      - "scripts/build_gallery.py"
+      - ".github/workflows/sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-gallery
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      # Optional. Create a fine-grained token with "Contents: Read and write" on the
+      # profile repository and save it here as the secret PROFILE_DISPATCH_TOKEN.
+      # Without it the profile repository still picks up changes on its 15-minute schedule.
+      PROFILE_DISPATCH_TOKEN: ${{ secrets.PROFILE_DISPATCH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pillow
+
+      - name: Build gallery, thumbnails and README sections
+        run: python scripts/build_gallery.py --mode portfolio
+
+      - name: Commit generated files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/gallery.svg image/thumb README.md
+          if git diff --cached --quiet; then
+            echo "Nothing to commit - generated files are already up to date."
+            exit 0
+          fi
+          git commit -m "chore: sync gallery, thumbnails and README [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Notify the profile repository (optional)
+        if: env.PROFILE_DISPATCH_TOKEN != ''
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${PROFILE_DISPATCH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY_OWNER}/${GITHUB_REPOSITORY_OWNER}/dispatches" \
+            -d '{"event_type":"portfolio-updated"}'
