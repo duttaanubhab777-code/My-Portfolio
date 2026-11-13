@@ -25,7 +25,7 @@
 <br/><br/>
 
 <!-- COUNTS:START -->
-<img src="https://img.shields.io/badge/Projects-10-ff7a3d?style=for-the-badge&labelColor=0a0d22" alt="Projects 10" /> <img src="https://img.shields.io/badge/Team-3-ff5a4f?style=for-the-badge&labelColor=0a0d22" alt="Team 3" /> <img src="https://img.shields.io/badge/Full--Stack-2-ffb347?style=for-the-badge&labelColor=0a0d22" alt="Full-Stack 2" /> <img src="https://img.shields.io/badge/Solo-5-7c8cff?style=for-the-badge&labelColor=0a0d22" alt="Solo 5" /> <img src="https://img.shields.io/badge/Technologies-19-a78bfa?style=for-the-badge&labelColor=0a0d22" alt="Technologies 19" />
+<img src="https://img.shields.io/badge/Projects-10-ff7a3d?style=for-the-badge&labelColor=0a0d22" alt="Projects 10" /> <img src="https://img.shields.io/badge/Team-4-ff5a4f?style=for-the-badge&labelColor=0a0d22" alt="Team 4" /> <img src="https://img.shields.io/badge/Full--Stack-1-ffb347?style=for-the-badge&labelColor=0a0d22" alt="Full-Stack 1" /> <img src="https://img.shields.io/badge/Solo-5-7c8cff?style=for-the-badge&labelColor=0a0d22" alt="Solo 5" /> <img src="https://img.shields.io/badge/Technologies-25-a78bfa?style=for-the-badge&labelColor=0a0d22" alt="Technologies 25" />
 <!-- COUNTS:END -->
 
 </div>
@@ -106,16 +106,22 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
 <img src="https://img.shields.io/badge/REST_API-7c8cff?style=for-the-badge" alt="REST API" />
 <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
 <img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja2" />
-<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
+<img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongoose" />
 <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
 <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+<img src="https://img.shields.io/badge/bcrypt-262d5c?style=for-the-badge" alt="bcrypt" />
 <img src="https://img.shields.io/badge/Cloudinary-262d5c?style=for-the-badge" alt="Cloudinary" />
-<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
-<img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongoose" />
+<img src="https://img.shields.io/badge/Helmet-262d5c?style=for-the-badge" alt="Helmet" />
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+<img src="https://img.shields.io/badge/MongoDB_Atlas-262d5c?style=for-the-badge" alt="MongoDB Atlas" />
+<img src="https://img.shields.io/badge/React_Router-262d5c?style=for-the-badge" alt="React Router" />
 <img src="https://img.shields.io/badge/Redux_Toolkit-262d5c?style=for-the-badge" alt="Redux Toolkit" />
 <img src="https://img.shields.io/badge/Socket.IO-262d5c?style=for-the-badge" alt="Socket.IO" />
+<img src="https://img.shields.io/badge/Web_Push-262d5c?style=for-the-badge" alt="Web Push" />
+<img src="https://img.shields.io/badge/Zod-262d5c?style=for-the-badge" alt="Zod" />
 <!-- TECH:END -->
 
 </div>
@@ -137,11 +143,7 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
   <b>📧 Email Sender</b><br/><sub>React · Vite · Node.js · Express · MongoDB</sub><br/>
   <a href="https://email-sender-wy5o.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/Email-Sender/tree/main">Code</a>
 </td>
-<td align="center" width="33%" valign="top">
-  <a href="https://sync-5lfm.onrender.com"><img src="image/thumb/Sync.webp" width="190" alt="Sync" /></a><br/>
-  <b>🚀 Sync</b><br/><sub>React · Redux Toolkit · Vite · Node.js · Express</sub><br/>
-  <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
-</td>
+<td></td>
 <td></td>
 </tr>
 </table>
@@ -167,6 +169,15 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
   <b>📰 AA News</b><br/><sub>HTML · CSS · JavaScript · Jinja2 · Python</sub><br/>
   <a href="https://arnabadhikari125117y.pythonanywhere.com/">Live</a> · <a href="https://github.com/arnabadhikari777/AA_News/tree/main">Code</a>
 </td>
+</tr>
+<tr>
+<td align="center" width="33%" valign="top">
+  <a href="https://sync-5lfm.onrender.com"><img src="image/thumb/Sync.webp" width="190" alt="Sync" /></a><br/>
+  <b>💬 Sync</b><br/><sub>React · Redux Toolkit · React Router · Vite · Node.js</sub><br/>
+  <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
+</td>
+<td></td>
+<td></td>
 </tr>
 </table>
 </div>
