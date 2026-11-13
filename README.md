@@ -25,7 +25,7 @@
 <br/><br/>
 
 <!-- COUNTS:START -->
-<img src="https://img.shields.io/badge/Projects-9-ff7a3d?style=for-the-badge&labelColor=0a0d22" alt="Projects 9" /> <img src="https://img.shields.io/badge/Team-3-ff5a4f?style=for-the-badge&labelColor=0a0d22" alt="Team 3" /> <img src="https://img.shields.io/badge/Full--Stack-1-ffb347?style=for-the-badge&labelColor=0a0d22" alt="Full-Stack 1" /> <img src="https://img.shields.io/badge/Solo-5-7c8cff?style=for-the-badge&labelColor=0a0d22" alt="Solo 5" /> <img src="https://img.shields.io/badge/Technologies-16-a78bfa?style=for-the-badge&labelColor=0a0d22" alt="Technologies 16" />
+<img src="https://img.shields.io/badge/Projects-10-ff7a3d?style=for-the-badge&labelColor=0a0d22" alt="Projects 10" /> <img src="https://img.shields.io/badge/Team-3-ff5a4f?style=for-the-badge&labelColor=0a0d22" alt="Team 3" /> <img src="https://img.shields.io/badge/Full--Stack-2-ffb347?style=for-the-badge&labelColor=0a0d22" alt="Full-Stack 2" /> <img src="https://img.shields.io/badge/Solo-5-7c8cff?style=for-the-badge&labelColor=0a0d22" alt="Solo 5" /> <img src="https://img.shields.io/badge/Technologies-19-a78bfa?style=for-the-badge&labelColor=0a0d22" alt="Technologies 19" />
 <!-- COUNTS:END -->
 
 </div>
@@ -101,18 +101,21 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
 <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
-<img src="https://img.shields.io/badge/REST_API-7c8cff?style=for-the-badge" alt="REST API" />
 <img src="https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white" alt="PWA" />
 <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-<img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja2" />
-<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
+<img src="https://img.shields.io/badge/REST_API-7c8cff?style=for-the-badge" alt="REST API" />
 <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express" />
-<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
+<img src="https://img.shields.io/badge/Jinja2-B41717?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja2" />
 <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
-<img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongoose" />
 <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js" />
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" alt="SQLite" />
 <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
+<img src="https://img.shields.io/badge/Cloudinary-262d5c?style=for-the-badge" alt="Cloudinary" />
+<img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white" alt="JWT" />
+<img src="https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongoose" />
+<img src="https://img.shields.io/badge/Redux_Toolkit-262d5c?style=for-the-badge" alt="Redux Toolkit" />
+<img src="https://img.shields.io/badge/Socket.IO-262d5c?style=for-the-badge" alt="Socket.IO" />
 <!-- TECH:END -->
 
 </div>
@@ -134,7 +137,11 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
   <b>📧 Email Sender</b><br/><sub>React · Vite · Node.js · Express · MongoDB</sub><br/>
   <a href="https://email-sender-wy5o.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/Email-Sender/tree/main">Code</a>
 </td>
-<td></td>
+<td align="center" width="33%" valign="top">
+  <a href="https://sync-5lfm.onrender.com"><img src="https://raw.githubusercontent.com/duttaanubhab777-code/sync/main/docs/screenshots/chats-home.jpg" width="190" alt="Sync" /></a><br/>
+  <b>🚀 Sync</b><br/><sub>React · Redux Toolkit · Vite · Node.js · Express</sub><br/>
+  <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
+</td>
 <td></td>
 </tr>
 </table>
