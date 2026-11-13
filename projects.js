@@ -208,19 +208,27 @@ const PROJECTS = [
     },
     {
         title: "Sync",
-        type: "fullstack",
         image: "image/Sync.jpg",
-        desc: `Sync is a modern, installable, real-time messenger for private and group conversations, built with React, Node.js and Socket.IO.<br><br>
+        emoji: "💬",
+        desc: `Sync is a collaborative, full-stack WhatsApp-style real-time messaging platform. It combines private and group conversations, 24-hour stories, web push notifications and a powerful Super Admin control center in a responsive, installable Progressive Web App (PWA).<br><br>
 <ul>
-  <li><b>Real-Time Messaging:</b> Direct and group chats with live delivery, read receipts, typing indicators and online presence.</li>
-  <li><b>Smart Chat Inbox:</b> Search conversations and messages, switch between All, Unread and Groups, and preview the latest message and timestamp.</li>
-  <li><b>Rich Communication:</b> Swipe-to-reply, photo and video sharing, file attachments, voice messages and link previews.</li>
-  <li><b>Stories &amp; Notifications:</b> 24-hour stories, story viewers, in-app alerts and web push notifications.</li>
-  <li><b>Production Architecture:</b> React, Redux Toolkit, Vite, Express, Socket.IO, MongoDB Atlas, Flask media signing and Cloudinary storage, with an installable PWA.</li>
+  <li><b>Real-Time Messaging:</b> Direct and group chats with live message delivery, delivered/seen receipts, typing indicators, online presence and automatic message re-sync after reconnecting.</li>
+  <li><b>Smart Chat Inbox:</b> Search chats and messages, filter conversations by All, Unread or Groups, and view the latest message preview and timestamp.</li>
+  <li><b>Rich Conversations:</b> Swipe-to-reply, message deletion, photos, videos, file attachments and browser-recorded voice messages.</li>
+  <li><b>Stories:</b> Share text, photos and videos as 24-hour stories, with automatic expiry and story-viewer lists.</li>
+  <li><b>Notifications &amp; Notices:</b> Web Push alerts through VAPID, an in-app notification center, and broadcast notices with optional banner images and countdown acknowledgement.</li>
+  <li><b>Super Admin Control Center:</b> Platform statistics, user and admin role management, group and notice management, and image/video moderation. Private chat text and story captions are not exposed in the admin panel.</li>
+  <li><b>Security:</b> Short-lived JWT access tokens, rotating refresh tokens, bcrypt password hashing, Zod request validation, rate limiting, Helmet security headers and restricted media URL validation.</li>
+  <li><b>Media &amp; Deployment Architecture:</b> Node.js and Express serve the REST API, Socket.IO layer and React frontend; a separate Python Flask service signs Cloudinary uploads, while MongoDB Atlas stores application data. Deployed with Render and PythonAnywhere.</li>
+  <li><b>Installable Experience:</b> Responsive dark-green interface, service worker, PWA manifest and installable app experience across mobile and desktop.</li>
 </ul>`,
-        tech: ["React", "Redux Toolkit", "Vite", "Node.js", "Express", "Socket.IO", "MongoDB", "Python", "Flask", "Cloudinary", "PWA"],
+        tech: ["React", "Redux Toolkit", "React Router", "Vite", "Node.js", "Express", "Socket.IO", "MongoDB Atlas", "Mongoose", "Zod", "JWT", "bcrypt", "Helmet", "Web Push", "Python", "Flask", "Cloudinary", "PWA"],
         demo: "https://sync-5lfm.onrender.com",
-        code: "https://github.com/duttaanubhab777-code/sync"
+        code: "https://github.com/duttaanubhab777-code/sync",
+        team: [
+            { who: "anubhab", role: "Frontend & Node.js Backend", type: "frontend" },
+            { who: "arnab", role: "Python Media Service & Super Admin", type: "backend" }
+        ]
     },
 
 ];
