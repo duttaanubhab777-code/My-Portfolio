@@ -155,6 +155,11 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
 <table>
 <tr>
 <td align="center" width="33%" valign="top">
+  <a href="https://sync-5lfm.onrender.com"><img src="image/thumb/Sync.webp" width="190" alt="Sync" /></a><br/>
+  <b>💬 Sync</b><br/><sub>React · Redux Toolkit · React Router · Vite · Node.js</sub><br/>
+  <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
+</td>
+<td align="center" width="33%" valign="top">
   <a href="https://duttaanubhab777-code.github.io/Friendly-Flux/frontend/"><img src="image/thumb/friendly-flux.webp" width="190" alt="Friendly Flux" /></a><br/>
   <b>🧪 Friendly Flux</b><br/><sub>HTML · CSS · JavaScript · Python · Flask</sub><br/>
   <a href="https://duttaanubhab777-code.github.io/Friendly-Flux/frontend/">Live</a> · <a href="https://github.com/duttaanubhab777-code/Friendly-Flux/tree/main">Code</a>
@@ -164,17 +169,12 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
   <b>🤖 Beyonder Ai</b><br/><sub>HTML · CSS · JavaScript · Jinja2 · Python</sub><br/>
   <a href="https://anubhabdutta.pythonanywhere.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/Beyonder-Ai-2.0/tree/main">Code</a>
 </td>
+</tr>
+<tr>
 <td align="center" width="33%" valign="top">
   <a href="https://arnabadhikari125117y.pythonanywhere.com/"><img src="image/thumb/news.webp" width="190" alt="AA News" /></a><br/>
   <b>📰 AA News</b><br/><sub>HTML · CSS · JavaScript · Jinja2 · Python</sub><br/>
   <a href="https://arnabadhikari125117y.pythonanywhere.com/">Live</a> · <a href="https://github.com/arnabadhikari777/AA_News/tree/main">Code</a>
-</td>
-</tr>
-<tr>
-<td align="center" width="33%" valign="top">
-  <a href="https://sync-5lfm.onrender.com"><img src="image/thumb/Sync.webp" width="190" alt="Sync" /></a><br/>
-  <b>💬 Sync</b><br/><sub>React · Redux Toolkit · React Router · Vite · Node.js</sub><br/>
-  <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
 </td>
 <td></td>
 <td></td>
