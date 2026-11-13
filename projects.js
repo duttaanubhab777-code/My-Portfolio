@@ -1,5 +1,3 @@
-
-
 /* =====================================================
    projects.js - single source of truth for every project
 
@@ -43,6 +41,54 @@ const PEOPLE = {
 /* ---------- Project list ---------- */
 const PROJECTS = [
     /* ===== Collaborations (have a "team" array) ===== */
+
+    {
+        title: "Sync",
+        image: "image/Sync.jpg",
+        emoji: "💬",
+        desc: `Sync is a collaborative, full-stack WhatsApp-style real-time messaging platform. It combines private and group conversations, 24-hour stories, web push notifications and a powerful Super Admin control center in a responsive, installable Progressive Web App (PWA).<br><br>
+<ul>
+  <li><b>Real-Time Messaging:</b> Direct and group chats with live message delivery, delivered/seen receipts, typing indicators, online presence and automatic message re-sync after reconnecting.</li>
+  <li><b>Smart Chat Inbox:</b> Search chats and messages, filter conversations by All, Unread or Groups, and view the latest message preview and timestamp.</li>
+  <li><b>Rich Conversations:</b> Swipe-to-reply, message deletion, photos, videos, file attachments and browser-recorded voice messages.</li>
+  <li><b>Stories:</b> Share text, photos and videos as 24-hour stories, with automatic expiry and story-viewer lists.</li>
+  <li><b>Notifications &amp; Notices:</b> Web Push alerts through VAPID, an in-app notification center, and broadcast notices with optional banner images and countdown acknowledgement.</li>
+  <li><b>Super Admin Control Center:</b> Platform statistics, user and admin role management, group and notice management, and image/video moderation. Private chat text and story captions are not exposed in the admin panel.</li>
+  <li><b>Security:</b> Short-lived JWT access tokens, rotating refresh tokens, bcrypt password hashing, Zod request validation, rate limiting, Helmet security headers and restricted media URL validation.</li>
+  <li><b>Media &amp; Deployment Architecture:</b> Node.js and Express serve the REST API, Socket.IO layer and React frontend; a separate Python Flask service signs Cloudinary uploads, while MongoDB Atlas stores application data. Deployed with Render and PythonAnywhere.</li>
+  <li><b>Installable Experience:</b> Responsive dark-green interface, service worker, PWA manifest and installable app experience across mobile and desktop.</li>
+</ul>`,
+        tech: [
+            "React",
+            "Redux Toolkit",
+            "React Router",
+            "Vite",
+            "Node.js",
+            "Express",
+            "Socket.IO",
+            "MongoDB Atlas",
+            "Mongoose",
+            "Zod",
+            "JWT",
+            "bcrypt",
+            "Helmet",
+            "Web Push",
+            "Python",
+            "Flask",
+            "Cloudinary",
+            "PWA"
+        ],
+        demo: "https://sync-5lfm.onrender.com",
+        code: "https://github.com/duttaanubhab777-code/sync",
+        team: [
+            {
+                who: "anubhab",
+                role: "Frontend & Node.js Backend",
+                type: "frontend"
+            },
+            { who: "arnab", role: "Python Media Service", type: "backend" }
+        ]
+    },
     {
         title: "Friendly Flux",
         image: "image/friendly-flux.jpg",
@@ -123,7 +169,8 @@ const PROJECTS = [
         title: "Email Sender",
         type: "fullstack",
         image: "image/email-sender.jpg",
-        fallback: "https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png",
+        fallback:
+            "https://res.cloudinary.com/khvkgpxq/image/upload/v1791965885/badge-logo-320.png",
         desc: `Email Sender is my own full-stack contact-form API service — it does what Formspree or Web3Forms does, but I own every line of it.<br><br>
 <ul>
   <li><b>Reliable Mail Delivery:</b> Messages are saved to the database first, then sent through a Flask and Gmail SMTP relay with automatic retries, so nothing is lost even when the free server sleeps.</li>
@@ -132,7 +179,18 @@ const PROJECTS = [
   <li><b>Frontend &amp; PWA:</b> A hand-written React 19 + Vite dashboard with dark and light themes, live charts, a built-in API tester, 14 copy-paste code snippets, web push notifications and installable PWA support.</li>
   <li><b>Built Solo &amp; Deployed:</b> Designed, coded and tested entirely from my phone, deployed with Node.js and Express on Render, MongoDB Atlas, and the relay on PythonAnywhere.</li>
 </ul>`,
-        tech: ["React", "Vite", "Node.js", "Express", "MongoDB", "Mongoose", "JWT", "Flask", "PWA", "REST API"],
+        tech: [
+            "React",
+            "Vite",
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "Flask",
+            "PWA",
+            "REST API"
+        ],
         demo: "https://email-sender-wy5o.onrender.com",
         code: "https://github.com/duttaanubhab777-code/Email-Sender/tree/main"
     },
@@ -206,31 +264,7 @@ const PROJECTS = [
         demo: "https://duttaanubhab777-code.github.io/Result-Analysis/",
         code: "https://github.com/duttaanubhab777-code/Result-Analysis/tree/main"
     },
-    {
-        title: "Sync",
-        image: "image/Sync.jpg",
-        emoji: "💬",
-        desc: `Sync is a collaborative, full-stack WhatsApp-style real-time messaging platform. It combines private and group conversations, 24-hour stories, web push notifications and a powerful Super Admin control center in a responsive, installable Progressive Web App (PWA).<br><br>
-<ul>
-  <li><b>Real-Time Messaging:</b> Direct and group chats with live message delivery, delivered/seen receipts, typing indicators, online presence and automatic message re-sync after reconnecting.</li>
-  <li><b>Smart Chat Inbox:</b> Search chats and messages, filter conversations by All, Unread or Groups, and view the latest message preview and timestamp.</li>
-  <li><b>Rich Conversations:</b> Swipe-to-reply, message deletion, photos, videos, file attachments and browser-recorded voice messages.</li>
-  <li><b>Stories:</b> Share text, photos and videos as 24-hour stories, with automatic expiry and story-viewer lists.</li>
-  <li><b>Notifications &amp; Notices:</b> Web Push alerts through VAPID, an in-app notification center, and broadcast notices with optional banner images and countdown acknowledgement.</li>
-  <li><b>Super Admin Control Center:</b> Platform statistics, user and admin role management, group and notice management, and image/video moderation. Private chat text and story captions are not exposed in the admin panel.</li>
-  <li><b>Security:</b> Short-lived JWT access tokens, rotating refresh tokens, bcrypt password hashing, Zod request validation, rate limiting, Helmet security headers and restricted media URL validation.</li>
-  <li><b>Media &amp; Deployment Architecture:</b> Node.js and Express serve the REST API, Socket.IO layer and React frontend; a separate Python Flask service signs Cloudinary uploads, while MongoDB Atlas stores application data. Deployed with Render and PythonAnywhere.</li>
-  <li><b>Installable Experience:</b> Responsive dark-green interface, service worker, PWA manifest and installable app experience across mobile and desktop.</li>
-</ul>`,
-        tech: ["React", "Redux Toolkit", "React Router", "Vite", "Node.js", "Express", "Socket.IO", "MongoDB Atlas", "Mongoose", "Zod", "JWT", "bcrypt", "Helmet", "Web Push", "Python", "Flask", "Cloudinary", "PWA"],
-        demo: "https://sync-5lfm.onrender.com",
-        code: "https://github.com/duttaanubhab777-code/sync",
-        team: [
-            { who: "anubhab", role: "Frontend & Node.js Backend", type: "frontend" },
-            { who: "arnab", role: "Python Media Service & Super Admin", type: "backend" }
-        ]
-    },
-
+    ,
 ];
 
 /* =====================================================
@@ -326,7 +360,7 @@ function cardHTML(p, i) {
           <div class="stage-bg"></div>
           <span class="idx">${num}</span>
           <div class="phone" data-full="${p.image}" data-title="${p.title}">
-            <img src="${thumbOf(p.image)}" alt="${p.title} screenshot" loading="lazy" decoding="async" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${p.image}'}else{this.onerror=null;${p.fallback ? `this.src='${p.fallback}'` : ''}}">
+            <img src="${thumbOf(p.image)}" alt="${p.title} screenshot" loading="lazy" decoding="async" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='${p.image}'}else{this.onerror=null;${p.fallback ? `this.src='${p.fallback}'` : ""}}">
           </div>
           <button class="zoom-chip" type="button" aria-label="View ${p.title} screenshot full size"><i class="fa-solid fa-expand"></i> View full</button>
         </div>
