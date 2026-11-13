@@ -138,7 +138,7 @@ A personal **full-stack developer** portfolio built with plain **HTML, CSS and J
   <a href="https://email-sender-wy5o.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/Email-Sender/tree/main">Code</a>
 </td>
 <td align="center" width="33%" valign="top">
-  <a href="https://sync-5lfm.onrender.com"><img src="https://raw.githubusercontent.com/duttaanubhab777-code/sync/main/docs/screenshots/chats-home.jpg" width="190" alt="Sync" /></a><br/>
+  <a href="https://sync-5lfm.onrender.com"><img src="image/thumb/Sync.webp" width="190" alt="Sync" /></a><br/>
   <b>🚀 Sync</b><br/><sub>React · Redux Toolkit · Vite · Node.js · Express</sub><br/>
   <a href="https://sync-5lfm.onrender.com">Live</a> · <a href="https://github.com/duttaanubhab777-code/sync">Code</a>
 </td>
