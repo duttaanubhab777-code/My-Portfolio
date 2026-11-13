@@ -206,6 +206,23 @@ const PROJECTS = [
         demo: "https://duttaanubhab777-code.github.io/Result-Analysis/",
         code: "https://github.com/duttaanubhab777-code/Result-Analysis/tree/main"
     }
+    {
+        title: "Sync",
+        type: "fullstack",
+        image: "https://raw.githubusercontent.com/duttaanubhab777-code/sync/main/docs/screenshots/chats-home.jpg",
+        desc: `Sync is a modern, installable, real-time messenger for private and group conversations, built with React, Node.js and Socket.IO.<br><br>
+<ul>
+  <li><b>Real-Time Messaging:</b> Direct and group chats with live delivery, read receipts, typing indicators and online presence.</li>
+  <li><b>Smart Chat Inbox:</b> Search conversations and messages, switch between All, Unread and Groups, and preview the latest message and timestamp.</li>
+  <li><b>Rich Communication:</b> Swipe-to-reply, photo and video sharing, file attachments, voice messages and link previews.</li>
+  <li><b>Stories &amp; Notifications:</b> 24-hour stories, story viewers, in-app alerts and web push notifications.</li>
+  <li><b>Production Architecture:</b> React, Redux Toolkit, Vite, Express, Socket.IO, MongoDB Atlas, Flask media signing and Cloudinary storage, with an installable PWA.</li>
+</ul>`,
+        tech: ["React", "Redux Toolkit", "Vite", "Node.js", "Express", "Socket.IO", "MongoDB", "Python", "Flask", "Cloudinary", "PWA"],
+        demo: "https://sync-5lfm.onrender.com",
+        code: "https://github.com/duttaanubhab777-code/sync"
+    },
+
 ];
 
 /* =====================================================
