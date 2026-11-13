@@ -162,6 +162,8 @@ def pick_emoji(p: dict) -> str:
 def normalize(raw: list):
     items = []
     for p in raw:
+        if not isinstance(p, dict):  # stray comma in projects.js -> null entry; skip it
+            continue
         kind = "team" if p.get("team") else ("fullstack" if p.get("type") == "fullstack" else "solo")
         lead = strip_tags(re.split(r"<br\s*/?>|<ul", p.get("desc", ""), maxsplit=1)[0])
         tech = []

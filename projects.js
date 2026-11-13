@@ -263,8 +263,7 @@ const PROJECTS = [
         tech: ["HTML", "CSS", "JavaScript"],
         demo: "https://duttaanubhab777-code.github.io/Result-Analysis/",
         code: "https://github.com/duttaanubhab777-code/Result-Analysis/tree/main"
-    },
-    ,
+    }
 ];
 
 /* =====================================================
