@@ -209,7 +209,7 @@ const PROJECTS = [
     {
         title: "Sync",
         type: "fullstack",
-        image: "https://raw.githubusercontent.com/duttaanubhab777-code/sync/main/docs/screenshots/chats-home.jpg",
+        image: "Sync.jpg",
         desc: `Sync is a modern, installable, real-time messenger for private and group conversations, built with React, Node.js and Socket.IO.<br><br>
 <ul>
   <li><b>Real-Time Messaging:</b> Direct and group chats with live delivery, read receipts, typing indicators and online presence.</li>
